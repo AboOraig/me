@@ -1,0 +1,1219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: rgb(10, 29, 60); /* Update to match the dark blue color */
+  color: #fff; /* Use white text for better contrast */
+  overflow-x: hidden; /* Prevents horizontal overflow */
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  body {
+    font-size: 12px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: rgb(10, 29, 60); /* Update to match the dark blue color */
+    color: #fff; /* Use white text for better contrast */  
+  }
+}
+
+/* For very small devices (like older phones) */
+@media (max-width: 480px) {
+  body {
+    font-size: 10px;
+    padding: 0.2rem;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: rgb(10, 29, 60); /* Update to match the dark blue color */
+    color: #fff; /* Use white text for better contrast */  
+  }
+}
+
+/* Base styles for header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%; /* Initial width */
+  background: #0B172D; 
+  color: rgb(10, 29, 60);
+  padding: 0.5rem 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  transition: width 0.5s ease, top 0.5s ease, background-color 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  /* Mobile styles for header */
+  header {
+    width: 90%;
+    max-width: 100vw;
+    font-size: 20px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0B172D; 
+    color: rgb(10, 29, 60);
+    padding: 0.5rem 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    transition: width 0.5s ease, top 0.5s ease, background-color 0.5s ease;
+  }
+  
+  header nav ul li a {
+    font-size: 1.05rem;
+  }
+  
+  header nav ul {
+    gap: 15px;
+    padding: 0;
+  }
+}
+
+/* Default (non-media-query) styles for transformed header */
+header.transformed {
+  width: 45%;
+  top: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30px;
+  background-color: rgba(10, 29, 60, 0.5);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid white;
+}
+
+@media (max-width: 1168px) {
+  /* Mobile styles for transformed header */
+  header.transformed {
+    width: 95%;
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    background-color: rgba(10, 29, 60, 0.5);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    border: 1px solid white;
+  }
+}
+
+
+section {
+  padding: 5rem 1rem;
+  min-height: 100vh;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+#skills {
+  padding: 5rem 0;
+  color: white;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(to bottom, rgb(2, 29, 60), #123483);
+}
+@media (max-width: 768px) {
+  #skills {
+    padding: 5rem 0;
+    color: white;
+    height: 150vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(to bottom, rgb(2, 29, 60), #123483);
+  }
+}
+
+#skills h1 {
+  color: #fff;
+  font-size: 38px;
+  margin: 10px 0 10px;
+  text-align: center; /* Centers text horizontally */
+  margin-top: 50px;
+}
+
+.skills-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-wrapper h1 {
+  font-size: 38px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 60px;
+  font-weight: 600;
+}
+.skill-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.skill-category {
+  width: 20%;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(10, 29, 60, 0.7);
+  border: 2px solid #004AAC;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .skill-categories {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    }
+
+    
+  .skill-category {
+    width: 100%; /* Full width for each category */
+    max-width: 100vw;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: rgba(10, 29, 60, 0.7);
+    border: 2px solid #004AAC;
+    text-align: center;
+    transition: border-color 0.3s ease;
+  }
+}
+
+.skill-category:hover {
+  border-color: #9DAAF2;
+}
+.skill-category h3 {
+  color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+.skill-icons {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  background-color: transparent;
+}
+.skill-icons img {
+  width: 80px;
+  height: 80px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: transparent;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+  transition: transform 0.3s ease;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.skill-icons img:hover {
+  transform: scale(1.1);
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+.skill-c {
+  border-color: #0047AB; /* Blue for C */
+}
+.skill-cpp {
+  border-color: #00599C; /* Slightly darker blue for C++ */
+}
+.skill-java {
+  border-color: #EC2025; /* Light blue-gray for Java */
+}
+.skill-python {
+  border-color: #FFE870; /* Light blue-gray for python */
+}
+.skill-sql {
+  border-color: #336791; /* Dark blue for SQL */
+}
+.skill-matlab {
+  border-color: #C35116; /* Dark blue for MATLAB */
+}
+.skill-html {
+  border-color: #E34F26; /* Orange for HTML */
+}
+.skill-css {
+  border-color: #1572B6; /* Blue for CSS */
+}
+.skill-javascript {
+  border-color: #F7DF1E; /* Yellow for JavaScript */
+}
+.skill-php {
+  border-color: #7377AD; /* Yellow for php */
+}
+.skill-arduino {
+  border-color: #00979D; /* Teal for Arduino */
+}
+.skill-raspberrypi {
+  border-color: #A22846; /* Dark pink for Raspberry Pi */
+}
+.skill-stm32 {
+  border-color: #3CB4E6; /* Navy blue for STM32 */
+}
+.skill-arm {
+  border-color: #0092BB; /* Navy blue for arm */
+}
+.tooltip:hover {
+  border-width: 3px; /* Slightly increase border width on hover */
+}
+.tooltip::after {
+  content: attr(data-skill);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.9em;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+
+
+
+
+/* Projects Section Styling */
+#projects {
+  position: relative;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: 
+    linear-gradient(to bottom, #123483 0%, rgba(0, 0, 0, 0) 30%), /* Top gradient */
+    linear-gradient(to top, rgba(10, 29, 60) 0%, rgba(0, 0, 0, 0) 30%),    /* Bottom gradient */
+    url('src/projects.png'); /* Background image */
+  background-size: cover;
+  background-position: center;
+}
+
+#projects h1 {
+  color: #fff;
+  font-size: 38px;
+  margin: 0px 0 0px;
+  text-align: center; /* Centers text horizontally */
+  margin-top: -10px; /* Moves the text down */
+}
+
+
+@media (max-width: 768px) {
+  #projects h2 {
+    color: #fff;
+    font-size: 28px;
+    margin: 0px 0 0px;
+    text-align: left; /* Centers text horizontally */
+    margin-top: 0px; /* Moves the text down */
+    margin-bottom: 10px;
+
+  }
+}
+@media (max-width: 768px) {
+  #projects p {
+    color: #fff;
+    font-size: 14px;
+    margin: 0px 0 0px;
+    text-align: left; /* Centers text horizontally */
+    margin-top: 0px; /* Moves the text down */
+    margin-bottom: 10px;
+  }
+}
+
+body .projects{
+    min-height: 100vh;
+    margin: 0;
+    justify-content: center;
+    font-family: monospace;
+}
+.slider2 {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center; /* Center slides horizontally */
+  align-items: center;     /* Center slides vertically */
+  overflow: hidden;
+  z-index: 2; /* Ensures the slider appears above the gradient */
+}
+
+.item2 {
+  position: absolute;
+  width: 60%;
+  text-align: justify;
+  background-color: rgba(10, 29, 60, 0.7);
+  border-radius: 10px;
+  padding: 1rem;
+  transition: 0.5s;
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  z-index: 2;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+  .item2 {
+    position: absolute;
+    width: 70%;
+    text-align: left;
+    background-color: rgba(10, 29, 60, 0.7);
+    border-radius: 10px;
+    padding: 0.5rem;
+    transition: 0.5s;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    z-index: 2;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    max-width: 1400px;
+  }
+}
+
+.project-description {
+  flex: 1;
+  color: white;
+  padding: 1rem;
+}
+
+.project-description h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.project-description p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .project-description p {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+}
+
+.project-description h3 {
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.technologies {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .technologies {
+    display: flex;
+    gap: 15px;
+  }
+}
+
+.technologies img {
+  width: 40px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .technologies img {
+    width: 35px;
+    height: auto;
+  }
+}
+
+.project-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.project-image img {
+  height: 50%;
+  width: auto;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 10px;
+}
+
+
+/* For very small devices (like older phones) */
+@media (max-width: 768px) {
+  .project-image img {
+    height: 0%;
+    width: 0%;
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 10px;
+  }  
+}
+
+
+#next, #prev{
+    position: absolute;
+    top: 50%;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    font-size: xxx-large;
+    font-family: monospace;
+    font-weight: bold;
+    left: 400px;
+}
+#prev {
+  left: calc(10%); 
+}
+
+#next {
+  left: calc(90%);
+}
+
+
+
+
+.wave-divider {
+  width: 100%;
+  overflow: hidden; /* Ensures the SVG doesn't affect other elements */
+  line-height: 0; /* Removes any space around the SVG */
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%; /* Makes the SVG fill the full width of the container */
+  height: auto; /* Keeps the aspect ratio */
+  background-color: #06599B;
+}
+
+
+#about {
+  color: #fff;
+  background-color: rgba(10, 29, 60);
+  padding: 2rem 0;
+}
+
+#about h1 {
+  color: #fff;
+  font-size: 38px;
+  margin: 10px 0 10px;
+  text-align: center; /* Centers text horizontally */
+  margin-top: 50px;
+}
+
+/* About Container */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 0px; /* Space between photo and cards */
+  position: relative;
+}
+
+
+.about-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo img {
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+  transform: translateX(0%); /* Center the image */
+}
+
+@media (max-width: 768px) {
+  .about-photo img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    transform: translateX(0%); /* Center the image */
+    margin-top: -30px;
+  }
+}
+
+.about-cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 30%;
+}
+
+.card {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(10, 29, 60, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.5s ease, border-color 0.3s ease;
+  z-index: 1;
+  border: 2px solid #004AAC;
+}
+
+
+/* Hover effect for the border */
+.card:hover {
+  border-color: #9DAAF2;
+}
+
+.card.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.card h2 {
+  font-size: 1.8em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.card ul {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-left: 20px;
+}
+
+/* Dots styling below cards */
+.card-dots {
+  display: flex;
+  gap: 10px;
+  position: absolute; /* Make it absolute */
+  left: 50%; /* Align it to the left */
+  bottom: 0; /* Optional: adjust the vertical position if needed */
+  align-items: center;
+  margin-top: 15rem;
+}
+
+@media (max-width: 768px) {
+  .card-dots {
+    position: relative; /* Reverts to relative positioning on smaller screens */
+    display: flex;
+    gap: 10px;
+    margin-top: 11rem; /* Adjust top margin as needed for mobile */
+    margin-right: 100%;
+  }
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #9DAAF2;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-photo img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 5px;
+  }
+  .about-cards {
+    width: 100%;
+  }
+}
+
+
+
+#home {
+  padding: 5rem 0;
+  color: white;
+  height: 120vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh; /* Full viewport height */
+  background: linear-gradient(to bottom, rgb(11, 23, 45), rgb(2, 29, 60)); /* Vertical gradient background */
+}
+
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+
+}
+
+.photo-circle {
+  width: 250px; /* Adjust size as needed */
+  height: 250px;
+  border-radius: 50%; /* Creates a circular shape */
+  overflow: hidden; /* Ensures the image stays within the circle */
+  margin-bottom: 20px; /* Adds space below the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional for a shadow effect */
+  background-color: #415470; /* background for the circle */
+  padding: 0; /* Add padding to make the white circle more prominent */
+}
+@media (max-width: 1024px) {
+  .photo-circle {
+    width: 200px; /* Adjust size as needed */
+    height: 200px;
+    border-radius: 50%; /* Creates a circular shape */
+    overflow: hidden; /* Ensures the image stays within the circle */
+    margin-bottom: 20px; /* Adds space below the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional for a shadow effect */
+    background-color: #415470; /* background for the circle */
+    padding: 0; /* Add padding to make the white circle more prominent */
+  }
+}
+
+
+.photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire circle */
+}
+
+h1 {
+  color: #fff;
+  font-size: 38px;
+  margin: 10px 0 10px;
+}
+@media (max-width: 768px) {
+  h1 {
+    color: #fff;
+    font-size: 32px;
+    margin: 10px 0 10px;
+  }
+}
+
+h2 {
+  color: #fff;
+  font-size: 32px;
+  margin: 10px 0 20px;
+}
+@media (max-width: 768px) {
+  h2 {
+    color: #fff;
+    font-size: 28px;
+    margin: 10px 0 20px;
+  }
+}
+p {
+  color: #fff;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  p {
+    color: #fff;
+    font-size: 14px;
+    margin-left: 20px; /* Adjust as needed */
+    margin-right: 20px; /* Adjust as needed */
+  }
+}
+
+nav ul li a {
+  color: #50586A; /* Gray by default */
+  text-decoration: none;
+  font-size: 22px;
+  font-family: "Arial Narrow", sans-serif;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Change color on hover */
+nav ul li a:hover {
+  color: white; /* Turn white when hovered */
+}
+
+/* Active class for the link corresponding to the section in view */
+nav ul li a.active {
+  color: white; /* Turn white when the section is in view */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+/* Progress bar container */
+#progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  /*background-color: rgba(255, 255, 255, 0.2); /* Light background */
+  z-index: 9999;
+}
+
+/* Progress bar itself */
+#progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: #9DAAF2; /* White bar */
+  transition: width 0.25s ease; /* Smooth transition for width change */
+}
+
+/* Light effect around cursor */
+#cursor-light {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none; /* Prevent interaction with the element */
+  z-index: 1000;
+  mix-blend-mode: overlay; /* Lightens the area it moves over */
+}
+
+.waving-hand {
+  display: inline-block; /* Allows positioning */
+  width: 45px; /* Adjust size as needed */
+  margin-left: 0px; /* Space between text and image */
+  animation: wave 2s infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg); /* Initial position */
+  }
+  12.5% {
+    transform: rotate(-10deg); /* Move left and rotate counterclockwise */
+  }
+  25% {
+    transform: rotate(10deg); /* Move right and rotate clockwise */
+  }
+  37.5% {
+    transform: rotate(-10deg); /* Move left and rotate counterclockwise */
+  }
+  50% {
+    transform: rotate(0deg); /* Return to initial position */
+  }
+  100% {
+    transform: rotate(0deg); /* Stay at initial position for the rest (pause) */
+  }
+}
+
+.left-column {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 999; /* Ensure the line is above the header */
+}
+
+@media (max-width: 768px) {
+  .left-column {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 999; /* Ensure the line is above the header */
+  }
+}
+
+.line {
+  width: 3px;
+  height: 50%;
+  background-color: #9DAAF2;
+  margin-bottom: 20px;
+}
+
+.icon {
+  width: 25px;
+  height: auto;
+  margin: 3px 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1); /* Slightly enlarges the icons on hover */
+}
+
+.buttons-container {
+  display: flex; /* Use flexbox to handle the alignment */
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 25px; /* Space between buttons */
+  margin-top: 20px; /* Add some space between text and buttons */
+}
+
+.button {
+  display: inline-flex; /* Align icon and text */
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Centers content horizontally */
+  background-color: #004AAC; /* Button background color */
+  color: white; /* Button text color */
+  padding: 0.5rem 0.75rem; /* Button padding */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Removes underline from links */
+  transition: background-color 0.5s, transform 0.4s; /* Slower transitions (0.5 seconds) */
+  width: 160px; /* Fixed width for uniform size */
+  height: 40px; /* Set a fixed height for both buttons */
+}
+
+.button img {
+  margin-right: 10px; /* Space between the icon and text */
+}
+
+.button:hover {
+  background-color: #9DAAF2; /* Darker blue on hover */
+  transform: translateY(-5px); /* Moves the button up by 5px on hover */
+}
+
+.button-icon {
+  margin-right: 7px; /* Space between icon and text */
+  width: 20px; /* Adjust icon size as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.mouse-icon {
+  display: flex;
+  justify-content: center; /* Center the mouse icon */
+  margin-top: 20px; /* Space between buttons and mouse icon */
+}
+
+.mouse-icon img {
+  width: 30px; /* Set the width for the mouse icon */
+  animation: moveUpDown 2s infinite; /* Apply the movement animation */
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0); /* Initial position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up by 10px */
+  }
+  100% {
+    transform: translateY(0); /* Return to initial position */
+  }
+}
+
+/* Language Switch Container */
+.language-switch {
+  display: flex;
+  align-items: center;
+  margin-left: 0px;
+}
+
+/* The Switch - the slider itself */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 70px; /* Adjust width to fit EN/FR text */
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #004AAC; /* Dark Blue */
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #9DAAF2; /* Lighter Blue */
+}
+
+input:checked + .slider:before {
+  transform: translateX(35px); /* Adjust translation to center the circle */
+}
+
+/* Rounded slider */
+.slider.round {
+  border-radius: 34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.45rem; /* Padding to position the text properly */
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Text inside the slider */
+.lang-text {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  z-index: 1;
+  transition: 0.4s;
+}
+
+/* Text Position: Initially Visible */
+#lang-en {
+  right: 10px; /* When switch is on the left */
+}
+
+#lang-fr {
+  left: 10px; /* When switch is on the right */
+}
+
+/* Switching Behavior - Move Text with the Slider */
+input:checked + .slider #lang-en {
+  left: auto;
+  right: 10px;
+  opacity: 0; /* Hides EN text when checked */
+}
+
+input:checked + .slider #lang-fr {
+  left: 10px;
+  right: auto;
+  opacity: 1; /* Shows FR text when checked */
+}
+
+
+
+
+
+
+/* Contact Section Styles */
+#contact {
+  padding: 2.5rem 1rem;
+  background-color: #f4f7fc;
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(2, 29, 60), #123483); /* Vertical gradient background */
+
+}
+
+#contact h2 {
+  font-size: 2.5em;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form {
+  background-color: rgba(10, 29, 60, 0.5); /* Adjust alpha for transparency */
+  padding: 1.3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Form Field Styles */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  margin-bottom: 8px;
+  display: block;
+  color: #fff;
+  font-size: 18px;
+
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.55rem;
+    border-radius: 8px;
+    border: 1px solid #9DAAF2;
+    background-color: #f9f9f9;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #4A63EE;
+    outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Submit Button Styles */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.55rem;
+  background-color: #004AAC;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #9DAAF2;
+}
+
+/* Extra Styling */
+.contact-container form {
+  position: relative;
+}
+
+.contact-container form::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0D2A53, #154073);
+  z-index: -1;
+  opacity: 0.2;
+}
+
+#contact h1 {
+  color: #fff;
+  font-size: 38px;
+  margin: 10px 0 10px;
+  text-align: center; /* Centers text horizontally */
+  margin-top: 40px; /* Moves the text down */
+}
+
+.footer {
+  display: flex;                     /* Use flexbox for layout */
+  justify-content: space-between;    /* Space between items */
+  align-items: center;               /* Center items vertically */
+  padding: 0.5rem;                     /* Add some padding */
+  background-color: #1A2238;         /* Adjust color to fit your theme */
+}
+
+.footer .social-icons {
+  display: flex;
+  justify-content: center;            /* Center icons horizontally */
+  gap: 30px;                          /* Space between icons */
+  flex-grow: 1;                       /* Allow to grow and take available space */
+  margin-right: -250px;                /* Add right margin to move icons to the right */
+}
+
+
+@media (max-width: 1024px) {
+  .footer .social-icons {
+    display: flex;
+    justify-content: left;            /* Center icons horizontally */
+    gap: 20px;                          /* Space between icons */
+    flex-grow: 1;                       /* Allow to grow and take available space */
+    margin-left: 20px;
+    margin-right: 0; 
+  }
+}
+
+.footer-text {
+  color: #aaa;                        /* Slightly lighter color for footer text */
+  font-size: 0.8em;                  /* Font size for footer text */
+  text-align: right;                  /* Align text to the right */
+  margin-left: auto;                 /* Push text to the right */
+}
+
+.footer .social-icons a {
+  width: 40px;                       /* Set width for social icons */
+  height: 40px;                      /* Set height for social icons */
+  transition: transform 0.3s ease;   /* Smooth hover effect */
+}
+
+.footer .social-icons img {
+  width: 80%;                        /* Make the images responsive */
+  height: auto;                      /* Maintain aspect ratio */
+}
+
+.footer .social-icons a:hover {
+  transform: scale(1.1);            /* Scale up on hover */
+}
+
