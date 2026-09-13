@@ -1,235 +1,233 @@
-// Get the header element and nav links
-let header = document.querySelector('header');
-let navLinks = document.querySelectorAll('nav ul li a');
-let sections = document.querySelectorAll('section');
+// ============================================
+// Shared references
+// ============================================
+const header = document.querySelector('header');
+const navLinks = document.querySelectorAll('#nav-menu a');
+const navMenu = document.getElementById('nav-menu');
+const navToggle = document.getElementById('nav-toggle');
+const sections = document.querySelectorAll('main section');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isTouchDevice = window.matchMedia('(hover: none)').matches;
 
-// Smooth scroll to sections when clicking on header links
+// ============================================
+// Mobile nav toggle
+// ============================================
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+}
+
+// Smooth scroll + close mobile menu on link click
 navLinks.forEach(link => {
-  link.addEventListener('click', function(e) {
+  link.addEventListener('click', function (e) {
     e.preventDefault();
-    
-    // Get the target section ID from the link's href
     const targetID = this.getAttribute('href').substring(1);
     const targetSection = document.getElementById(targetID);
+    if (!targetSection) return;
 
-    // Scroll to the target section smoothly
     targetSection.scrollIntoView({
-      behavior: 'smooth',
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
       block: 'start'
     });
+
+    if (navMenu.classList.contains('open')) {
+      navMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
   });
 });
 
-// Add event listener for scrolling to check which section is in view
-window.addEventListener('scroll', function() {
-  let currentSection = '';
+// ============================================
+// Scroll-spy nav + header background + progress bar
+// ============================================
+const progressBarContainer = document.createElement('div');
+progressBarContainer.id = 'progress-bar-container';
+progressBarContainer.innerHTML = '<div id="progress-bar"></div>';
+document.body.prepend(progressBarContainer);
+const progressBar = document.getElementById('progress-bar');
 
-  // Loop through each section to check if it's in view
+function onScroll() {
+  // Active section for nav highlighting
+  let currentSection = '';
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.clientHeight;
-
     if (window.scrollY >= sectionTop - sectionHeight / 3) {
       currentSection = section.getAttribute('id');
     }
   });
 
-  // Remove 'active' class from all links and add it to the current section link
   navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').substring(1) === currentSection) {
-      link.classList.add('active');
+    const isActive = link.getAttribute('href').substring(1) === currentSection;
+    link.classList.toggle('active', isActive);
+    if (isActive) {
+      link.setAttribute('aria-current', 'true');
+    } else {
+      link.removeAttribute('aria-current');
     }
   });
 
-  // Header transformation on scroll
-  if (window.scrollY > 50) {
-    header.classList.add('transformed');
-  } else {
-    header.classList.remove('transformed');
-  }
-});
+  // Header background once scrolled
+  header.classList.toggle('transformed', window.scrollY > 40);
 
-// Create a progress bar
-const progressBar = document.createElement('div');
-progressBar.id = 'progress-bar-container';
-progressBar.innerHTML = '<div id="progress-bar"></div>';
-document.body.prepend(progressBar); // Insert at the top of the body
-
-// Function to update the progress bar width based on scroll
-window.addEventListener('scroll', function() {
+  // Reading progress bar
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollPercent = (scrollTop / docHeight) * 100;
-  
-  const progressBar = document.getElementById('progress-bar');
-  progressBar.style.width = scrollPercent + '%'; // Update the width of the bar
-});
+  const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = scrollPercent + '%';
+}
 
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
-// Create the cursor light effect element
-const cursorLight = document.createElement('div');
-cursorLight.id = 'cursor-light';
-document.body.appendChild(cursorLight);
+// ============================================
+// Cursor light effect (desktop / non-touch only)
+// ============================================
+if (!isTouchDevice && !prefersReducedMotion) {
+  const cursorLight = document.createElement('div');
+  cursorLight.id = 'cursor-light';
+  document.body.appendChild(cursorLight);
 
-// Update the light's position based on cursor movement
-document.addEventListener('mousemove', function(e) {
-  const x = e.clientX - cursorLight.offsetWidth / 2;
-  const y = e.clientY - cursorLight.offsetHeight / 2;
-  
-  // Apply the calculated position to the light effect
-  cursorLight.style.transform = `translate(${x}px, ${y}px)`;
-});
+  document.addEventListener('mousemove', function (e) {
+    const x = e.clientX - cursorLight.offsetWidth / 2;
+    const y = e.clientY - cursorLight.offsetHeight / 2;
+    cursorLight.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
 
+// ============================================
+// About section — accessible tabs
+// ============================================
+const tabButtons = document.querySelectorAll('.tab-btn');
+const cards = document.querySelectorAll('.card');
+let currentCard = 0;
+let aboutAutoRotate;
 
-/*
-document.getElementById('lang-toggle').addEventListener('change', function() {
-  var langText = document.getElementById('lang-en');
-  if (this.checked) {
-      langText.innerHTML = "FR";
-      // Add functionality to switch language to French
-  } else {
-      langText.innerHTML = "EN";
-      // Add functionality to switch language to English
-  }
-});
+function showCard(index) {
+  cards[currentCard].classList.remove('active');
+  cards[currentCard].hidden = true;
+  tabButtons[currentCard].classList.remove('active');
+  tabButtons[currentCard].setAttribute('aria-selected', 'false');
 
-document.addEventListener("DOMContentLoaded", function () {
-  const languageSwitch = document.querySelector(".switch input");
+  currentCard = index;
 
-  // Check localStorage for saved language preference
-  const savedLanguage = localStorage.getItem("selectedLanguage");
+  cards[currentCard].classList.add('active');
+  cards[currentCard].hidden = false;
+  tabButtons[currentCard].classList.add('active');
+  tabButtons[currentCard].setAttribute('aria-selected', 'true');
+}
 
-  if (savedLanguage === "fr") {
-    languageSwitch.checked = true; // Set switch to French
-    setLanguage("fr");
-  } else {
-    languageSwitch.checked = false; // Set switch to English
-    setLanguage("en");
-  }
-
-  // Event listener for the language switch toggle
-  languageSwitch.addEventListener("change", function () {
-    if (languageSwitch.checked) {
-      localStorage.setItem("selectedLanguage", "fr");
-      setLanguage("fr");
-    } else {
-      localStorage.setItem("selectedLanguage", "en");
-      setLanguage("en");
-    }
+tabButtons.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    showCard(index);
+    restartAutoRotate();
   });
 });
 
-function setLanguage(language) {
-  // Logic to apply language change (e.g., swapping text content)
-  if (language === "fr") {
-    console.log("French selected");
-    // Add your code to switch the content to French
-  } else {
-    console.log("English selected");
-    // Add your code to switch the content to English
-  }
-}*/
-
-
-let items = document.querySelectorAll('.slider2 .item2');
-let next = document.getElementById('next');
-let prev = document.getElementById('prev');
-
-let active = 0; // Start with the 4th item as active
-function loadShow() {
-    let stt = 0;
-    
-    // Set the active item
-    items[active].style.transform = `none`;
-    items[active].style.zIndex = 1;
-    items[active].style.filter = 'none';
-    items[active].style.opacity = 1;
-
-    // Position items to the right of the active item
-    for (let i = active + 1; i < items.length; i++) {
-        stt++;
-        items[i].style.transform = `translateX(${120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(-1deg)`;
-        items[i].style.zIndex = -stt;
-        items[i].style.filter = 'blur(5px)';
-        items[i].style.opacity = stt > 2 ? 0 : 0.6;
-    }
-
-    stt = 0;
-
-    // Position items to the left of the active item
-    for (let i = active - 1; i >= 0; i--) {
-        stt++;
-        items[i].style.transform = `translateX(${-120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(1deg)`;
-        items[i].style.zIndex = -stt;
-        items[i].style.filter = 'blur(5px)';
-        items[i].style.opacity = stt > 2 ? 0 : 0.6;
-    }
+function restartAutoRotate() {
+  clearInterval(aboutAutoRotate);
+  if (prefersReducedMotion) return;
+  aboutAutoRotate = setInterval(() => {
+    showCard((currentCard + 1) % cards.length);
+  }, 10000);
 }
 
-// Initialize the display
-loadShow();
-
-// Wrap around to the beginning if the active index exceeds the array length
-next.onclick = function() {
-    active = (active + 1) % items.length; // Wraps around to 0 after the last item
-    loadShow();
-};
-
-// Wrap around to the end if the active index goes below 0
-prev.onclick = function() {
-    active = (active - 1 + items.length) % items.length; // Wraps around to the last item if below 0
-    loadShow();
-};
-
-
-
-
-
-// JavaScript for rotating cards
-let currentCard = 0;
-const cards = document.querySelectorAll(".card");
-const dots = document.querySelectorAll(".dot");
-
-// Function to show the specific card
-function showCard(index) {
-  // Remove the active class from the currently active card and dot
-  cards[currentCard].classList.remove("active");
-  dots[currentCard].classList.remove("active");
-  
-  // Update the current card index
-  currentCard = index;
-  
-  // Add the active class to the newly selected card and dot
-  cards[currentCard].classList.add("active");
-  dots[currentCard].classList.add("active");
+if (cards.length && tabButtons.length) {
+  restartAutoRotate();
 }
 
-// Auto-rotate every 10 seconds
-setInterval(() => {
-  let nextCard = (currentCard + 1) % cards.length;
-  showCard(nextCard);
-}, 10000);
+// ============================================
+// Contact form — real inline validation (no alert())
+// ============================================
+const contactForm = document.getElementById('contact-form');
 
-// Add click event listeners for manual control through dots
-dots.forEach((dot, index) => {
-  dot.addEventListener("click", () => showCard(index));
-});
+if (contactForm) {
+  const fields = {
+    name: { el: document.getElementById('name'), message: 'Please enter your name.' },
+    email: {
+      el: document.getElementById('email'),
+      message: 'Please enter a valid email address.',
+      validate: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+    },
+    subject: { el: document.getElementById('subject'), message: 'Please add a subject.' },
+    message: { el: document.getElementById('message'), message: 'Please write a message.' }
+  };
 
+  const formStatus = document.getElementById('form-status');
 
+  function validateField(key) {
+    const field = fields[key];
+    const errorEl = document.getElementById(`${key}-error`);
+    const value = field.el.value.trim();
+    const isValid = field.validate ? field.validate(value) : value.length > 0;
 
-
-
-
-
-document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const subject = document.getElementById('subject').value;
-  const message = document.getElementById('message').value;
-
-  if (!name || !email || !subject || !message) {
-      e.preventDefault();
-      alert('Please fill in all fields.');
+    field.el.setAttribute('aria-invalid', String(!isValid));
+    errorEl.textContent = isValid ? '' : field.message;
+    return isValid;
   }
-});
+
+  Object.keys(fields).forEach(key => {
+    fields[key].el.addEventListener('blur', () => validateField(key));
+  });
+
+  const submitBtn = document.getElementById('submit-btn');
+  const honeypot = document.getElementById('company');
+
+  function setStatus(message, type) {
+    formStatus.textContent = message;
+    formStatus.classList.remove('success', 'error');
+    if (type) formStatus.classList.add(type);
+  }
+
+  contactForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Silently drop likely-bot submissions (honeypot filled) without
+    // revealing to the bot that anything was detected.
+    if (honeypot && honeypot.value.trim() !== '') {
+      contactForm.reset();
+      setStatus("Thanks! I'll get back to you soon.", 'success');
+      return;
+    }
+
+    const results = Object.keys(fields).map(validateField);
+    const allValid = results.every(Boolean);
+
+    if (!allValid) {
+      setStatus('Please fix the highlighted fields before sending.', 'error');
+      return;
+    }
+
+    const endpoint = contactForm.getAttribute('action');
+    if (!endpoint || endpoint.includes('YOUR_FORM_ID')) {
+      setStatus('Form endpoint not configured yet — set up Formspree and update the form action.', 'error');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+    setStatus('Sending…', null);
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+        setStatus("Thanks! Your message is on its way — I'll reply soon.", 'success');
+      } else {
+        setStatus('Something went wrong sending your message. Please try again or email me directly.', 'error');
+      }
+    } catch (err) {
+      setStatus('Network error — please check your connection and try again.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('loading');
+    }
+  });
+}
