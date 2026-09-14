@@ -231,3 +231,86 @@ if (contactForm) {
     }
   });
 }
+
+function initProjectCarousels() {
+  const prefersReducedMotion =
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('.project-card').forEach(card => {
+    const images = card.querySelectorAll('.carousel-track img');
+    const dots = card.querySelectorAll('.carousel-dots .dot');
+    const backdrop = card.querySelector('.carousel-backdrop');
+
+    if (!images.length) return;
+
+    let current = 0;
+    let timer;
+
+    // Set initial backdrop
+    if (backdrop) {
+      const activeImg =
+        card.querySelector('.carousel-track img.active') || images[0];
+
+      backdrop.style.backgroundImage =
+        `url('${activeImg.getAttribute('src')}')`;
+    }
+
+    // If there is only one image, no carousel/autoplay is needed
+    if (dots.length < 2) return;
+
+    function goTo(index) {
+      // Remove active state
+      images[current].classList.remove('active');
+      dots[current].classList.remove('active');
+
+      // Update current image
+      current = index;
+
+      // Add active state
+      images[current].classList.add('active');
+      dots[current].classList.add('active');
+
+      // Update backdrop
+      if (backdrop) {
+        backdrop.style.backgroundImage =
+          `url('${images[current].getAttribute('src')}')`;
+      }
+    }
+
+    function startAutoplay() {
+      // Don't autoplay if the user prefers reduced motion
+      if (prefersReducedMotion) return;
+
+      clearInterval(timer);
+
+      timer = setInterval(() => {
+        goTo((current + 1) % images.length);
+      }, 4000);
+    }
+
+    // Manual navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goTo(index);
+
+        // Reset autoplay timer after manual navigation
+        startAutoplay();
+      });
+    });
+
+    // Pause autoplay while hovering over the card
+    card.addEventListener('mouseenter', () => {
+      clearInterval(timer);
+    });
+
+    // Resume autoplay when leaving the card
+    card.addEventListener('mouseleave', () => {
+      startAutoplay();
+    });
+
+    // Start autoplay
+    startAutoplay();
+  });
+}
+
+initProjectCarousels();

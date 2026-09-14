@@ -16,7 +16,7 @@
 
   <header>
     <nav class="navbar">
-      <a class="brand" href="#home">MA<span>.</span></a>
+      <a class="brand" href="#home">MAO<span>.</span></a>
 
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
         <span></span><span></span><span></span>
@@ -36,11 +36,11 @@
     <section id="home" class="hero">
       <div class="hero-inner">
         <div class="hero-text">
-          <p class="eyebrow">Complex Systems &amp; Data Engineering</p>
+          <p class="eyebrow">Data Engineering &amp; Complex Systems</p>
           <h1>Hi, I'm Mohammed<img src="src/hand.png" alt="" class="waving-hand"></h1>
           <p class="hero-lede">
-            I'm pursuing an M.Sc. in <strong>Complex Systems Engineering (Signal, Vision and Control)</strong>
-            and an Engineering Degree in <strong>Data Science &amp; Information Systems</strong>.
+            I'm pursuing an Engineering Degree in <strong>Data Science &amp; Information Systems</strong>
+            and an M.Sc. in <strong>Complex Systems Engineering (Signal, Vision and Control)</strong>.
             I like building things that sense, process, and respond — from embedded sensors to full web apps.
           </p>
           <div class="buttons-container">
@@ -79,75 +79,193 @@
       <div class="section-head">
         <p class="eyebrow">What I work with</p>
         <h2>My Skills</h2>
+        <p class="skills-intro">A snapshot of my core toolkit — from numerical optimization and Bayesian estimation to deep learning and signal processing.</p>
       </div>
 
-      <div class="skill-categories">
-        <div class="skill-category">
-          <h3>Programming</h3>
-          <div class="skill-icons">
-            <div class="tooltip skill-c" data-skill="C" tabindex="0">
-              <img src="src/C_Logo.png" alt="C">
+      <div class="skills-showcase">
+        <div class="skill-badge-group">
+          <p class="skill-group-label">Engineering &amp; Math</p>
+          <div class="skill-badges">
+
+            <div class="skill-badge" style="--badge-color:#E47C65" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/Optimization.png"></span>
+              <span class="skill-badge-label">Optimization</span>
             </div>
-            <div class="tooltip skill-cpp" data-skill="C++" tabindex="0">
-              <img src="src/C++_Logo.png" alt="C++">
+            
+            <div class="skill-badge" style="--badge-color:#E61309" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/Bayesian.png"></span>
+              <span class="skill-badge-label">Bayesian Inference</span>
             </div>
-            <div class="tooltip skill-java" data-skill="Java" tabindex="0">
-              <img src="src/Java-Logo.png" alt="Java">
+
+            <div class="skill-badge" style="--badge-color:#4c7bf4" tabindex="0">
+              <span class="skill-badge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+                  <line x1="5.5" y1="7" x2="10.5" y2="9"/>
+                  <line x1="5.5" y1="12" x2="10.5" y2="9"/>
+                  <line x1="5.5" y1="12" x2="10.5" y2="15"/>
+                  <line x1="5.5" y1="17" x2="10.5" y2="15"/>
+                  <line x1="13.5" y1="9" x2="18.5" y2="12"/>
+                  <line x1="13.5" y1="15" x2="18.5" y2="12"/>
+                  <circle cx="4" cy="7" r="1.6" fill="currentColor" stroke="none"/>
+                  <circle cx="4" cy="12" r="1.6" fill="currentColor" stroke="none"/>
+                  <circle cx="4" cy="17" r="1.6" fill="currentColor" stroke="none"/>
+                  <circle cx="12" cy="9" r="1.6" fill="currentColor" stroke="none"/>
+                  <circle cx="12" cy="15" r="1.6" fill="currentColor" stroke="none"/>
+                  <circle cx="20" cy="12" r="1.6" fill="currentColor" stroke="none"/>
+                </svg>
+              </span>
+              <span class="skill-badge-label">Machine Learning</span>
             </div>
-            <div class="tooltip skill-python" data-skill="Python" tabindex="0">
-              <img src="src/Python-logo.png" alt="Python">
+          
+            <div class="skill-badge" style="--badge-color:#11B5E3" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/CV.png"></span>
+              <span class="skill-badge-label">Computer Vision</span>
             </div>
+
+            <div class="skill-badge" style="--badge-color:#1DBACD" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/control.png"></span>
+              <span class="skill-badge-label">Control Systems</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#C7DFE6" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/signal2.png"></span>
+              <span class="skill-badge-label">Signal Processing</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#AB38FF" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/image.png"></span>
+              <span class="skill-badge-label">Image Processing</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#9BC9FF" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/remote2.png"></span>
+              <span class="skill-badge-label">Remote Sensing</span>
+            </div>
+
           </div>
         </div>
 
-        <div class="skill-category">
-          <h3>Data Analysis</h3>
-          <div class="skill-icons">
-            <div class="tooltip skill-matlab" data-skill="MATLAB" tabindex="0">
-              <img src="src/Matlab_Logo.png" alt="MATLAB">
+        <div class="skill-badge-group">
+          <p class="skill-group-label">Languages &amp; Tools</p>
+          <div class="skill-badges">
+
+            <div class="skill-badge" style="--badge-color:#ffe870" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/Python-logo.png" alt="Python"></span>
+              <span class="skill-badge-label">Python</span>
             </div>
-            <div class="tooltip skill-sql" data-skill="SQL" tabindex="0">
-              <img src="src/mysql.png" alt="SQL">
+
+            <div class="skill-badge" style="--badge-color:#c35116" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/Matlab_Logo.png" alt="MATLAB"></span>
+              <span class="skill-badge-label">MATLAB</span>
             </div>
+
+            <div class="skill-badge" style="--badge-color:#0047ab" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/C_Logo.png" alt="C"></span>
+              <span class="skill-badge-label">C</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#00599c" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/C++_Logo.png" alt="C++"></span>
+              <span class="skill-badge-label">C++</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#d02129" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/Java-Logo.png" alt="Java"></span>
+              <span class="skill-badge-label">Java</span> 
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#DB7533" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/SQL.png" alt="SQL"></span>
+              <span class="skill-badge-label">SQL</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#f05133" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/git_logo.png" alt="Git"></span>
+              <span class="skill-badge-label">Git</span>
+            </div>
+
           </div>
         </div>
 
-        <div class="skill-category">
-          <h3>Web Development</h3>
-          <div class="skill-icons">
-            <div class="tooltip skill-html" data-skill="HTML" tabindex="0">
-              <img src="src/HTML5_logo.png" alt="HTML">
-            </div>
-            <div class="tooltip skill-css" data-skill="CSS" tabindex="0">
-              <img src="src/CSS3_logo.png" alt="CSS">
-            </div>
-            <div class="tooltip skill-javascript" data-skill="JavaScript" tabindex="0">
-              <img src="src/JavaScript_logo.png" alt="JavaScript">
-            </div>
-            <div class="tooltip skill-php" data-skill="PHP" tabindex="0">
-              <img src="src/PHP-logo.png" alt="PHP">
-            </div>
-          </div>
-        </div>
+      <div class="skill-badge-group">
+        <p class="skill-group-label">Python Ecosystem</p>
+        <div class="skill-badges">
 
-        <div class="skill-category">
-          <h3>Embedded Systems</h3>
-          <div class="skill-icons">
-            <div class="tooltip skill-arduino" data-skill="Arduino" tabindex="0">
-              <img src="src/Arduino_Logo.png" alt="Arduino">
-            </div>
-            <div class="tooltip skill-raspberrypi" data-skill="Raspberry Pi" tabindex="0">
-              <img src="src/raspberrypi.png" alt="Raspberry Pi">
-            </div>
-            <div class="tooltip skill-stm32" data-skill="STM32" tabindex="0">
-              <img src="src/stm32.png" alt="STM32">
-            </div>
-            <div class="tooltip skill-arm" data-skill="ARM" tabindex="0">
-              <img src="src/arm.png" alt="ARM">
-            </div>
+          <div class="skill-badge" style="--badge-color:#4dabcf" tabindex="0">
+            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/numpy" alt="NumPy"></span>
+            <span class="skill-badge-label">NumPy</span>
           </div>
+
+          <div class="skill-badge" style="--badge-color:#8caae6" tabindex="0">
+            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/scipy" alt="SciPy"></span>
+            <span class="skill-badge-label">SciPy</span>
+          </div>
+
+          <div class="skill-badge" style="--badge-color:#e8a33d" tabindex="0">
+            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas"></span>
+            <span class="skill-badge-label">Pandas</span>
+          </div>
+
+          <div class="skill-badge" style="--badge-color:#ee4c2c" tabindex="0">
+            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/pytorch" alt="PyTorch"></span>
+            <span class="skill-badge-label">PyTorch</span>
+          </div>
+
+          <div class="skill-badge" style="--badge-color:#f89939" tabindex="0">
+            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/scikitlearn" alt="Scikit-learn"></span>
+            <span class="skill-badge-label">Scikit-learn</span>
+          </div>
+
+          <div class="skill-badge" style="--badge-color:#5c3ee8" tabindex="0">
+            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/opencv" alt="OpenCV"></span>
+            <span class="skill-badge-label">OpenCV</span>
+          </div>
+
         </div>
       </div>
+      </div>
+
+      <!-- Secondary tools, evidenced by earlier project work but not the current focus -->
+      <details class="skills-secondary">
+        <summary>Also worked with (embedded &amp; web development)</summary>
+        <div class="skill-categories">
+          <div class="skill-category">
+            <h3>Embedded Systems</h3>
+            <div class="skill-icons">
+              <div class="tooltip skill-arduino" data-skill="Arduino" tabindex="0">
+                <img src="src/Arduino_Logo.png" alt="Arduino">
+              </div>
+              <div class="tooltip skill-raspberrypi" data-skill="Raspberry Pi" tabindex="0">
+                <img src="src/raspberrypi.png" alt="Raspberry Pi">
+              </div>
+              <div class="tooltip skill-stm32" data-skill="STM32" tabindex="0">
+                <img src="src/stm32.png" alt="STM32">
+              </div>
+              <div class="tooltip skill-arm" data-skill="ARM" tabindex="0">
+                <img src="src/arm.png" alt="ARM">
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Web Development</h3>
+            <div class="skill-icons">
+              <div class="tooltip skill-html" data-skill="HTML" tabindex="0">
+                <img src="src/HTML5_logo.png" alt="HTML">
+              </div>
+              <div class="tooltip skill-css" data-skill="CSS" tabindex="0">
+                <img src="src/CSS3_logo.png" alt="CSS">
+              </div>
+              <div class="tooltip skill-javascript" data-skill="JavaScript" tabindex="0">
+                <img src="src/JavaScript_logo.png" alt="JavaScript">
+              </div>
+              <div class="tooltip skill-php" data-skill="PHP" tabindex="0">
+                <img src="src/PHP-logo.png" alt="PHP">
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
     </section>
 
     <section id="projects">
@@ -157,72 +275,420 @@
       </div>
 
       <div class="projects-grid">
+
+        <!-- 1 -->
         <article class="project-card">
           <div class="project-image">
-            <img src="src/project1.png" alt="Screenshot of the cetacean vocalization detector project" loading="lazy">
+            <div class="carousel-backdrop"></div>
+            <div class="carousel-track">
+              <img src="src/project17.png" alt="Trajectory reconstruction dashboard" class="active">
+              <img src="src/project15.png" alt="Multi-source satellite data overlay">
+              <img src="src/project16.png" alt="Trajectory reconstruction results">
+              <img src="src/project10.png" alt="Trajectory reconstruction dashboard">
+              <img src="src/project11.png" alt="Multi-source satellite data overlay">
+              <img src="src/project12.png" alt="Trajectory reconstruction results">
+              <img src="src/project14.png" alt="Trajectory reconstruction results">
+            </div>
+            <div class="carousel-dots">
+              <button class="dot active" aria-label="Image 1"></button>
+              <button class="dot" aria-label="Image 2"></button>
+              <button class="dot" aria-label="Image 3"></button>
+              <button class="dot" aria-label="Image 4"></button>
+              <button class="dot" aria-label="Image 5"></button>
+              <button class="dot" aria-label="Image 6"></button>
+              <button class="dot" aria-label="Image 7"></button>
+            </div>
           </div>
           <div class="project-body">
-            <h3>Parallel Detector of Cetacean Vocalizations</h3>
-            <p class="placeholder-copy">Placeholder — replace with a real description of what this project does, the problem it solves, and your specific contribution.</p>
+            <h3>Multi-Source Trajectory Reconstruction</h3>
+            <p class="project-summary">Trajectory reconstruction and state estimation for maritime surveillance, fusing heterogeneous satellite and positioning data.</p>
+            <details class="project-details">
+              <summary>Read more</summary>
+              <ul class="project-bullets">
+                <li>Combined SAR imagery, optical observations, and vessel positioning data (AIS, LRIT, VMS) into a unified pipeline.</li>
+                <li>Built Python pipelines for large-scale numerical and geospatial data processing.</li>
+                <li>Defined performance and robustness evaluation protocols in an operational R&amp;D environment.</li>
+              </ul>
+            </details>
             <ul class="tech-tags">
-              <li>Arduino</li><li>Raspberry Pi</li><li>Android Studio</li><li>Firebase</li>
+              <li>Python</li><li>NumPy</li><li>SciPy</li><li>Pandas</li><li>QGIS</li><li>GDAL</li>
             </ul>
           </div>
         </article>
 
+        <!-- 2 -->
         <article class="project-card">
           <div class="project-image">
-            <img src="src/project1.png" alt="Screenshot of the urban image segmentation project" loading="lazy">
+            <div class="carousel-backdrop"></div>
+            <div class="carousel-track">
+              <img src="src/project20.png" alt="Continual learning experiment setup" class="active">
+              <img src="src/project21.png" alt="Continual learning results 1">
+              <img src="src/project22.png" alt="Continual learning results 2">
+              <img src="src/project23.png" alt="Continual learning results 3">
+              <img src="src/project24.png" alt="Continual learning results 4">
+            </div>
+            <div class="carousel-dots">
+              <button class="dot active" aria-label="Image 1"></button>
+              <button class="dot" aria-label="Image 2"></button>
+              <button class="dot" aria-label="Image 3"></button>
+              <button class="dot" aria-label="Image 4"></button>
+              <button class="dot" aria-label="Image 5"></button>
+            </div>
           </div>
           <div class="project-body">
-            <h3>Segmentation of Urban Images</h3>
-            <p class="placeholder-copy">Placeholder — replace with a real description of the segmentation approach, dataset, and results.</p>
+            <h3>Exemplar-Based Continual Learning for Image Classification</h3>
+            <p class="project-summary">Studied learning under evolving, non-stationary data distributions — adaptation, robustness, and generalization with deep neural networks.</p>
+            <details class="project-details">
+              <summary>Read more</summary>
+              <ul class="project-bullets">
+                <li>Implemented and compared EWC, iCaRL, A-GEM, and MIR in PyTorch.</li>
+                <li>Investigated catastrophic forgetting and the trade-off between adapting to new data and retaining prior knowledge.</li>
+                <li>Designed quantitative experiments evaluating adaptation, forgetting, and generalization across sequential learning scenarios.</li>
+              </ul>
+            </details>
             <ul class="tech-tags">
-              <li>Arduino</li><li>Raspberry Pi</li><li>Android Studio</li><li>Firebase</li>
+              <li>Python</li><li>PyTorch</li><li>Avalanche</li>
             </ul>
           </div>
         </article>
 
+        <!-- 3 -->
         <article class="project-card">
           <div class="project-image">
-            <img src="src/project1.png" alt="Screenshot of the water leak detection system" loading="lazy">
+            <div class="carousel-backdrop"></div>
+            <div class="carousel-track">
+              <img src="src/project30.png" alt="Cityscapes segmentation example" class="active">
+              <img src="src/project31.png" alt="Cityscapes detection example">
+              <img src="src/project32.png" alt="Cityscapes annotation example">
+              <img src="src/project33.png" alt="Cityscapes robustness analysis">
+            </div>
+            <div class="carousel-dots">
+              <button class="dot active" aria-label="Image 1"></button>
+              <button class="dot" aria-label="Image 2"></button>
+              <button class="dot" aria-label="Image 3"></button>
+              <button class="dot" aria-label="Image 4"></button>
+            </div>
           </div>
           <div class="project-body">
-            <h3>Water Leak Detection System</h3>
-            <p>Team-built leak detection system using a Raspberry Pi 3, Arduino Mega, Firebase, and sensors, enabling real-time monitoring and mobile alerts through a custom app.</p>
+            <h3>Object Detection &amp; Segmentation — Cityscapes</h3>
+            <p class="project-summary">Development and comparison of object detection and semantic segmentation methods on urban scenes using deep learning.</p>
+            <details class="project-details">
+              <summary>Read more</summary>
+              <ul class="project-bullets">
+                <li>Data preprocessing, assisted annotation, fine-tuning, and quantitative performance evaluation.</li>
+                <li>Fine-tuned and evaluated CNN-based models, including YOLO and SAM, for visual recognition and image segmentation.</li>
+                <li>Analyzed model robustness against noisy data and annotations.</li>
+              </ul>
+            </details>
             <ul class="tech-tags">
-              <li>Arduino</li><li>Raspberry Pi</li><li>Android Studio</li><li>Firebase</li>
+              <li>Python</li><li>PyTorch</li><li>OpenCV</li><li>YOLO</li><li>SAM</li>
             </ul>
           </div>
         </article>
 
+        <!-- 4 -->
         <article class="project-card">
           <div class="project-image">
-            <img src="src/project2.png" alt="Screenshot of the JPEG compression GUI" loading="lazy">
+            <div class="carousel-backdrop"></div>
+            <div class="carousel-track">
+              <img src="src/project70.png" alt="Acoustic signal spectrogram" class="active">
+              <img src="src/project71.png" alt="Acoustic feature extraction">
+              <img src="src/project72.png" alt="Acoustic classifier results">
+              <img src="src/project73.png" alt="Acoustic detection pipeline">
+              <img src="src/project74.png" alt="Acoustic embedded implementation">
+              <img src="src/project75.png" alt="Acoustic detection performance">
+            </div>
+            <div class="carousel-dots">
+              <button class="dot active" aria-label="Image 1"></button>
+              <button class="dot" aria-label="Image 2"></button>
+              <button class="dot" aria-label="Image 3"></button>
+              <button class="dot" aria-label="Image 4"></button>
+              <button class="dot" aria-label="Image 5"></button>
+              <button class="dot" aria-label="Image 6"></button>
+            </div>
           </div>
           <div class="project-body">
-            <h3>JPEG Compression GUI</h3>
-            <p>A graphical interface for JPEG image compression, optimized with parallel processing in Python using mpi4py.</p>
+            <h3>Statistical Signal Processing for Passive Acoustic Detection</h3>
+            <p class="project-summary">Statistical signal-processing and ML methods for detecting and classifying marine-mammal vocalizations in noisy real-world acoustic data.</p>
+            <details class="project-details">
+              <summary>Read more</summary>
+              <ul class="project-bullets">
+                <li>Compared spectral and time-frequency features, PCA, SVM, LSTM, and stochastic matched-filtering methods.</li>
+                <li>Evaluated robustness under noise, limited labelled data, and class imbalance — up to 85% F1-score.</li>
+                <li>Optimized detectors for embedded constraints: short windowing, low latency, low power consumption.</li>
+                <li>Designed a parallel multi-band detector processing continuous audio streams in real time.</li>
+              </ul>
+            </details>
             <ul class="tech-tags">
-              <li>Python</li><li>OpenMPI</li>
+              <li>Python</li><li>MATLAB</li><li>LSTM</li><li>SVM</li><li>PCA</li>
             </ul>
           </div>
         </article>
 
+        <!-- 5 -->
         <article class="project-card">
-          <div class="project-image">
-            <img src="src/project3.png" alt="Screenshot of a website development project" loading="lazy">
+          <div class="project-image no-image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6c4 0 5 11 8 11s4-11 8-11"/>
+              <circle cx="12" cy="17" r="1.3" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="no-image-label">Visuals coming soon</span>
           </div>
           <div class="project-body">
-            <h3>Website Development</h3>
-            <p>Designed and built several dynamic websites with HTML, PHP, CSS and JavaScript — functional, intuitive front-end and back-end interfaces.</p>
+            <h3>Mixed-Integer Optimization for EV Charging</h3>
+            <p class="project-summary">Scheduling electric-vehicle charging under charger, time-window, and demand constraints as a resource-constrained optimization problem.</p>
+            <details class="project-details">
+              <summary>Read more</summary>
+              <ul class="project-bullets">
+                <li>Formulated a mixed-integer optimization model balancing energy cost, demand, and user waiting time.</li>
+                <li>Extended the deterministic formulation to an uncertainty-aware version modelling variable arrival times and energy needs.</li>
+                <li>Implemented and evaluated nominal and uncertainty-aware solutions through computational experiments.</li>
+              </ul>
+            </details>
             <ul class="tech-tags">
-              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>SQL</li>
+              <li>Python</li><li>Optimization</li><li>Mixed-Integer Programming</li>
             </ul>
           </div>
         </article>
+
+        <!-- 6 -->
+        <article class="project-card">
+          <div class="project-image no-image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+              <line x1="5.5" y1="7" x2="10.5" y2="9"/><line x1="5.5" y1="12" x2="10.5" y2="9"/>
+              <line x1="5.5" y1="12" x2="10.5" y2="15"/><line x1="5.5" y1="17" x2="10.5" y2="15"/>
+              <line x1="13.5" y1="9" x2="18.5" y2="12"/><line x1="13.5" y1="15" x2="18.5" y2="12"/>
+              <circle cx="4" cy="7" r="1.6" fill="currentColor" stroke="none"/>
+              <circle cx="4" cy="12" r="1.6" fill="currentColor" stroke="none"/>
+              <circle cx="4" cy="17" r="1.6" fill="currentColor" stroke="none"/>
+              <circle cx="12" cy="9" r="1.6" fill="currentColor" stroke="none"/>
+              <circle cx="12" cy="15" r="1.6" fill="currentColor" stroke="none"/>
+              <circle cx="20" cy="12" r="1.6" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="no-image-label">Visuals coming soon</span>
+          </div>
+          <div class="project-body">
+            <h3>Generative Deep Learning: Latent Representations &amp; Diffusion</h3>
+            <p class="project-summary">Explored generative modelling through learned latent representations and diffusion models.</p>
+            <details class="project-details">
+              <summary>Read more</summary>
+              <ul class="project-bullets">
+                <li>Implemented a variational autoencoder for compact latent representations.</li>
+                <li>Built a conditional diffusion model in latent space; evaluated sample quality and diversity.</li>
+                <li>Studied the effect of latent dimensionality and conditioning on generative performance.</li>
+              </ul>
+            </details>
+            <ul class="tech-tags">
+              <li>Python</li><li>PyTorch</li><li>Diffusion Models</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="project-card">
+          <div class="project-image no-image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <circle cx="12" cy="14" r="4.5"/>
+              <ellipse cx="12" cy="14" rx="10" ry="4" transform="rotate(-20 12 14)"/>
+              <circle cx="20" cy="9" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="no-image-label">Visuals coming soon</span>
+          </div>
+          <div class="project-body">
+            <h3>Vision-Language Retrieval for Remote Sensing</h3>
+            <p class="project-summary">A multimodal pipeline aligning remote-sensing images and text in a shared embedding space for cross-modal retrieval.</p>
+            <details class="project-details">
+              <summary>Read more</summary>
+              <ul class="project-bullets">
+                <li>Applied contrastive learning for cross-modal image–text retrieval.</li>
+                <li>Evaluated both image-to-text and text-to-image retrieval directions.</li>
+                <li>Studied generalization across heterogeneous remote-sensing scenes.</li>
+              </ul>
+            </details>
+            <ul class="tech-tags">
+              <li>Python</li><li>PyTorch</li><li>Contrastive Learning</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="carousel-backdrop"></div>
+            <div class="carousel-track">
+              <img src="src/project80.png" alt="" class="active">
+              <img src="src/project81.png" alt="">
+              <img src="src/project82.png" alt="">
+              <img src="src/project83.png" alt="">
+              <img src="src/project84.png" alt="">
+              <img src="src/project86.png" alt="">
+              <img src="src/project87.png" alt="">
+            </div>
+            <div class="carousel-dots">
+              <button class="dot active" aria-label="Image 1"></button>
+              <button class="dot" aria-label="Image 2"></button>
+              <button class="dot" aria-label="Image 3"></button>
+              <button class="dot" aria-label="Image 4"></button>
+              <button class="dot" aria-label="Image 5"></button>
+              <button class="dot" aria-label="Image 6"></button>
+              <button class="dot" aria-label="Image 7"></button>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Multisource Geospatial &amp; Remote Sensing Analysis</h3>
+            <p class="project-summary">Processed heterogeneous SAR and optical satellite imagery for spatial and environmental analysis.</p>
+            <details class="project-details">
+              <summary>Read more</summary>
+              <ul class="project-bullets">
+                <li>Built preprocessing workflows for image correction, alignment, and feature extraction.</li>
+                <li>Integrated multimodal satellite data sources into a unified analysis pipeline.</li>
+              </ul>
+            </details>
+            <ul class="tech-tags">
+              <li>Python</li><li>GDAL</li><li>NumPy</li><li>OpenCV</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="carousel-backdrop"></div>
+            <div class="carousel-track">
+              <img src="src/project40.png" alt="Tennis match prediction pipeline" class="active">
+              <img src="src/project41.png" alt="Feature engineering results">
+              <img src="src/project42.png" alt="Model evaluation">
+              <img src="src/project43.png" alt="Feature importance analysis">
+            </div>
+            <div class="carousel-dots">
+              <button class="dot active" aria-label="Image 1"></button>
+              <button class="dot" aria-label="Image 2"></button>
+              <button class="dot" aria-label="Image 3"></button>
+              <button class="dot" aria-label="Image 4"></button>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>ATP Tennis Match Outcome Prediction</h3>
+            <p class="project-summary">An end-to-end data science pipeline predicting professional tennis match outcomes, evaluated on realistic future data.</p>
+            <details class="project-details">
+              <summary>Read more</summary>
+              <ul class="project-bullets">
+                <li>Data cleaning, temporal aggregation, and feature engineering.</li>
+                <li>Logistic Regression and Random Forest models with feature-importance analysis.</li>
+                <li>Trained on matches ≤2016, tested on 2017 — significant gain over baseline.</li>
+              </ul>
+            </details>
+            <ul class="tech-tags">
+              <li>Python</li><li>Pandas</li><li>NumPy</li><li>Scikit-learn</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="carousel-backdrop"></div>
+            <div class="carousel-track">
+              <img src="src/project100.png" alt="" class="active">
+              <img src="src/project101.png" alt="">
+              <img src="src/project102.png" alt="">
+              <img src="src/project104.png" alt="">
+            </div>
+            <div class="carousel-dots">
+              <button class="dot active" aria-label="Image 1"></button>
+              <button class="dot" aria-label="Image 2"></button>
+              <button class="dot" aria-label="Image 3"></button>
+              <button class="dot" aria-label="Image 4"></button>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Underwater acoustic analysis</h3>
+            <p class="project-summary">Study the propagation of acoustic waves in a water tank, based on time-domain measurements acquired by a set of hydrophones.</p>
+            <details class="project-details">
+              <summary>Read more</summary>
+              <ul class="project-bullets">
+                <li>Estimation of the speed of sound propagation in water.</li>
+                <li>Localization of a fixed acoustic transmitter using a hyperbolic localization method based on minimizing a least-squares criterion.</li>
+                <li>Localization of a moving transmitter by exploiting the temporal evolution of the received signals.</li>
+              </ul>
+            </details>
+            <ul class="tech-tags">
+              <li>Python</li><li>MATLAB</li>
+            </ul>
+          </div>
+        </article>
+
       </div>
+
+      <!-- Older / smaller projects, de-emphasized but not deleted -->
+      <details class="projects-secondary">
+        <summary>Earlier projects</summary>
+        <div class="secondary-grid">
+
+
+          <article class="project-card">
+            <div class="project-image">
+              <img src="src/project90.png" alt="" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3>Wearable Multi-Sensor Glove for Assistive Interaction</h3>
+              <p class="project-summary">A wearable assistive device prototype combining ultrasonic and infrared sensing for real-time interaction.</p>
+              <ul class="tech-tags">
+                <li>Arduino</li><li>Embedded Systems</li><li>Sensor Fusion</li><li>CATIA</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <div class="carousel-backdrop"></div>
+              <div class="carousel-track">
+                <img src="src/project60.png" alt="Water leak detection dashboard" class="active">
+                <img src="src/project61.png" alt="Water leak mobile app">
+              </div>
+              <div class="carousel-dots">
+                <button class="dot active" aria-label="Image 1"></button>
+                <button class="dot" aria-label="Image 2"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Water Leak Detection System</h3>
+              <p class="project-summary">A team-built leak detection system with a companion Android app for real-time monitoring and mobile alerts.</p>
+              <ul class="tech-tags">
+                <li>Arduino</li><li>Raspberry Pi</li><li>Android Studio</li><li>Firebase</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <img src="src/project2.png" alt="Screenshot of the JPEG compression GUI" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3>JPEG Compression GUI</h3>
+              <p class="project-summary">A graphical interface for JPEG image compression, optimized with parallel processing.</p>
+              <ul class="tech-tags">
+                <li>Python</li><li>Tkinter</li><li>OpenMPI</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <img src="src/project3.png" alt="Screenshot of a website development project" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3>Website Development</h3>
+              <p class="project-summary">Several dynamic websites built end-to-end — functional front-end and back-end interfaces.</p>
+              <ul class="tech-tags">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>SQL</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </details>
     </section>
+
 
     <section id="about">
       <div class="section-head">
@@ -245,32 +711,38 @@
           <div class="about-cards">
             <div class="card active" id="academic" role="tabpanel" aria-labelledby="tab-academic">
               <p>
-                <strong>M.Sc. — Complex Systems Engineering (Signal, Vision and Control)</strong><br>
-                Faculty of Science and Engineering, University of Toulon (double-degree program)<br>
-                <span class="meta">Sep 2026 · Toulon, France</span>
-              </p>
-              <p>
                 <strong>Engineering Degree — Data Science &amp; Information Systems</strong><br>
                 SeaTech Engineering School, University of Toulon (double-degree program)<br>
                 <span class="meta">Sep 2026 · Toulon, France</span>
               </p>
               <p>
+                <strong>M.Sc. — Complex Systems Engineering (Signal, Vision and Control)</strong><br>
+                Faculty of Science and Engineering, University of Toulon (double-degree program)<br>
+                <span class="meta">Sep 2026 · Toulon, France</span>
+              </p>
+              <p>
                 <strong>Engineering Degree — Intelligent, Communicating and Mobile Systems</strong><br>
-                Faculty of Science and Technology, Sidi Mohamed Ben Abdellah University<br>
+                Faculty of Science and Technology, Sidi Mohamed Ben Abdellah University (double-degree program)<br>
                 <span class="meta">Jun 2024 · Fez, Morocco</span>
               </p>
             </div>
 
             <div class="card" id="experience" role="tabpanel" aria-labelledby="tab-experience" hidden>
               <ul>
-                <li><strong>Internship — SIOF, Fez, Morocco</strong><br>Five-week training focused on maintenance, packaging services, and sensor-related activities relevant to my studies.</li>
-                <li><strong>President — Dawam Injaz, Fez, Morocco</strong><br>Led a team of 30 engineering students building an online platform connecting individuals, recycling centers, and artists for recyclable-material exchange.</li>
+                <li><strong>Signal & Data Processing Engineer — CLS Group (Collecte Localisation Satellites), Toulouse, France</strong><br>6 months internship focused on ....</li>                 <span class="meta">Mar 2026 - Sep 2026 · Tolulose, France</span>
+                <li><strong>Acoustic Signal Processing Engineer — OSEAN SAS, Le Pradet, France</strong><br>4 months internship focused on ...</li> <span class="meta">Apr 2025 - Aug 2025 · Le pradet, France</span>
+                <li><strong>Process Engineering Intern — SIOF, Fez, Morocco</strong><br>Five-week training focused on maintenance, analyzed production, maintenance, and packaging processes in an industrial setting. Contributed to identifying inefficiencies and proposing improvements to production flows..</li> <span class="meta">june 2023 - aug 2023 · Fez, Morocco</span>
+                <li><strong>President — Dawam Injaz, Fez, Morocco</strong><br>Led a team of 30 engineering students building an online platform connecting individuals, recycling centers, and artists for recyclable-material exchange.</li> <span class="meta">Feb 2024 - Sep 2024 · Fez, Morocco</span>
               </ul>
             </div>
 
+          
             <div class="card" id="prizes" role="tabpanel" aria-labelledby="tab-prizes" hidden>
               <ul>
-                <li>Best Junior Enterprise Award — Company Program, Fez — Injaz Al Maghrib 2024.</li>
+                <li>Morocco Youth Award 2024 — 3rd Place, Rabat, Morocco.</li>
+                <li>Favorite Award — Company Program 2024 National Competition, Casablanca, Morocco 2024.</li>
+                <li>Best Junior Enterprise Award — Company Program 2024 Regional  Competition, Fez, Morocco 2024.</li>
+
                 <li>Best Pitch of the Co-Creation Week — SeaTech 2024.</li>
               </ul>
             </div>
