@@ -324,7 +324,6 @@ nav ul li a.active::after {
   position: relative;
 }
 
-
 .hero-inner {
   max-width: var(--content-width);
   margin: 0 auto;
@@ -1029,6 +1028,13 @@ nav ul li a.active::after {
 }
 
 .about-container {
+  max-width: 640px;   /* narrower = easier to scan, was full grid width */
+  margin: 0 auto;      /* centers the whole block on the page */
+  display: block;      /* remove the old grid-template-columns */
+}
+
+/*
+.about-container {
   max-width: var(--content-width);
   margin: 0 auto;
   display: grid;
@@ -1036,12 +1042,33 @@ nav ul li a.active::after {
   gap: var(--space-lg);
   align-items: start;
 }
+*/
+
+.about-photo {
+  position: sticky;
+  top: calc(var(--header-h) + var(--space-md));
+}
+
+.photo-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-panel-alt);
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
 
 .about-photo img {
-  width: 100%;
-  max-width: 360px;
+  position: relative;
+  z-index: 1;
   border-radius: var(--radius-md);
   margin-inline: auto;
+
 }
 
 .about-panel {
@@ -1052,6 +1079,7 @@ nav ul li a.active::after {
   display: flex;
   gap: var(--space-xs);
   margin-bottom: var(--space-sm);
+  justify-content: center;
 }
 
 .tab-btn {
