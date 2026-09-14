@@ -192,7 +192,7 @@
         <div class="skill-badges">
 
           <div class="skill-badge" style="--badge-color:#4dabcf" tabindex="0">
-            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/numpy" alt="NumPy"></span>
+            <span class="skill-badge-icon"><img src="src/numpy.png" alt="NumPy"></span>
             <span class="skill-badge-label">NumPy</span>
           </div>
 
@@ -277,7 +277,7 @@
       <div class="projects-grid">
 
         <!-- 1 -->
-        <article class="project-card">
+        <article class="project-card" id="project-trajectory">
           <div class="project-image">
             <div class="carousel-backdrop"></div>
             <div class="carousel-track">
@@ -387,7 +387,7 @@
         </article>
 
         <!-- 4 -->
-        <article class="project-card">
+        <article class="project-card" id="project-acoustic">
           <div class="project-image">
             <div class="carousel-backdrop"></div>
             <div class="carousel-track">
@@ -711,40 +711,158 @@
           <div class="about-cards">
             <div class="card active" id="academic" role="tabpanel" aria-labelledby="tab-academic">
               <p>
-                <strong>Engineering Degree — Data Science &amp; Information Systems</strong><br>
+                <a class="degree-link" href="https://formations.univ-tln.fr/fr/offre-de-formation/formation-d-ingenieur-FI/ingenieur-diplome-de-l-ecole-d-ingenieur-de-l-utln-LOBKDHGA/ingenieur-diplome-de-l-ecole-d-ingenieur-seatech-toulon-LOBKDHIL.html" target="_blank" rel="noopener noreferrer">
+                  <strong>Engineering Degree — Data Science &amp; Information Systems</strong>
+                  <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </a><br>
                 SeaTech Engineering School, University of Toulon (double-degree program)<br>
                 <span class="meta">Sep 2026 · Toulon, France</span>
               </p>
               <p>
-                <strong>M.Sc. — Complex Systems Engineering (Signal, Vision and Control)</strong><br>
+                <a class="degree-link" href="https://formations.univ-tln.fr/fr/offre-de-formation/master-XB/master-ingenierie-des-systemes-complexes-LO8RGPP1/master-ingenierie-des-systemes-complexes-parcours-vision-signal-trajectographie-et-automatique-LPZS1DK9.html" target="_blank" rel="noopener noreferrer">
+                  <strong>M.Sc. — Complex Systems Engineering (Signal, Vision and Control)</strong>
+                  <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </a><br>
                 Faculty of Science and Engineering, University of Toulon (double-degree program)<br>
                 <span class="meta">Sep 2026 · Toulon, France</span>
               </p>
               <p>
-                <strong>Engineering Degree — Intelligent, Communicating and Mobile Systems</strong><br>
+                <a class="degree-link" href="https://fst-usmba.ac.ma/framework/uploads/2025/10/Flyer_FI_SICoM.pdf" target="_blank" rel="noopener noreferrer">
+                  <strong>Engineering Degree — Intelligent, Communicating and Mobile Systems</strong>
+                  <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </a><br>
                 Faculty of Science and Technology, Sidi Mohamed Ben Abdellah University (double-degree program)<br>
                 <span class="meta">Jun 2024 · Fez, Morocco</span>
               </p>
             </div>
 
             <div class="card" id="experience" role="tabpanel" aria-labelledby="tab-experience" hidden>
-              <ul>
-                <li><strong>Signal & Data Processing Engineer — CLS Group (Collecte Localisation Satellites), Toulouse, France</strong><br>6 months internship focused on ....</li>                 <span class="meta">Mar 2026 - Sep 2026 · Tolulose, France</span>
-                <li><strong>Acoustic Signal Processing Engineer — OSEAN SAS, Le Pradet, France</strong><br>4 months internship focused on ...</li> <span class="meta">Apr 2025 - Aug 2025 · Le pradet, France</span>
-                <li><strong>Process Engineering Intern — SIOF, Fez, Morocco</strong><br>Five-week training focused on maintenance, analyzed production, maintenance, and packaging processes in an industrial setting. Contributed to identifying inefficiencies and proposing improvements to production flows..</li> <span class="meta">june 2023 - aug 2023 · Fez, Morocco</span>
-                <li><strong>President — Dawam Injaz, Fez, Morocco</strong><br>Led a team of 30 engineering students building an online platform connecting individuals, recycling centers, and artists for recyclable-material exchange.</li> <span class="meta">Feb 2024 - Sep 2024 · Fez, Morocco</span>
-              </ul>
-            </div>
+              <ol class="timeline">
+                <li class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <div class="timeline-heading">
+                      <strong>Signal &amp; Data Processing Engineer</strong>
+                      <span class="timeline-company">CLS (Collecte Localisation Satellites)</span>
+                    </div>
+                    <span class="meta">Mar 2026 – Sep 2026 · Toulouse, France</span>
+                    <p>Developed trajectory reconstruction and state-estimation methods for maritime surveillance, fusing SAR, optical, and AIS/LRIT/VMS data into operational Python pipelines.</p>
+                    <a class="project-jump" href="#project-trajectory">See related project →</a>
+                  </div>
+                </li>
 
+                <li class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <div class="timeline-heading">
+                      <strong>Acoustic Signal Processing Engineer</strong>
+                      <span class="timeline-company">OSEAN SAS</span>
+                    </div>
+                    <span class="meta">Apr 2025 – Aug 2025 · Le Pradet, France</span>
+                    <p>Designed statistical signal-processing and ML methods to detect and classify marine-mammal vocalizations in real-world acoustic data, reaching up to 85% F1-score.</p>
+                    <a class="project-jump" href="#project-acoustic">See related project →</a>
+                  </div>
+                </li>
+
+                <li class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <div class="timeline-heading">
+                      <strong>President</strong>
+                      <span class="timeline-company">Dawam Injaz</span>
+                    </div>
+                    <span class="meta">Feb 2024 – Sep 2024 · Fez, Morocco</span>
+                    <p>Led a team of 30 engineering students building an online platform connecting individuals, recycling centers, and artists for recyclable-material exchange.</p>
+                    <a class="project-jump" href="#project-dawam">See related project →</a>
+                  </div>
+                </li>
+
+                <li class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <div class="timeline-heading">
+                      <strong>Process Engineering Intern</strong>
+                      <span class="timeline-company">SIOF</span>
+                    </div>
+                    <span class="meta">Jun 2023 – Aug 2023 · Fez, Morocco</span>
+                    <p>Analyzed production, maintenance, and packaging processes in an industrial setting; contributed to identifying inefficiencies and proposing improvements to production flows.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
           
             <div class="card" id="prizes" role="tabpanel" aria-labelledby="tab-prizes" hidden>
-              <ul>
-                <li>Morocco Youth Award 2024 — 3rd Place, Rabat, Morocco.</li>
-                <li>Favorite Award — Company Program 2024 National Competition, Casablanca, Morocco 2024.</li>
-                <li>Best Junior Enterprise Award — Company Program 2024 Regional  Competition, Fez, Morocco 2024.</li>
 
-                <li>Best Pitch of the Co-Creation Week — SeaTech 2024.</li>
-              </ul>
+            <div class="prize-grid">
+              <div class="prize-card">
+                <span class="prize-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
+                    <path d="M8 5H5a3 3 0 0 0 3 5"/>
+                    <path d="M16 5h3a3 3 0 0 1-3 5"/>
+                    <path d="M12 12v4"/>
+                    <path d="M9 20h6"/>
+                    <path d="M10 16h4l1 4H9l1-4z"/>
+                  </svg>
+                </span>
+                <div class="prize-text">
+                  <strong>Morocco Youth Award — 3rd Place</strong>
+                  <span class="meta">National Competition · Rabat, Morocco · 2024</span>
+                </div>
+              </div>
+
+              <div class="prize-card">
+                <span class="prize-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
+                    <path d="M8 5H5a3 3 0 0 0 3 5"/>
+                    <path d="M16 5h3a3 3 0 0 1-3 5"/>
+                    <path d="M12 12v4"/>
+                    <path d="M9 20h6"/>
+                    <path d="M10 16h4l1 4H9l1-4z"/>
+                  </svg>
+                </span>
+                <div class="prize-text">
+                  <strong>Favorite Award - Company Program</strong>
+                  <span class="meta">National Competition · Casablanca, Morocco · 2024</span>
+                </div>
+              </div>
+
+              <div class="prize-card">
+                <span class="prize-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
+                    <path d="M8 5H5a3 3 0 0 0 3 5"/>
+                    <path d="M16 5h3a3 3 0 0 1-3 5"/>
+                    <path d="M12 12v4"/>
+                    <path d="M9 20h6"/>
+                    <path d="M10 16h4l1 4H9l1-4z"/>
+                  </svg>                  
+                </span>
+                <div class="prize-text">
+                  <strong>Best Junior Enterprise Award - Company Program</strong>
+                  <span class="meta">Regional Competition · Fez, Morocco · 2024</span>
+                </div>
+              </div>
+
+              <div class="prize-card">
+                <span class="prize-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
+                    <path d="M8 5H5a3 3 0 0 0 3 5"/>
+                    <path d="M16 5h3a3 3 0 0 1-3 5"/>
+                    <path d="M12 12v4"/>
+                    <path d="M9 20h6"/>
+                    <path d="M10 16h4l1 4H9l1-4z"/>
+                  </svg>                  
+                </span>
+                <div class="prize-text">
+                  <strong>Best Pitch of the Co-Creation Week</strong>
+                  <span class="meta">SeaTech · 2024</span>
+                </div>
+              </div>
+            </div>
+
             </div>
           </div>
         </div>
@@ -760,7 +878,7 @@
       <div class="contact-container">
         <aside class="contact-info">
           <h3>Let's connect</h3>
-          <p>Have a project, an internship opportunity, or just want to talk engineering? My inbox is open.</p>
+          <p>Have a project, an opportunity, or just want to talk engineering? My inbox is open.</p>
           <ul>
             <li>
               <img src="src/email3.png" alt="">

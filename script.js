@@ -134,6 +134,12 @@ function restartAutoRotate() {
   }, 10000);
 }
 
+const aboutPanel = document.querySelector('.about-cards');
+if (aboutPanel) {
+  aboutPanel.addEventListener('mouseenter', () => clearInterval(aboutAutoRotate));
+  aboutPanel.addEventListener('mouseleave', restartAutoRotate);
+}
+
 if (cards.length && tabButtons.length) {
   restartAutoRotate();
 }
