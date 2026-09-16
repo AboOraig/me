@@ -14,6 +14,22 @@
 <body>
   <a class="skip-link" href="#home">Skip to content</a>
 
+  <!-- Two-part cursor: precise dot + responsive ring (desktop / non-touch only, see script.js) -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Scroll rail: signal-meter style progress + section wayfinding (desktop only) -->
+  <nav class="scroll-rail" aria-label="Page sections">
+    <div class="rail-track"><div class="rail-fill" id="rail-fill"></div></div>
+    <ul class="rail-dots">
+      <li><button data-rail-target="home" aria-label="Go to Home"><span class="rail-tick"></span><span class="rail-label">Home</span></button></li>
+      <li><button data-rail-target="skills" aria-label="Go to Skills"><span class="rail-tick"></span><span class="rail-label">Skills</span></button></li>
+      <li><button data-rail-target="projects" aria-label="Go to Projects"><span class="rail-tick"></span><span class="rail-label">Projects</span></button></li>
+      <li><button data-rail-target="about" aria-label="Go to About"><span class="rail-tick"></span><span class="rail-label">About</span></button></li>
+      <li><button data-rail-target="contact" aria-label="Go to Contact"><span class="rail-tick"></span><span class="rail-label">Contact</span></button></li>
+    </ul>
+  </nav>
+
   <header>
     <nav class="navbar">
       <a class="brand" href="#home">MAO<span>.</span></a>
@@ -36,39 +52,47 @@
     <section id="home" class="hero">
       <div class="hero-inner">
         <div class="hero-text">
-          <p class="eyebrow">Data Engineering &amp; Complex Systems</p>
-          <h1>Hi, I'm Mohammed<img src="src/hand.png" alt="" class="waving-hand"></h1>
-          <p class="hero-lede">
+          <h1 class="hero-headline" data-stage>
+            <span class="line">Hi, I'm Mohammed</span>
+            <img src="src/hand.png" alt="" class="waving-hand">
+          </h1>
+          <p class="role-line" data-stage>Data Engineering &amp; Complex Systems</p>
+          <p class="hero-lede" data-stage>
             I'm pursuing an Engineering Degree in <strong>Data Science &amp; Information Systems</strong>
             and an M.Sc. in <strong>Complex Systems Engineering (Signal, Vision and Control)</strong>.
             I like building things that sense, process, and respond — from embedded sensors to full web apps.
           </p>
-          <div class="buttons-container">
-            <a href="#contact" class="button button-primary">
+          <div class="buttons-container" data-stage>
+            <a href="#contact" class="button button-primary magnetic">
               <img src="src/email.png" alt="" class="button-icon"> Contact me
             </a>
-            <a href="#projects" class="button button-ghost">
+            <a href="#projects" class="button button-ghost magnetic">
               <img src="src/rocket.png" alt="" class="button-icon"> My projects
             </a>
           </div>
         </div>
 
-        <div class="hero-photo">
+        <div class="hero-photo" data-stage>
           <div class="photo-circle">
             <img src="src/photo.png" alt="Portrait of Mohammed ABO ORAIG">
           </div>
+          <!--
+          <svg class="orbit-ring" viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="100" cy="100" r="75" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 8"/>
+          </svg>
+          -->
         </div>
       </div>
 
       <div class="social-rail">
         <div class="rail-line" aria-hidden="true"></div>
-        <a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+        <a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="magnetic">
           <img class="icon" src="src/linkedin.png" alt="">
         </a>
-        <a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+        <a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="magnetic">
           <img class="icon" src="src/github.png" alt="">
         </a>
-        <a href="mailto:m.abooraig@gmail.com" aria-label="Send an email">
+        <a href="mailto:m.abooraig@gmail.com" aria-label="Send an email" class="magnetic">
           <img class="icon" src="src/email3.png" alt="">
         </a>
       </div>
@@ -76,11 +100,15 @@
       <a class="mouse-icon" href="#skills" aria-label="Scroll to skills">
         <img src="src/mouse.png" alt="">
       </a>
+
+      <!-- Single waveform divider — the one place this motif appears -->
+      <svg class="waveform-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,30 Q60,4 120,30 T240,30 T360,30 T480,30 T600,30 T720,30 T840,30 T960,30 T1080,30 T1200,30 T1320,30 T1440,30 V60 H0 Z"/>
+      </svg>
     </section>
 
     <section id="skills">
       <div class="section-head">
-        <p class="eyebrow">What I work with</p>
         <h2>My Skills</h2>
         <p class="skills-intro">A snapshot of my core toolkit — from numerical optimization and Bayesian estimation to deep learning and signal processing.</p>
       </div>
@@ -91,12 +119,12 @@
           <div class="skill-badges">
 
             <div class="skill-badge" style="--badge-color:#E47C65" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/Optimization.png"></span>
+              <span class="skill-badge-icon"><img src="src/Optimization.png" alt="Optimization" loading="lazy"></span>
               <span class="skill-badge-label">Optimization</span>
             </div>
-            
+
             <div class="skill-badge" style="--badge-color:#E61309" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/Bayesian.png"></span>
+              <span class="skill-badge-icon"><img src="src/Bayesian.png" alt="Bayesian Inference" loading="lazy"></span>
               <span class="skill-badge-label">Bayesian Inference</span>
             </div>
 
@@ -119,29 +147,29 @@
               </span>
               <span class="skill-badge-label">Machine Learning</span>
             </div>
-          
+
             <div class="skill-badge" style="--badge-color:#11B5E3" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/CV.png"></span>
+              <span class="skill-badge-icon"><img src="src/CV.png" alt="Computer Vision" loading="lazy"></span>
               <span class="skill-badge-label">Computer Vision</span>
             </div>
 
             <div class="skill-badge" style="--badge-color:#1DBACD" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/control.png"></span>
+              <span class="skill-badge-icon"><img src="src/control.png" alt="Control Systems" loading="lazy"></span>
               <span class="skill-badge-label">Control Systems</span>
             </div>
 
             <div class="skill-badge" style="--badge-color:#C7DFE6" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/signal2.png"></span>
+              <span class="skill-badge-icon"><img src="src/signal2.png" alt="Signal Processing" loading="lazy"></span>
               <span class="skill-badge-label">Signal Processing</span>
             </div>
 
             <div class="skill-badge" style="--badge-color:#AB38FF" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/image.png"></span>
+              <span class="skill-badge-icon"><img src="src/image.png" alt="Image Processing" loading="lazy"></span>
               <span class="skill-badge-label">Image Processing</span>
             </div>
 
             <div class="skill-badge" style="--badge-color:#9BC9FF" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/remote2.png"></span>
+              <span class="skill-badge-icon"><img src="src/remote2.png" alt="Remote Sensing" loading="lazy"></span>
               <span class="skill-badge-label">Remote Sensing</span>
             </div>
 
@@ -174,7 +202,7 @@
 
             <div class="skill-badge" style="--badge-color:#d02129" tabindex="0">
               <span class="skill-badge-icon"><img src="src/Java-Logo.png" alt="Java"></span>
-              <span class="skill-badge-label">Java</span> 
+              <span class="skill-badge-label">Java</span>
             </div>
 
             <div class="skill-badge" style="--badge-color:#DB7533" tabindex="0">
@@ -190,42 +218,42 @@
           </div>
         </div>
 
-      <div class="skill-badge-group">
-        <p class="skill-group-label">Python Ecosystem</p>
-        <div class="skill-badges">
+        <div class="skill-badge-group">
+          <p class="skill-group-label">Python Ecosystem</p>
+          <div class="skill-badges">
 
-          <div class="skill-badge" style="--badge-color:#4dabcf" tabindex="0">
-            <span class="skill-badge-icon"><img src="src/numpy.png" alt="NumPy"></span>
-            <span class="skill-badge-label">NumPy</span>
+            <div class="skill-badge" style="--badge-color:#4dabcf" tabindex="0">
+              <span class="skill-badge-icon"><img src="src/numpy.png" alt="NumPy"></span>
+              <span class="skill-badge-label">NumPy</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#8caae6" tabindex="0">
+              <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/scipy" alt="SciPy"></span>
+              <span class="skill-badge-label">SciPy</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#e8a33d" tabindex="0">
+              <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas"></span>
+              <span class="skill-badge-label">Pandas</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#ee4c2c" tabindex="0">
+              <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/pytorch" alt="PyTorch"></span>
+              <span class="skill-badge-label">PyTorch</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#f89939" tabindex="0">
+              <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/scikitlearn" alt="Scikit-learn"></span>
+              <span class="skill-badge-label">Scikit-learn</span>
+            </div>
+
+            <div class="skill-badge" style="--badge-color:#5c3ee8" tabindex="0">
+              <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/opencv" alt="OpenCV"></span>
+              <span class="skill-badge-label">OpenCV</span>
+            </div>
+
           </div>
-
-          <div class="skill-badge" style="--badge-color:#8caae6" tabindex="0">
-            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/scipy" alt="SciPy"></span>
-            <span class="skill-badge-label">SciPy</span>
-          </div>
-
-          <div class="skill-badge" style="--badge-color:#e8a33d" tabindex="0">
-            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas"></span>
-            <span class="skill-badge-label">Pandas</span>
-          </div>
-
-          <div class="skill-badge" style="--badge-color:#ee4c2c" tabindex="0">
-            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/pytorch" alt="PyTorch"></span>
-            <span class="skill-badge-label">PyTorch</span>
-          </div>
-
-          <div class="skill-badge" style="--badge-color:#f89939" tabindex="0">
-            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/scikitlearn" alt="Scikit-learn"></span>
-            <span class="skill-badge-label">Scikit-learn</span>
-          </div>
-
-          <div class="skill-badge" style="--badge-color:#5c3ee8" tabindex="0">
-            <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/opencv" alt="OpenCV"></span>
-            <span class="skill-badge-label">OpenCV</span>
-          </div>
-
         </div>
-      </div>
       </div>
 
       <!-- Secondary tools, evidenced by earlier project work but not the current focus -->
@@ -273,24 +301,22 @@
 
     <section id="projects">
       <div class="section-head">
-        <p class="eyebrow">Selected work</p>
         <h2>My Projects</h2>
       </div>
 
-      <div class="projects-grid">
-
-        <!-- 1 -->
-        <article class="project-card" id="project-trajectory">
+      <!-- Featured Work: the two projects tied to real internships, spotlighted -->
+      <div class="featured-work">
+        <article class="project-card" data-category="ml">
           <div class="project-image">
             <div class="carousel-backdrop"></div>
             <div class="carousel-track">
               <img src="src/project17.png" alt="Trajectory reconstruction dashboard" class="active">
               <img src="src/project15.png" alt="Multi-source satellite data overlay">
               <img src="src/project16.png" alt="Trajectory reconstruction results">
-              <img src="src/project10.png" alt="Trajectory reconstruction dashboard">
-              <img src="src/project11.png" alt="Multi-source satellite data overlay">
-              <img src="src/project12.png" alt="Trajectory reconstruction results">
-              <img src="src/project14.png" alt="Trajectory reconstruction results">
+              <img src="src/project10.png" alt="Trajectory reconstruction dashboard, alternate view">
+              <img src="src/project11.png" alt="Multi-source satellite data overlay, alternate view">
+              <img src="src/project12.png" alt="Trajectory reconstruction results, alternate view">
+              <img src="src/project14.png" alt="Trajectory reconstruction results, detail">
             </div>
             <div class="carousel-dots">
               <button class="dot active" aria-label="Image 1"></button>
@@ -303,24 +329,77 @@
             </div>
           </div>
           <div class="project-body">
+            <span class="spotlight-context">
+              <span class="context-company">CLS Group</span>
+              <span class="context-role">Signal &amp; Data Processing Engineer</span>
+            </span>
             <h3>Multi-Source Trajectory Reconstruction</h3>
             <p class="project-summary">Trajectory reconstruction and state estimation for maritime surveillance, fusing heterogeneous satellite and positioning data.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Combined SAR imagery, optical observations, and vessel positioning data (AIS, LRIT, VMS) into a unified pipeline.</li>
-                <li>Built Python pipelines for large-scale numerical and geospatial data processing.</li>
-                <li>Defined performance and robustness evaluation protocols in an operational R&amp;D environment.</li>
-              </ul>
-            </details>
+            <ul class="project-bullets">
+              <li>Combined SAR imagery, optical observations, and vessel positioning data (AIS, LRIT, VMS) into a unified pipeline.</li>
+              <li>Built Python pipelines for large-scale numerical and geospatial data processing.</li>
+              <li>Defined performance and robustness evaluation protocols in an operational R&amp;D environment.</li>
+            </ul>
             <ul class="tech-tags">
               <li>Python</li><li>NumPy</li><li>SciPy</li><li>Pandas</li><li>QGIS</li><li>GDAL</li>
             </ul>
           </div>
         </article>
 
-        <!-- 2 -->
-        <article class="project-card">
+        <article class="project-card" data-category="ml">
+          <div class="project-image">
+            <div class="carousel-backdrop"></div>
+            <div class="carousel-track">
+              <img src="src/project70.png" alt="Acoustic signal spectrogram" class="active">
+              <img src="src/project71.png" alt="Acoustic feature extraction">
+              <img src="src/project72.png" alt="Acoustic classifier results">
+              <img src="src/project73.png" alt="Acoustic detection pipeline">
+              <img src="src/project74.png" alt="Acoustic embedded implementation">
+              <img src="src/project75.png" alt="Acoustic detection performance">
+            </div>
+            <div class="carousel-dots">
+              <button class="dot active" aria-label="Image 1"></button>
+              <button class="dot" aria-label="Image 2"></button>
+              <button class="dot" aria-label="Image 3"></button>
+              <button class="dot" aria-label="Image 4"></button>
+              <button class="dot" aria-label="Image 5"></button>
+              <button class="dot" aria-label="Image 6"></button>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="spotlight-context">
+              <span class="context-company">OSEAN SAS</span>
+              <span class="context-role">Acoustic Signal Processing Engineer</span>
+            </span>
+            <h3>Statistical Signal Processing for Passive Acoustic Detection</h3>
+            <p class="project-summary">Statistical signal-processing and ML methods for detecting and classifying marine-mammal vocalizations in noisy real-world acoustic data.</p>
+            <ul class="project-bullets">
+              <li>Compared spectral and time-frequency features, PCA, SVM, LSTM, and stochastic matched-filtering methods.</li>
+              <li>Evaluated robustness under noise, limited labelled data, and class imbalance — up to 85% F1-score.</li>
+              <li>Optimized detectors for embedded constraints: short windowing, low latency, low power consumption.</li>
+              <li>Designed a parallel multi-band detector processing continuous audio streams in real time.</li>
+            </ul>
+            <ul class="tech-tags">
+              <li>Python</li><li>MATLAB</li><li>LSTM</li><li>SVM</li><li>PCA</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Filterable grid: the rest of the project work -->
+      <div class="project-filters" role="group" aria-label="Filter projects by category">
+        <button class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-chip" data-filter="ml" aria-pressed="false">Machine Learning</button>
+        <button class="filter-chip" data-filter="signal" aria-pressed="false">Signal Processing</button>
+        <button class="filter-chip" data-filter="remote-sensing" aria-pressed="false">Remote Sensing</button>
+        <button class="filter-chip" data-filter="optimization" aria-pressed="false">Optimization</button>
+        <button class="filter-chip" data-filter="data-science" aria-pressed="false">Data Science</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card" data-category="ml">
           <div class="project-image">
             <div class="carousel-backdrop"></div>
             <div class="carousel-track">
@@ -355,8 +434,7 @@
           </div>
         </article>
 
-        <!-- 3 -->
-        <article class="project-card">
+        <article class="project-card" data-category="ml">
           <div class="project-image">
             <div class="carousel-backdrop"></div>
             <div class="carousel-track">
@@ -389,47 +467,7 @@
           </div>
         </article>
 
-        <!-- 4 -->
-        <article class="project-card" id="project-acoustic">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/project70.png" alt="Acoustic signal spectrogram" class="active">
-              <img src="src/project71.png" alt="Acoustic feature extraction">
-              <img src="src/project72.png" alt="Acoustic classifier results">
-              <img src="src/project73.png" alt="Acoustic detection pipeline">
-              <img src="src/project74.png" alt="Acoustic embedded implementation">
-              <img src="src/project75.png" alt="Acoustic detection performance">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-              <button class="dot" aria-label="Image 5"></button>
-              <button class="dot" aria-label="Image 6"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3>Statistical Signal Processing for Passive Acoustic Detection</h3>
-            <p class="project-summary">Statistical signal-processing and ML methods for detecting and classifying marine-mammal vocalizations in noisy real-world acoustic data.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Compared spectral and time-frequency features, PCA, SVM, LSTM, and stochastic matched-filtering methods.</li>
-                <li>Evaluated robustness under noise, limited labelled data, and class imbalance — up to 85% F1-score.</li>
-                <li>Optimized detectors for embedded constraints: short windowing, low latency, low power consumption.</li>
-                <li>Designed a parallel multi-band detector processing continuous audio streams in real time.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>MATLAB</li><li>LSTM</li><li>SVM</li><li>PCA</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- 5 -->
-        <article class="project-card">
+        <article class="project-card" data-category="optimization">
           <div class="project-image no-image">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 6c4 0 5 11 8 11s4-11 8-11"/>
@@ -454,8 +492,7 @@
           </div>
         </article>
 
-        <!-- 6 -->
-        <article class="project-card">
+        <article class="project-card" data-category="ml">
           <div class="project-image no-image">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
               <line x1="5.5" y1="7" x2="10.5" y2="9"/><line x1="5.5" y1="12" x2="10.5" y2="9"/>
@@ -487,8 +524,7 @@
           </div>
         </article>
 
-        <!-- 7 -->
-        <article class="project-card">
+        <article class="project-card" data-category="remote-sensing">
           <div class="project-image no-image">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
               <circle cx="12" cy="14" r="4.5"/>
@@ -514,18 +550,17 @@
           </div>
         </article>
 
-        <!-- 8 -->
-        <article class="project-card">
+        <article class="project-card" data-category="remote-sensing">
           <div class="project-image">
             <div class="carousel-backdrop"></div>
             <div class="carousel-track">
-              <img src="src/project80.png" alt="" class="active">
-              <img src="src/project81.png" alt="">
-              <img src="src/project82.png" alt="">
-              <img src="src/project83.png" alt="">
-              <img src="src/project84.png" alt="">
-              <img src="src/project86.png" alt="">
-              <img src="src/project87.png" alt="">
+              <img src="src/project80.png" alt="Geospatial analysis workflow" class="active">
+              <img src="src/project81.png" alt="SAR imagery preprocessing">
+              <img src="src/project82.png" alt="Optical imagery alignment">
+              <img src="src/project83.png" alt="Feature extraction map">
+              <img src="src/project84.png" alt="Multimodal data integration">
+              <img src="src/project86.png" alt="Geospatial analysis result 1">
+              <img src="src/project87.png" alt="Geospatial analysis result 2">
             </div>
             <div class="carousel-dots">
               <button class="dot active" aria-label="Image 1"></button>
@@ -553,8 +588,7 @@
           </div>
         </article>
 
-        <!-- 9 -->
-        <article class="project-card">
+        <article class="project-card" data-category="data-science">
           <div class="project-image">
             <div class="carousel-backdrop"></div>
             <div class="carousel-track">
@@ -587,15 +621,14 @@
           </div>
         </article>
 
-        <!-- 10 -->
-        <article class="project-card">
+        <article class="project-card" data-category="signal">
           <div class="project-image">
             <div class="carousel-backdrop"></div>
             <div class="carousel-track">
-              <img src="src/project100.png" alt="" class="active">
-              <img src="src/project101.png" alt="">
-              <img src="src/project102.png" alt="">
-              <img src="src/project104.png" alt="">
+              <img src="src/project100.png" alt="Underwater acoustic setup" class="active">
+              <img src="src/project101.png" alt="Sound speed estimation results">
+              <img src="src/project102.png" alt="Transmitter localization results">
+              <img src="src/project104.png" alt="Moving transmitter tracking results">
             </div>
             <div class="carousel-dots">
               <button class="dot active" aria-label="Image 1"></button>
@@ -605,14 +638,14 @@
             </div>
           </div>
           <div class="project-body">
-            <h3>Underwater acoustic analysis</h3>
-            <p class="project-summary">Study the propagation of acoustic waves in a water tank, based on time-domain measurements acquired by a set of hydrophones.</p>
+            <h3>Underwater Acoustic Analysis</h3>
+            <p class="project-summary">Studied the propagation of acoustic waves in a water tank, based on time-domain measurements from a set of hydrophones.</p>
             <details class="project-details">
               <summary>Read more</summary>
               <ul class="project-bullets">
-                <li>Estimation of the speed of sound propagation in water.</li>
-                <li>Localization of a fixed acoustic transmitter using a hyperbolic localization method based on minimizing a least-squares criterion.</li>
-                <li>Localization of a moving transmitter by exploiting the temporal evolution of the received signals.</li>
+                <li>Estimated the speed of sound propagation in water.</li>
+                <li>Localized a fixed acoustic transmitter using hyperbolic localization based on a least-squares criterion.</li>
+                <li>Localized a moving transmitter by exploiting the temporal evolution of received signals.</li>
               </ul>
             </details>
             <ul class="tech-tags">
@@ -623,15 +656,16 @@
 
       </div>
 
+      <p class="filter-empty" id="filter-empty" hidden>No projects in this category yet.</p>
+
       <!-- Older / smaller projects, de-emphasized but not deleted -->
       <details class="projects-secondary">
         <summary>Earlier projects</summary>
         <div class="secondary-grid">
 
-
           <article class="project-card">
             <div class="project-image">
-              <img src="src/project90.png" alt="" loading="lazy">
+              <img src="src/project90.png" alt="Wearable assistive glove prototype" loading="lazy">
             </div>
             <div class="project-body">
               <h3>Wearable Multi-Sensor Glove for Assistive Interaction</h3>
@@ -692,22 +726,15 @@
       </details>
     </section>
 
-
     <section id="about">
       <div class="section-head">
-        <p class="eyebrow">A bit more context</p>
         <h2>My Background</h2>
       </div>
 
       <div class="about-container">
-      <!--
-        <div class="about-photo">
-          <img src="src/photo3.png" alt="Mohammed ABO ORAIG">
-        </div>
-      -->
-
         <div class="about-panel">
           <div class="about-tabs" role="tablist" aria-label="Background category">
+            <span class="tab-indicator" id="tab-indicator" aria-hidden="true"></span>
             <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="academic" id="tab-academic">Academic</button>
             <button class="tab-btn" role="tab" aria-selected="false" aria-controls="experience" id="tab-experience">Experience</button>
             <button class="tab-btn" role="tab" aria-selected="false" aria-controls="prizes" id="tab-prizes">Prizes</button>
@@ -721,7 +748,7 @@
                   <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
                 </a><br>
                 SeaTech Engineering School, University of Toulon (double-degree program)<br>
-                <span class="meta">Sep 2026 · Toulon, France</span>
+                <span class="meta"><span>Sep 2026</span><span>Toulon, France</span></span>
               </p>
               <p>
                 <a class="degree-link" href="https://formations.univ-tln.fr/fr/offre-de-formation/master-XB/master-ingenierie-des-systemes-complexes-LO8RGPP1/master-ingenierie-des-systemes-complexes-parcours-vision-signal-trajectographie-et-automatique-LPZS1DK9.html" target="_blank" rel="noopener noreferrer">
@@ -729,7 +756,7 @@
                   <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
                 </a><br>
                 Faculty of Science and Engineering, University of Toulon (double-degree program)<br>
-                <span class="meta">Sep 2026 · Toulon, France</span>
+                <span class="meta"><span>Sep 2026</span><span>Toulon, France</span></span>
               </p>
               <p>
                 <a class="degree-link" href="https://fst-usmba.ac.ma/framework/uploads/2025/10/Flyer_FI_SICoM.pdf" target="_blank" rel="noopener noreferrer">
@@ -737,7 +764,7 @@
                   <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
                 </a><br>
                 Faculty of Science and Technology, Sidi Mohamed Ben Abdellah University (double-degree program)<br>
-                <span class="meta">Jun 2024 · Fez, Morocco</span>
+                <span class="meta"><span>Jun 2024</span><span>Fez, Morocco</span></span>
               </p>
             </div>
 
@@ -750,9 +777,9 @@
                       <strong>Signal &amp; Data Processing Engineer</strong>
                       <span class="timeline-company">CLS (Collecte Localisation Satellites)</span>
                     </div>
-                    <span class="meta">Mar 2026 – Sep 2026 · Toulouse, France</span>
+                    <span class="meta"><span>Mar 2026 – Sep 2026</span><span>Toulouse, France</span></span>
                     <p>Developed trajectory reconstruction and state-estimation methods for maritime surveillance, fusing SAR, optical, and AIS/LRIT/VMS data into operational Python pipelines.</p>
-                    <a class="project-jump" href="#project-trajectory">See related project →</a>
+                    <a class="project-jump" href="#project-trajectory">See related project</a>
                   </div>
                 </li>
 
@@ -763,9 +790,9 @@
                       <strong>Acoustic Signal Processing Engineer</strong>
                       <span class="timeline-company">OSEAN SAS</span>
                     </div>
-                    <span class="meta">Apr 2025 – Aug 2025 · Le Pradet, France</span>
+                    <span class="meta"><span>Apr 2025 – Aug 2025</span><span>Le Pradet, France</span></span>
                     <p>Designed statistical signal-processing and ML methods to detect and classify marine-mammal vocalizations in real-world acoustic data, reaching up to 85% F1-score.</p>
-                    <a class="project-jump" href="#project-acoustic">See related project →</a>
+                    <a class="project-jump" href="#project-acoustic">See related project</a>
                   </div>
                 </li>
 
@@ -776,9 +803,8 @@
                       <strong>President</strong>
                       <span class="timeline-company">Dawam Injaz</span>
                     </div>
-                    <span class="meta">Feb 2024 – Sep 2024 · Fez, Morocco</span>
+                    <span class="meta"><span>Feb 2024 – Sep 2024</span><span>Fez, Morocco</span></span>
                     <p>Led a team of 30 engineering students building an online platform connecting individuals, recycling centers, and artists for recyclable-material exchange.</p>
-                    <a class="project-jump" href="#project-dawam">See related project →</a>
                   </div>
                 </li>
 
@@ -789,85 +815,83 @@
                       <strong>Process Engineering Intern</strong>
                       <span class="timeline-company">SIOF</span>
                     </div>
-                    <span class="meta">Jun 2023 – Aug 2023 · Fez, Morocco</span>
+                    <span class="meta"><span>Jun 2023 – Aug 2023</span><span>Fez, Morocco</span></span>
                     <p>Analyzed production, maintenance, and packaging processes in an industrial setting; contributed to identifying inefficiencies and proposing improvements to production flows.</p>
                   </div>
                 </li>
               </ol>
             </div>
-          
+
             <div class="card" id="prizes" role="tabpanel" aria-labelledby="tab-prizes" hidden>
+              <div class="prize-grid">
+                <div class="prize-card">
+                  <span class="prize-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
+                      <path d="M8 5H5a3 3 0 0 0 3 5"/>
+                      <path d="M16 5h3a3 3 0 0 1-3 5"/>
+                      <path d="M12 12v4"/>
+                      <path d="M9 20h6"/>
+                      <path d="M10 16h4l1 4H9l1-4z"/>
+                    </svg>
+                  </span>
+                  <div class="prize-text">
+                    <strong>Morocco Youth Award — 3rd Place</strong>
+                    <span class="meta"><span>National Competition</span><span>Rabat, Morocco</span><span>2024</span></span>
+                  </div>
+                </div>
 
-            <div class="prize-grid">
-              <div class="prize-card">
-                <span class="prize-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
-                    <path d="M8 5H5a3 3 0 0 0 3 5"/>
-                    <path d="M16 5h3a3 3 0 0 1-3 5"/>
-                    <path d="M12 12v4"/>
-                    <path d="M9 20h6"/>
-                    <path d="M10 16h4l1 4H9l1-4z"/>
-                  </svg>
-                </span>
-                <div class="prize-text">
-                  <strong>Morocco Youth Award — 3rd Place</strong>
-                  <span class="meta">National Competition · Rabat, Morocco · 2024</span>
+                <div class="prize-card">
+                  <span class="prize-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
+                      <path d="M8 5H5a3 3 0 0 0 3 5"/>
+                      <path d="M16 5h3a3 3 0 0 1-3 5"/>
+                      <path d="M12 12v4"/>
+                      <path d="M9 20h6"/>
+                      <path d="M10 16h4l1 4H9l1-4z"/>
+                    </svg>
+                  </span>
+                  <div class="prize-text">
+                    <strong>Favorite Award — Company Program</strong>
+                    <span class="meta"><span>National Competition</span><span>Casablanca, Morocco</span><span>2024</span></span>
+                  </div>
+                </div>
+
+                <div class="prize-card">
+                  <span class="prize-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
+                      <path d="M8 5H5a3 3 0 0 0 3 5"/>
+                      <path d="M16 5h3a3 3 0 0 1-3 5"/>
+                      <path d="M12 12v4"/>
+                      <path d="M9 20h6"/>
+                      <path d="M10 16h4l1 4H9l1-4z"/>
+                    </svg>
+                  </span>
+                  <div class="prize-text">
+                    <strong>Best Junior Enterprise Award — Company Program</strong>
+                    <span class="meta"><span>Regional Competition</span><span>Fez, Morocco</span><span>2024</span></span>
+                  </div>
+                </div>
+
+                <div class="prize-card">
+                  <span class="prize-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
+                      <path d="M8 5H5a3 3 0 0 0 3 5"/>
+                      <path d="M16 5h3a3 3 0 0 1-3 5"/>
+                      <path d="M12 12v4"/>
+                      <path d="M9 20h6"/>
+                      <path d="M10 16h4l1 4H9l1-4z"/>
+                    </svg>
+                  </span>
+                  <div class="prize-text">
+                    <strong>Best Pitch of the Co-Creation Week</strong>
+                    <span class="meta"><span>SeaTech</span><span>2024</span></span>
+                  </div>
                 </div>
               </div>
-
-              <div class="prize-card">
-                <span class="prize-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
-                    <path d="M8 5H5a3 3 0 0 0 3 5"/>
-                    <path d="M16 5h3a3 3 0 0 1-3 5"/>
-                    <path d="M12 12v4"/>
-                    <path d="M9 20h6"/>
-                    <path d="M10 16h4l1 4H9l1-4z"/>
-                  </svg>
-                </span>
-                <div class="prize-text">
-                  <strong>Favorite Award - Company Program</strong>
-                  <span class="meta">National Competition · Casablanca, Morocco · 2024</span>
-                </div>
-              </div>
-
-              <div class="prize-card">
-                <span class="prize-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
-                    <path d="M8 5H5a3 3 0 0 0 3 5"/>
-                    <path d="M16 5h3a3 3 0 0 1-3 5"/>
-                    <path d="M12 12v4"/>
-                    <path d="M9 20h6"/>
-                    <path d="M10 16h4l1 4H9l1-4z"/>
-                  </svg>                  
-                </span>
-                <div class="prize-text">
-                  <strong>Best Junior Enterprise Award - Company Program</strong>
-                  <span class="meta">Regional Competition · Fez, Morocco · 2024</span>
-                </div>
-              </div>
-
-              <div class="prize-card">
-                <span class="prize-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
-                    <path d="M8 5H5a3 3 0 0 0 3 5"/>
-                    <path d="M16 5h3a3 3 0 0 1-3 5"/>
-                    <path d="M12 12v4"/>
-                    <path d="M9 20h6"/>
-                    <path d="M10 16h4l1 4H9l1-4z"/>
-                  </svg>                  
-                </span>
-                <div class="prize-text">
-                  <strong>Best Pitch of the Co-Creation Week</strong>
-                  <span class="meta">SeaTech · 2024</span>
-                </div>
-              </div>
-            </div>
-
             </div>
           </div>
         </div>
@@ -876,7 +900,6 @@
 
     <section id="contact">
       <div class="section-head">
-        <p class="eyebrow">Let's talk</p>
         <h2>Contact Me</h2>
       </div>
 
@@ -902,9 +925,9 @@
         </aside>
 
         <!--
-          FORM SETUP: create a free form at https://formspree.io, then replace
-          YOUR_FORM_ID below with the ID from your Formspree endpoint
-          (https://formspree.io/f/YOUR_FORM_ID). No backend code required.
+          FORM SETUP: this form posts to a live Formspree endpoint.
+          To point it at a different form, replace the ID in the action URL
+          below with your own (https://formspree.io/f/YOUR_FORM_ID).
         -->
         <form id="contact-form" action="https://formspree.io/f/xgaejkkl" method="POST" novalidate>
           <div class="form-group">
@@ -934,7 +957,7 @@
             <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
           </div>
 
-          <button type="submit" id="submit-btn">
+          <button type="submit" id="submit-btn" class="magnetic">
             <span class="btn-label">Send Message</span>
             <span class="btn-spinner" aria-hidden="true"></span>
           </button>

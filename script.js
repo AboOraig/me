@@ -8,6 +8,7 @@ const navToggle = document.getElementById('nav-toggle');
 const sections = document.querySelectorAll('main section');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isTouchDevice = window.matchMedia('(hover: none)').matches;
+const enhancedMotion = !isTouchDevice && !prefersReducedMotion;
 
 // ============================================
 // Mobile nav toggle
@@ -19,18 +20,20 @@ if (navToggle && navMenu) {
   });
 }
 
-// Smooth scroll + close mobile menu on link click
+// Smooth scroll (shared helper used by nav links and the scroll rail)
+function scrollToSection(id) {
+  const target = document.getElementById(id);
+  if (!target) return;
+  target.scrollIntoView({
+    behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    block: 'start'
+  });
+}
+
 navLinks.forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
-    const targetID = this.getAttribute('href').substring(1);
-    const targetSection = document.getElementById(targetID);
-    if (!targetSection) return;
-
-    targetSection.scrollIntoView({
-      behavior: prefersReducedMotion ? 'auto' : 'smooth',
-      block: 'start'
-    });
+    scrollToSection(this.getAttribute('href').substring(1));
 
     if (navMenu.classList.contains('open')) {
       navMenu.classList.remove('open');
@@ -40,7 +43,17 @@ navLinks.forEach(link => {
 });
 
 // ============================================
-// Scroll-spy nav + header background + progress bar
+// Scroll rail (desktop wayfinding)
+// ============================================
+const railFill = document.getElementById('rail-fill');
+const railButtons = document.querySelectorAll('.scroll-rail [data-rail-target]');
+
+railButtons.forEach(btn => {
+  btn.addEventListener('click', () => scrollToSection(btn.getAttribute('data-rail-target')));
+});
+
+// ============================================
+// Scroll-spy nav + header background + progress bar + rail
 // ============================================
 const progressBarContainer = document.createElement('div');
 progressBarContainer.id = 'progress-bar-container';
@@ -49,12 +62,15 @@ document.body.prepend(progressBarContainer);
 const progressBar = document.getElementById('progress-bar');
 
 function onScroll() {
-  // Active section for nav highlighting
+  // Detection line sits just below the sticky header. A section becomes
+  // "current" once its top has scrolled past that line — this is independent
+  // of how tall any individual section is (unlike a height-proportional
+  // threshold, which breaks once one section is much taller than the rest).
+  const detectionPoint = window.scrollY + header.offsetHeight + 20;
+
   let currentSection = '';
   sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (window.scrollY >= sectionTop - sectionHeight / 3) {
+    if (section.offsetTop <= detectionPoint) {
       currentSection = section.getAttribute('id');
     }
   });
@@ -69,41 +85,119 @@ function onScroll() {
     }
   });
 
-  // Header background once scrolled
+  railButtons.forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-rail-target') === currentSection);
+  });
+
   header.classList.toggle('transformed', window.scrollY > 40);
 
-  // Reading progress bar
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
   progressBar.style.width = scrollPercent + '%';
+  if (railFill) railFill.style.height = scrollPercent + '%';
 }
 
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
 // ============================================
-// Cursor light effect (desktop / non-touch only)
+// Hero — single orchestrated load sequence
 // ============================================
-if (!isTouchDevice && !prefersReducedMotion) {
-  const cursorLight = document.createElement('div');
-  cursorLight.id = 'cursor-light';
-  document.body.appendChild(cursorLight);
-
-  document.addEventListener('mousemove', function (e) {
-    const x = e.clientX - cursorLight.offsetWidth / 2;
-    const y = e.clientY - cursorLight.offsetHeight / 2;
-    cursorLight.style.transform = `translate(${x}px, ${y}px)`;
+const hero = document.querySelector('.hero');
+if (hero) {
+  // Small delay ensures the browser has painted the initial (hidden) state
+  // before transitioning, so the animation actually plays.
+  requestAnimationFrame(() => {
+    setTimeout(() => hero.classList.add('stage-in'), 60);
   });
 }
 
 // ============================================
-// About section — accessible tabs
+// Two-part cursor (dot + ring) — desktop, motion-enabled only
+// ============================================
+if (enhancedMotion) {
+  const cursorDot = document.getElementById('cursor-dot');
+  const cursorRing = document.getElementById('cursor-ring');
+
+  if (cursorDot && cursorRing) {
+    let ringX = window.innerWidth / 2;
+    let ringY = window.innerHeight / 2;
+    let targetX = ringX;
+    let targetY = ringY;
+
+    document.addEventListener('mousemove', e => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      cursorDot.style.transform = `translate(${targetX}px, ${targetY}px) translate(-50%, -50%)`;
+      document.body.classList.add('cursor-ready');
+    });
+
+    // Ring eases toward the pointer for a slight, deliberate lag
+    function animateRing() {
+      ringX += (targetX - ringX) * 0.18;
+      ringY += (targetY - ringY) * 0.18;
+      cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    const interactiveSelector = 'a, button, .skill-badge, .project-card, .filter-chip, input, textarea, summary';
+    document.querySelectorAll(interactiveSelector).forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
+    });
+  }
+}
+
+// ============================================
+// Magnetic buttons — pull slightly toward the cursor within their bounds
+// ============================================
+if (enhancedMotion) {
+  document.querySelectorAll('.magnetic').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const rect = el.getBoundingClientRect();
+      const relX = e.clientX - rect.left - rect.width / 2;
+      const relY = e.clientY - rect.top - rect.height / 2;
+      el.style.transform = `translate(${relX * 0.25}px, ${relY * 0.25}px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'translate(0, 0)';
+    });
+  });
+}
+
+// ============================================
+// Skill badges — subtle tilt toward the cursor
+// ============================================
+if (enhancedMotion) {
+  document.querySelectorAll('.skill-badge-icon').forEach(icon => {
+    icon.addEventListener('mousemove', e => {
+      const rect = icon.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      icon.style.transform = `perspective(300px) rotateX(${-py * 18}deg) rotateY(${px * 18}deg) scale(1.06)`;
+    });
+    icon.addEventListener('mouseleave', () => {
+      icon.style.transform = '';
+    });
+  });
+}
+
+// ============================================
+// About section — tabs with sliding indicator
 // ============================================
 const tabButtons = document.querySelectorAll('.tab-btn');
 const cards = document.querySelectorAll('.card');
+const tabIndicator = document.getElementById('tab-indicator');
 let currentCard = 0;
 let aboutAutoRotate;
+
+function moveIndicator(btn) {
+  if (!tabIndicator || !btn) return;
+  tabIndicator.style.width = `${btn.offsetWidth}px`;
+  tabIndicator.style.transform = `translateX(${btn.offsetLeft - 4}px)`;
+}
 
 function showCard(index) {
   cards[currentCard].classList.remove('active');
@@ -117,6 +211,7 @@ function showCard(index) {
   cards[currentCard].hidden = false;
   tabButtons[currentCard].classList.add('active');
   tabButtons[currentCard].setAttribute('aria-selected', 'true');
+  moveIndicator(tabButtons[currentCard]);
 }
 
 tabButtons.forEach((btn, index) => {
@@ -141,8 +236,100 @@ if (aboutPanel) {
 }
 
 if (cards.length && tabButtons.length) {
+  // Position the indicator once layout is ready, then start the cycle.
+  requestAnimationFrame(() => moveIndicator(tabButtons[currentCard]));
+  window.addEventListener('resize', () => moveIndicator(tabButtons[currentCard]));
   restartAutoRotate();
 }
+
+// ============================================
+// Projects — filter chips
+// ============================================
+const filterChips = document.querySelectorAll('.filter-chip');
+const filterableCards = document.querySelectorAll('.projects-grid .project-card');
+const filterEmpty = document.getElementById('filter-empty');
+
+filterChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    filterChips.forEach(c => {
+      c.classList.remove('active');
+      c.setAttribute('aria-pressed', 'false');
+    });
+    chip.classList.add('active');
+    chip.setAttribute('aria-pressed', 'true');
+
+    const filter = chip.getAttribute('data-filter');
+    let visibleCount = 0;
+
+    filterableCards.forEach(card => {
+      const matches = filter === 'all' || card.getAttribute('data-category') === filter;
+      card.classList.toggle('filtered-out', !matches);
+      if (matches) visibleCount++;
+    });
+
+    if (filterEmpty) filterEmpty.hidden = visibleCount > 0;
+  });
+});
+
+// ============================================
+// Project cards — manual image carousel with dots + blurred backdrop
+// ============================================
+function initProjectCarousels() {
+  document.querySelectorAll('.project-card').forEach(card => {
+    const images = card.querySelectorAll('.carousel-track img');
+    const dots = card.querySelectorAll('.carousel-dots .dot');
+    const backdrop = card.querySelector('.carousel-backdrop');
+    if (!images.length) return;
+
+    if (backdrop) {
+      const activeImg = card.querySelector('.carousel-track img.active') || images[0];
+      backdrop.style.backgroundImage = `url('${activeImg.getAttribute('src')}')`;
+    }
+
+    if (dots.length < 2) return; // nothing to switch or autoplay
+
+    let current = 0;
+    dots.forEach((dot, index) => {
+      if (dot.classList.contains('active')) current = index;
+    });
+
+    let timer;
+
+    function goTo(index) {
+      images[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      images[current].classList.add('active');
+      dots[current].classList.add('active');
+      if (backdrop) {
+        backdrop.style.backgroundImage = `url('${images[current].getAttribute('src')}')`;
+      }
+    }
+
+    function startAutoplay() {
+      if (prefersReducedMotion) return;
+      clearInterval(timer);
+      timer = setInterval(() => {
+        goTo((current + 1) % images.length);
+      }, 4000);
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goTo(index);
+        startAutoplay(); // reset the clock after manual navigation
+      });
+    });
+
+    // Pause while the user is actually looking at this card
+    card.addEventListener('mouseenter', () => clearInterval(timer));
+    card.addEventListener('mouseleave', startAutoplay);
+
+    startAutoplay();
+  });
+}
+
+initProjectCarousels();
 
 // ============================================
 // Contact form — real inline validation (no alert())
@@ -190,8 +377,6 @@ if (contactForm) {
   contactForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    // Silently drop likely-bot submissions (honeypot filled) without
-    // revealing to the bot that anything was detected.
     if (honeypot && honeypot.value.trim() !== '') {
       contactForm.reset();
       setStatus("Thanks! I'll get back to you soon.", 'success');
@@ -237,86 +422,3 @@ if (contactForm) {
     }
   });
 }
-
-function initProjectCarousels() {
-  const prefersReducedMotion =
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  document.querySelectorAll('.project-card').forEach(card => {
-    const images = card.querySelectorAll('.carousel-track img');
-    const dots = card.querySelectorAll('.carousel-dots .dot');
-    const backdrop = card.querySelector('.carousel-backdrop');
-
-    if (!images.length) return;
-
-    let current = 0;
-    let timer;
-
-    // Set initial backdrop
-    if (backdrop) {
-      const activeImg =
-        card.querySelector('.carousel-track img.active') || images[0];
-
-      backdrop.style.backgroundImage =
-        `url('${activeImg.getAttribute('src')}')`;
-    }
-
-    // If there is only one image, no carousel/autoplay is needed
-    if (dots.length < 2) return;
-
-    function goTo(index) {
-      // Remove active state
-      images[current].classList.remove('active');
-      dots[current].classList.remove('active');
-
-      // Update current image
-      current = index;
-
-      // Add active state
-      images[current].classList.add('active');
-      dots[current].classList.add('active');
-
-      // Update backdrop
-      if (backdrop) {
-        backdrop.style.backgroundImage =
-          `url('${images[current].getAttribute('src')}')`;
-      }
-    }
-
-    function startAutoplay() {
-      // Don't autoplay if the user prefers reduced motion
-      if (prefersReducedMotion) return;
-
-      clearInterval(timer);
-
-      timer = setInterval(() => {
-        goTo((current + 1) % images.length);
-      }, 4000);
-    }
-
-    // Manual navigation
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        goTo(index);
-
-        // Reset autoplay timer after manual navigation
-        startAutoplay();
-      });
-    });
-
-    // Pause autoplay while hovering over the card
-    card.addEventListener('mouseenter', () => {
-      clearInterval(timer);
-    });
-
-    // Resume autoplay when leaving the card
-    card.addEventListener('mouseleave', () => {
-      startAutoplay();
-    });
-
-    // Start autoplay
-    startAutoplay();
-  });
-}
-
-initProjectCarousels();
