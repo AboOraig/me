@@ -818,28 +818,41 @@ nav ul li a.active::after {
   background: var(--bg-panel);
 }
 
-.project-links {
-  margin-top: 15px;
+.project-heading {
   display: flex;
-  gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.project-heading h3 {
+  flex: 1;
 }
 
 .github-btn {
-  display: inline-flex;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  background-color: #24292e;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
+  justify-content: center;
+  background: var(--bg-deep);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  transition: color var(--dur-fast) ease, border-color var(--dur-fast) ease, transform var(--dur-fast) ease;
 }
 
-.github-btn:hover {
-  background-color: #000000;
+.github-btn:hover,
+.github-btn:focus-visible {
+  color: var(--accent-signal);
+  border-color: var(--accent-signal);
+  transform: translateY(-3px);
+}
+
+.github-btn svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* Featured Work spotlight */
