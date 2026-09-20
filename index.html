@@ -460,14 +460,22 @@
                 </svg>
               </a>
             </div>
-        
-            <p class="project-summary">A controlled multimodal state-estimation framework to study inference from heterogeneous observations with modality-specific noise, bias, and missing data.</p>
+           
+            <p class="project-summary">A controlled multimodal state-estimation framework with three heterogeneous sensors under a taxonomy of degradation and distribution-shift regimes (noise, bias, dropout, correlated multi-sensor failure, sensor spoofing).</p>
             <details class="project-details">
               <summary>Read more</summary>
               <ul class="project-bullets">
-                <li>Compared conventional weighted least-squares and learned multimodal fusion with a learned observation-uncertainty model integrated into structured inference.</li>
-                <li>Investigated whether learned uncertainty can identify degraded observation sources and improve estimation robustness and calibration under progressively changing sensing conditions.</li>
-                <li>Designed controlled experiments covering noise, modality dropout, sensor bias, and distribution shift, evaluating estimation accuracy, uncertainty calibration, and graceful degradation.</li>
+                <li>Built a five-method baseline ladder (fixed WLS, a strong non-learned adaptive heuristic, learned fusion, the proposed learned-uncertainty
+model, and an oracle ceiling) under a 5-seed reproducibility protocol; an uncertainty-shuffling ablation confirmed gains stem from genuine reliability
+information rather than added model capacity.</li>
+                <li>Showed predicted uncertainty tracks true estimation error (Pearson r=0.73, Spearman rho=0.74) and used a
+NEES-based calibration analysis (the classical Kalman-filter consistency check) to show shift-induced miscalibration is a noise-shape
+mismatch rather than a scale effect, independently confirmed via failed post-hoc recalibration and failed classical robust (Huber/Tukey) refitting.
+</li>
+                <li>Identified a reproducible 13% RMSE improvement over the strongest non-learned baseline specifically under sensor-reliability-signal
+corruption and spoofing, and validated all core findings across two independent implementations (hand-derived NumPy backpropagation and
+PyTorch autograd).
+</li>
               </ul>
             </details>
             <ul class="tech-tags">
