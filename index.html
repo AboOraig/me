@@ -569,9 +569,23 @@ PyTorch autograd).
             <details class="project-details">
               <summary>Read more</summary>
               <ul class="project-bullets">
-                <li>Formulated a mixed-integer optimization model balancing energy cost, demand, and user waiting time.</li>
-                <li>Extended the deterministic formulation to an uncertainty-aware version modelling variable arrival times and energy needs.</li>
-                <li>Implemented and evaluated nominal and uncertainty-aware solutions through computational experiments.</li>
+                <li>Formulated electric-vehicle charging allocation as a mixed-integer
+optimisation problem (resource-constrained scheduling) with charger,
+time-window, and user-demand constraints; solved to global optimality
+using the open-source HiGHS solver, scaling to 100+ vehicles in under
+0.1s.</li>
+                <li>Analysed trade-offs between energy cost, charging demand, and
+user waiting time, showing how resource availability (charger count)
+reshapes the achievable cost--waiting Pareto frontier.</li>
+                <li>Extended the deterministic formulation to a two-stage stochastic
+optimisation framework capturing uncertainty in vehicle arrival times
+and energy requirements; validated via out-of-sample testing that the
+stochastic policy outperforms a deterministic point-forecast policy
+(positive Value of the Stochastic Solution).</li>
+                <li>Implemented the full framework in Python and evaluated nominal
+and uncertainty-aware solutions through computational experiments
+(scalability, cost--waiting trade-offs, out-of-sample policy
+comparison), producing reproducible results and visualisations.</li>
               </ul>
             </details>
             <ul class="tech-tags">
@@ -579,7 +593,7 @@ PyTorch autograd).
             </ul>
           </div>
         </article>
-
+       
         <article class="project-card" data-category="ml">
           <div class="project-image no-image">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
