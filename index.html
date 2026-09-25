@@ -633,9 +633,9 @@ comparison), producing reproducible results and visualisations.</li>
             <details class="project-details">
               <summary>Read more</summary>
               <ul class="project-bullets">
-                <li>Implemented a variational autoencoder for compact latent representations.</li>
-                <li>Built a conditional diffusion model in latent space; evaluated sample quality and diversity.</li>
-                <li>Studied the effect of latent dimensionality and conditioning on generative performance.</li>
+                <li>Implemented a variational autoencoder (PyTorch) to learn compact latent representations of image data; analysed the reconstruction-fidelity/dimensionality trade-off, finding diminishing returns above roughly 16--32 latent dimensions.</li>
+                <li>Implemented a conditional diffusion model in latent space, with both ancestral and DDIM sampling and classifier-free guidance, to generate diverse samples under different conditioning variables.</li>
+                <li>Analysed the effect of latent-space dimensionality and conditioning strength} on generation quality and sample diversity through controlled ablations over sampling steps, guidance scale, and sampler stochasticity.</li>
               </ul>
             </details>
             <ul class="tech-tags">
