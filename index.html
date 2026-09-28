@@ -645,27 +645,44 @@ comparison), producing reproducible results and visualisations.</li>
         </article>
 
         <article class="project-card" data-category="remote-sensing">
-          <div class="project-image no-image">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-              <circle cx="12" cy="14" r="4.5"/>
-              <ellipse cx="12" cy="14" rx="10" ry="4" transform="rotate(-20 12 14)"/>
-              <circle cx="20" cy="9" r="1.5" fill="currentColor" stroke="none"/>
-            </svg>
-            <span class="no-image-label">Visuals coming soon</span>
+          <div class="project-image">
+            <div class="carousel-backdrop"></div>
+            <div class="carousel-track">
+              <img src="src/proji1.png" alt="" class="active">
+              <img src="src/proji2.png" alt="">
+              <img src="src/proji3.png" alt="">
+              <img src="src/proji4.png" alt="">
+              <img src="src/proji5.png" alt="">
+              <img src="src/proji6.png" alt="">
+              <img src="src/proji7.png" alt="">
+              <img src="src/proji8.png" alt="">
+              <img src="src/proji9.png" alt="">
+            </div>
+            <div class="carousel-dots">
+              <button class="dot active" aria-label="Image 1"></button>
+              <button class="dot" aria-label="Image 2"></button>
+              <button class="dot" aria-label="Image 3"></button>
+              <button class="dot" aria-label="Image 4"></button>
+              <button class="dot" aria-label="Image 5"></button>
+              <button class="dot" aria-label="Image 6"></button>
+              <button class="dot" aria-label="Image 7"></button>
+              <button class="dot" aria-label="Image 8"></button>
+              <button class="dot" aria-label="Image 9"></button>
+            </div>
           </div>
           <div class="project-body">
             <h3>Learned Regularization for Robust Image Reconstruction</h3>
-            <p class="project-summary">...</p>
+            <p class="project-summary">Formulated sparse-view CT reconstruction as an inverse problem under noise, incomplete angular sampling, and forward-model uncertainty; built a differentiable sparse-view Radon operator with exact adjoint.</p>
             <details class="project-details">
               <summary>Read more</summary>
               <ul class="project-bullets">
-                <li>Studied image reconstruction as an inverse problem under noise, incomplete measurements, and forward-model uncertainty.</li>
-                <li>Integrated a learned image prior into an optimization-based reconstruction framework and compared it with classical regularization.</li>
-                <li>Evaluated reconstruction accuracy and robustness under varying noise, measurement degradation, and distribution shifts.</li>
+                <li>Integrated a noise-conditioned CNN denoiser as a learned prior into a Plug-and-Play proximal-gradient reconstruction framework, benchmarked against FBP, Tikhonov, and TV regularization with validation-tuned hyperparameters for every method.</li>
+                <li>Evaluated reconstruction accuracy under varying noise levels, angular undersampling, and train-test distribution shifts using PSNR/SSIM with statistical testing, characterizing the trade-off between the learned prior's in-distribution expressiveness and its stability under distribution shift and forward-model mismatch.</li>
+                <li>Showed the learned prior improves PSNR by up to 4 dB over TV under high noise or few projection angles (paired Wilcoxon, p<0.001), but underperforms TV in the near-noiseless regime, and identified that its advantage narrows under forward-model mismatch and reverses under distribution shift, where it hallucinates in-distribution structure on out-of-domain inputs.</li>
               </ul>
             </details>
             <ul class="tech-tags">
-              <li>Python</li><li>PyTorch</li><li>...</li>
+              <li>Python</li><li>PyTorch</li><li>scikit-image</li>NumPy/SciPy<li>Pandas</li><li>Matplotlib</li>
             </ul>
           </div>
         </article>
