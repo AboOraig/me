@@ -475,21 +475,15 @@
               </a>
             </div>
            
-            <p class="project-summary">A controlled multimodal state-estimation framework with three heterogeneous sensors under a taxonomy of degradation and distribution-shift regimes (noise, bias, dropout, correlated multi-sensor failure, sensor spoofing).</p>
+            <p class="project-summary">A controlled synthetic study of multimodal state estimation from three heterogeneous sensors under noise, bias faults, dropout, heavy-tailed noise, correlated multi-sensor failure, quality-signal corruption and deceptive sensors.</p>
             <details class="project-details">
               <summary>Read more</summary>
               <ul class="project-bullets">
-                <li>Built a five-method baseline ladder (fixed WLS, a strong non-learned adaptive heuristic, learned fusion, the proposed learned-uncertainty
-model, and an oracle ceiling) under a 5-seed reproducibility protocol; an uncertainty-shuffling ablation confirmed gains stem from genuine reliability
-information rather than added model capacity.</li>
-                <li>Showed predicted uncertainty tracks true estimation error (Pearson r=0.73, Spearman rho=0.74) and used a
-NEES-based calibration analysis (the classical Kalman-filter consistency check) to show shift-induced miscalibration is a noise-shape
-mismatch rather than a scale effect, independently confirmed via failed post-hoc recalibration and failed classical robust (Huber/Tukey) refitting.
-</li>
-                <li>Identified a reproducible 13% RMSE improvement over the strongest non-learned baseline specifically under sensor-reliability-signal
-corruption and spoofing, and validated all core findings across two independent implementations (hand-derived NumPy backpropagation and
-PyTorch autograd).
-</li>
+                <li>Built a five-method baseline ladder (fixed WLS, a non-learned adaptive heuristic that uses the sensors' self-reported quality, learned fusion, a learned per-sensor uncertainty model, and an oracle-variance reference) under a 5-seed protocol with fixed evaluation sets. The learned uncertainty model is a near-tie with the heuristic (mean RMSE 0.705 vs 0.701), and a variance-shuffling ablation shows its predicted variances carry real information (uncertainty–error correlation Pearson r = 0.73, Spearman ρ = 0.74).</li>
+                <li>Tested two attempts to beat the heuristic, a cross-sensor residual feature and Huber/Tukey robust reweighting, and reported both as negative results.</li>
+                <li>Under severe corruption of the quality signal the learned model is less affected than the heuristic (RMSE 1.153 vs 1.328, about 13% lower), but fixed weighting is better than both (0.838); the explanation I propose (bounded predicted variance) is untested.</li>
+                <li>Showed with a NEES-based calibration analysis that calibration error rises about fivefold under variance-matched heavy-tailed noise (ECE 0.025 to 0.129) while predicted sharpness is unchanged, and that one moment-matched scalar recalibration does not fix it, consistent with a tail-shape mismatch.</li>
+                <li>NumPy implementation with hand-derived backpropagation, checked against finite differences, plus a PyTorch cross-check of the core model; code and a tagged release are public.</li>
               </ul>
             </details>
             <ul class="tech-tags">
