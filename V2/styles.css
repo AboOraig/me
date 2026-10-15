@@ -290,7 +290,7 @@ main {
 .intro-role {
   color: var(--accent);
   font-family: var(--font-heading);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .intro-statement {
@@ -334,7 +334,7 @@ main {
 .updates time {
   flex: 0 0 7rem;
   padding-top: 0.2em;
-  color: var(--text-muted);
+  color: var(--accent);
   font-family: var(--font-mono);
   font-size: var(--fs-small);
 }
