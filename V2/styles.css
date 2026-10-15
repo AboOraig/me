@@ -1,0 +1,398 @@
+/* ============================================
+   TOKENS
+   One background, one surface, one accent.
+   ============================================ */
+:root {
+  color-scheme: dark;
+
+  /* Color */
+  --bg: #0a1424;
+  --surface: #132747;
+  --border: rgba(148, 163, 184, 0.22);
+  --text: #f5f7fa;
+  --text-muted: #a3b0c7;
+  --accent: #4fd1c5;
+  --accent-soft: rgba(79, 209, 197, 0.14);
+
+  /* Type */
+  --font-heading: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.075rem);
+  --fs-small: 0.875rem;
+  --fs-h1: clamp(1.9rem, 1.5rem + 1.8vw, 2.75rem);
+  --fs-h2: clamp(1.25rem, 1.12rem + 0.6vw, 1.5rem);
+
+  /* Spacing */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --space-4: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  --space-5: clamp(3.5rem, 3rem + 2.5vw, 5rem);
+
+  /* Layout: one width for every page, so the header never shifts between pages */
+  --measure: 56rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --radius: 6px;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-padding-top: 5rem; /* keeps anchor targets clear of the sticky header */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+
+p {
+  max-width: 68ch;
+  color: var(--text-muted);
+}
+
+p + p {
+  margin-top: var(--space-1);
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.container {
+  width: min(var(--measure), 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+main {
+  padding-bottom: var(--space-4);
+}
+
+/* ============================================
+   HEADER & NAV
+   ============================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding-block: 0.85rem;
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding-block: 0.25rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* ============================================
+   SHARED PAGE PATTERNS
+   ============================================ */
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-4) 0;
+}
+
+.page-header p {
+  flex-basis: 100%;
+}
+
+.page-section {
+  padding-top: var(--space-4);
+}
+
+.page-section > h2 {
+  margin-bottom: var(--space-2);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+.link-row a {
+  color: var(--text);
+  text-decoration-color: var(--border);
+}
+
+.link-row a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Temporary: marks where content still has to be written. Delete the class as each block is filled. */
+.placeholder {
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+}
+
+/* ============================================
+   HOME
+   ============================================ */
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding-block: var(--space-4) var(--space-2);
+}
+
+.portrait {
+  width: clamp(7.5rem, 20vw, 10rem);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.intro-text {
+  flex: 1 1 20rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.intro-role {
+  color: var(--accent);
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
+.intro-statement {
+  color: var(--text);
+}
+
+.interests {
+  display: grid;
+  gap: var(--space-1);
+  max-width: 68ch;
+}
+
+.interests li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--text-muted);
+}
+
+.interests li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 0.5rem;
+  height: 2px;
+  background: var(--accent);
+}
+
+.interests strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.updates li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem var(--space-2);
+  padding-block: 0.4rem;
+}
+
+.updates time {
+  flex: 0 0 7rem;
+  padding-top: 0.2em;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+.updates span {
+  flex: 1 1 18rem;
+  max-width: 68ch;
+}
+
+/* ============================================
+   ICONS (inline SVG sprite, see the top of each page)
+   ============================================ */
+.icon {
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+  fill: currentColor;
+}
+
+.link-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* Icon-only variant (footer): the link carries aria-label, and padding makes the tap target about 40px */
+.link-row--icons {
+  gap: 0;
+  margin-right: -0.5rem;
+}
+
+.link-row--icons a {
+  padding: 0.5rem;
+}
+
+.link-row--icons .icon {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.brand span {
+  color: var(--accent);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding-block: var(--space-3);
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-2);
+}
