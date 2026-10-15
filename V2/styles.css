@@ -581,3 +581,79 @@ main {
 .form-note.error {
   color: var(--danger);
 }
+
+
+/* ============================================
+   CV ENTRIES
+   One pattern for Education, Experience, Awards, Leadership:
+   date column on the left, title + institution + one detail line on the right.
+   ============================================ */
+.cv-list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.cv-entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem var(--space-3);
+}
+
+.cv-date {
+  flex: 0 0 7rem;
+  padding-top: 0.2em;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+.cv-date time {
+  display: block;
+}
+
+.cv-date time:first-child {
+  color: var(--text-muted);
+}
+
+.cv-date time:last-child {
+  color: var(--accent);
+}
+
+.cv-body {
+  flex: 1 1 20rem;
+  min-width: 0;
+}
+
+.cv-body h3 {
+  font-size: 1.05rem;
+}
+
+.cv-body h3 a {
+  color: inherit;
+  text-decoration-color: var(--border);
+}
+
+.cv-body h3 a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+/* Small arrow after links that open in a new tab. The empty alt text after the slash keeps screen readers quiet. */
+.cv-body h3 a[target="_blank"]::after {
+  content: "\2197";
+  content: "\2197" / "";
+  display: inline-block;
+  margin-left: 0.3em;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.cv-org {
+  margin-top: 0.15rem;
+}
+
+.cv-detail {
+  margin-top: 0.25rem;
+  font-size: var(--fs-small);
+  color: var(--accent);
+}
