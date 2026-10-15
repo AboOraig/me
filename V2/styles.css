@@ -396,3 +396,188 @@ main {
   justify-content: space-between;
   gap: var(--space-1) var(--space-2);
 }
+
+
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+
+
+:root {
+  --danger: #ff8f8f;
+}
+
+/* ---------- Primary button (also usable on other pages) ---------- */
+.button-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button-primary:hover {
+  background: #6fe3d8;
+  border-color: #6fe3d8;
+  color: var(--bg);
+}
+
+.button-primary:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* ---------- Contact page ---------- */
+.contact-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-4) var(--space-3);
+  padding-top: var(--space-4);
+}
+
+.contact-info {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.contact-info h2 {
+  margin-bottom: var(--space-2);
+}
+
+.contact-list {
+  display: grid;
+  gap: var(--space-1);
+  margin-block: var(--space-2);
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.contact-list .icon {
+  color: var(--accent);
+}
+
+.contact-list a {
+  color: var(--text);
+  text-decoration-color: var(--border);
+  overflow-wrap: anywhere;
+}
+
+.contact-list a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.response-note {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+/* ---------- Form ---------- */
+.contact-form {
+  flex: 1.5 1 22rem;
+  min-width: 0;
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.form-group textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible {
+  border-color: var(--accent);
+  outline-offset: 1px;
+}
+
+.form-group [aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.field-error {
+  display: block;
+  min-height: 1.2em;
+  margin-top: 0.3rem;
+  color: var(--danger);
+  font-size: 0.8rem;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-form .button-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.btn-spinner {
+  display: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(10, 20, 36, 0.35);
+  border-top-color: var(--bg);
+  border-radius: 50%;
+  animation: spin-btn 0.7s linear infinite;
+}
+
+.button-primary.loading .btn-spinner {
+  display: inline-block;
+}
+
+@keyframes spin-btn {
+  to { transform: rotate(360deg); }
+}
+
+.form-note {
+  min-height: 1.4em;
+  font-size: 0.9rem;
+}
+
+.form-note.success {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.form-note.error {
+  color: var(--danger);
+}
