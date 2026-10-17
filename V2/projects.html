@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects — Mohammed ABO ORAIG</title>
-  <meta name="description" content="Selected research and engineering projects by Mohammed ABO ORAIG: signal processing, remote sensing, machine learning and optimization.">
+  <meta name="description" content="Projects by Mohammed ABO ORAIG: a research study on uncertainty-aware multimodal inference, industry work on trajectory reconstruction and passive acoustic detection, and projects in machine learning, optimization, signal processing and remote sensing.">
   <meta name="theme-color" content="#0a1424">
   <link rel="icon" type="image/jpeg" href="src/top.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@
 
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="index.html" aria-label="Mohammed ABO ORAIG, home">MAO<span>.</span></a>
+      <a class="brand" href="index.html">MAO<span>.</span></a>
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -52,27 +52,333 @@
     <div class="container">
       <header class="page-header">
         <h1>Projects</h1>
-        <p class="placeholder">[One-line introduction to the work on this page]</p>
+        <p>Estimation and learning from noisy, heterogeneous data: a research study, two industry internships, and smaller projects.</p>
       </header>
-
-      <section class="page-section" id="methods-tools">
-        <h2>Methods and tools</h2>
-        <p class="placeholder">[Curated skill badges move here as a compact strip]</p>
-      </section>
 
       <section class="page-section" id="featured">
         <h2>Featured work</h2>
-        <p class="placeholder">[CLS trajectory reconstruction and OSEAN acoustic detection, as large cards with the employer context tag]</p>
+        <ul class="cv-list">
+          <li class="cv-entry" id="project-sensor-trust">
+            <p class="cv-date"><time datetime="2026-07">Jul 2026</time> <time datetime="2026-09">Sep 2026</time></p>
+            <div class="cv-body">
+              <h3><a href="https://github.com/AboOraig/uncertainty-multimodal-inference" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Uncertainty-Aware Multimodal Inference under Sensor Degradation">Uncertainty-Aware Multimodal Inference under Sensor Degradation</a></h3>
+              <p class="cv-more"></p>
+              <!-- <p class="cv-org">Research project</p> -->
+              <p class="cv-detail">A controlled synthetic study of multimodal state estimation from three heterogeneous sensors under noise, bias faults, dropout, heavy-tailed noise, correlated multi-sensor failure, quality-signal corruption and deceptive sensors.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Built a five-method baseline ladder (fixed WLS, a non-learned adaptive heuristic that uses the sensors' self-reported quality, learned fusion, a learned per-sensor uncertainty model, and an oracle-variance reference) under a 5-seed protocol with fixed evaluation sets. The learned uncertainty model is a near-tie with the heuristic (mean RMSE 0.705 vs 0.701), and a variance-shuffling ablation shows its predicted variances carry real information (uncertainty–error correlation Pearson r = 0.73, Spearman ρ = 0.74).</li>
+                    <li>Tested two attempts to beat the heuristic, a cross-sensor residual feature and Huber/Tukey robust reweighting, and reported both as negative results.</li>
+                    <li>Under severe corruption of the quality signal the learned model is less affected than the heuristic (RMSE 1.153 vs 1.328, about 13% lower), but fixed weighting is better than both (0.838); the explanation I propose (bounded predicted variance) is untested.</li>
+                    <li>Showed with a NEES-based calibration analysis that calibration error rises about fivefold under variance-matched heavy-tailed noise (ECE 0.025 to 0.129) while predicted sharpness is unchanged, and that one moment-matched scalar recalibration does not fix it, consistent with a tail-shape mismatch.</li>
+                    <li>NumPy implementation with hand-derived backpropagation, checked against finite differences, plus a PyTorch cross-check of the core model; code and a tagged release are public.</li>
+                  </ul>
+                </details>
+              <div class="figure-strip" tabindex="0" role="group" aria-label="Figures: Uncertainty-Aware Multimodal Inference under Sensor Degradation">
+                <img src="../src/project120.png" alt="Figure 1 of 11 from the uncertainty-aware multimodal inference study" decoding="async">
+                <img src="../src/project121.png" alt="Figure 2 of 11 from the uncertainty-aware multimodal inference study" loading="lazy" decoding="async">
+                <img src="../src/project122.png" alt="Figure 3 of 11 from the uncertainty-aware multimodal inference study" loading="lazy" decoding="async">
+                <img src="../src/project123.png" alt="Figure 4 of 11 from the uncertainty-aware multimodal inference study" loading="lazy" decoding="async">
+                <img src="../src/project124.png" alt="Figure 5 of 11 from the uncertainty-aware multimodal inference study" loading="lazy" decoding="async">
+                <img src="../src/project125.png" alt="Figure 6 of 11 from the uncertainty-aware multimodal inference study" loading="lazy" decoding="async">
+                <img src="../src/project126.png" alt="Figure 7 of 11 from the uncertainty-aware multimodal inference study" loading="lazy" decoding="async">
+                <img src="../src/project127.png" alt="Figure 8 of 11 from the uncertainty-aware multimodal inference study" loading="lazy" decoding="async">
+                <img src="../src/project128.png" alt="Figure 9 of 11 from the uncertainty-aware multimodal inference study" loading="lazy" decoding="async">
+                <img src="../src/project129.png" alt="Figure 10 of 11 from the uncertainty-aware multimodal inference study" loading="lazy" decoding="async">
+                <img src="../src/project1200.png" alt="Figure 11 of 11 from the uncertainty-aware multimodal inference study" loading="lazy" decoding="async">
+              </div>
+              <ul class="proj-tags"><li>Python</li><li>PyTorch</li></ul>
+            </div>
+          </li>
+
+          <li class="cv-entry" id="project-trajectory">
+            <p class="cv-date"><time datetime="2026-03">Mar 2026</time> <time datetime="2026-08">Aug 2026</time></p>
+            <div class="cv-body">
+              <h3>Multi-Source Trajectory Reconstruction</h3>
+              <!-- <p class="cv-org">Research internship at CLS (Collecte Localisation Satellites), Toulouse, France</p> -->
+              <p class="cv-detail">Trajectory reconstruction and state estimation for maritime surveillance, fusing heterogeneous satellite and positioning data.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Combined heterogeneous SAR, RF, VMS and satellite-AIS observations, with different levels of precision and availability, into a unified pipeline.</li>
+                    <li>Built Python pipelines for large-scale numerical and geospatial data processing.</li>
+                    <li>Defined performance and robustness evaluation protocols in an operational R&amp;D environment.</li>
+                  </ul>
+                </details>
+              <div class="figure-strip" tabindex="0" role="group" aria-label="Figures: Multi-Source Trajectory Reconstruction">
+                <img src="../src/project17.png" alt="Trajectory reconstruction dashboard" loading="lazy" decoding="async">
+                <img src="../src/project15.png" alt="Multi-source satellite data overlay" loading="lazy" decoding="async">
+                <img src="../src/project16.png" alt="Trajectory reconstruction results" loading="lazy" decoding="async">
+                <img src="../src/project10.png" alt="Trajectory reconstruction dashboard, alternate view" loading="lazy" decoding="async">
+                <img src="../src/project11.png" alt="Multi-source satellite data overlay, alternate view" loading="lazy" decoding="async">
+                <img src="../src/project12.png" alt="Trajectory reconstruction results, alternate view" loading="lazy" decoding="async">
+                <img src="../src/project14.png" alt="Trajectory reconstruction results, detail" loading="lazy" decoding="async">
+              </div>
+              <ul class="proj-tags"><li>Python</li><li>NumPy</li><li>SciPy</li><li>Pandas</li><li>QGIS</li><li>GDAL</li></ul>
+            </div>
+          </li>
+
+          <li class="cv-entry" id="project-acoustic">
+            <p class="cv-date"><time datetime="2025-04">Apr 2025</time> <time datetime="2025-08">Aug 2025</time></p>
+            <div class="cv-body">
+              <h3>Statistical Signal Processing for Passive Acoustic Detection</h3>
+              <!-- <p class="cv-org">R&amp;D internship at OSEAN Technology, Le Pradet, France</p> -->
+              <p class="cv-detail">Statistical signal-processing and ML methods for detecting and classifying marine-mammal vocalizations in noisy real-world acoustic data.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Compared spectral and time-frequency features, PCA, SVM, LSTM, and stochastic matched-filtering methods.</li>
+                    <li>Evaluated robustness under noise, limited labeled data, and class imbalance — up to 85% F1-score.</li>
+                    <li>Optimized detectors for embedded constraints: short windowing, low latency, low power consumption.</li>
+                    <li>Designed a parallel multi-band detector processing continuous audio streams in real time.</li>
+                  </ul>
+                </details>
+              <div class="figure-strip" tabindex="0" role="group" aria-label="Figures: Statistical Signal Processing for Passive Acoustic Detection">
+                <img src="../src/project70.png" alt="Acoustic signal spectrogram" loading="lazy" decoding="async">
+                <img src="../src/project71.png" alt="Acoustic feature extraction" loading="lazy" decoding="async">
+                <img src="../src/project72.png" alt="Acoustic classifier results" loading="lazy" decoding="async">
+                <img src="../src/project73.png" alt="Acoustic detection pipeline" loading="lazy" decoding="async">
+                <img src="../src/project74.png" alt="Acoustic embedded implementation" loading="lazy" decoding="async">
+                <img src="../src/project75.png" alt="Acoustic detection performance" loading="lazy" decoding="async">
+              </div>
+              <ul class="proj-tags"><li>Python</li><li>MATLAB</li><li>LSTM</li><li>SVM</li><li>PCA</li></ul>
+            </div>
+          </li>
+        </ul>
       </section>
 
-      <section class="page-section" id="all-projects">
-        <h2>All projects</h2>
-        <p class="placeholder">[Filter bar and project cards: machine learning, signal processing, remote sensing, optimization, data science, each with an optional GitHub link]</p>
+      <section class="page-section" id="other-projects">
+        <h2>Other projects</h2>
+        <div class="proj-groups">
+          <div class="proj-group">
+            <h3 class="proj-field">Machine learning</h3>
+            <ul class="proj-list">
+              <li class="proj">
+                <div class="proj-head">
+                  <h4>Exemplar-Based Continual Learning for Image Classification</h4>
+                </div>
+                <p class="cv-detail">Studied learning under evolving, non-stationary data distributions — adaptation, robustness, and generalization with deep neural networks.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Implemented and compared EWC, iCaRL, A-GEM, and MIR in PyTorch.</li>
+                    <li>Investigated catastrophic forgetting and the trade-off between adapting to new data and retaining prior knowledge.</li>
+                    <li>Designed quantitative experiments evaluating adaptation, forgetting, and generalization across sequential learning scenarios.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>Avalanche</li></ul>
+              </li>
+
+              <li class="proj">
+                <div class="proj-head">
+                  <h4>Object Detection &amp; Segmentation — Cityscapes &amp; ISIC 2018</h4>
+                </div>
+                <p class="cv-detail">Development and comparison of object detection and semantic segmentation methods on urban scenes and medical images using deep learning.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Data preprocessing, assisted annotation, fine-tuning, and quantitative performance evaluation.</li>
+                    <li>Fine-tuned and evaluated CNN-based models, including YOLO and SAM, for visual recognition and image segmentation.</li>
+                    <li>Analyzed model robustness against noisy data and annotations.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>OpenCV</li><li>YOLO</li><li>SAM</li></ul>
+              </li>
+
+              <li class="proj">
+                <div class="proj-head">
+                  <h4><a href="https://github.com/AboOraig/latent-representations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Generative Deep Learning: Latent Representations &amp; Diffusion">Generative Deep Learning: Latent Representations &amp; Diffusion</a></h4>                
+                </div>
+                <p class="cv-detail">Explored generative modeling through learned latent representations and diffusion models.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Implemented a variational autoencoder (PyTorch) to learn compact latent representations of image data; analyzed the reconstruction-fidelity/dimensionality trade-off, finding diminishing returns above roughly 16–32 latent dimensions.</li>
+                    <li>Implemented a conditional diffusion model in latent space, with both ancestral and DDIM sampling and classifier-free guidance, to generate diverse samples under different conditioning variables.</li>
+                    <li>Analyzed the effect of latent-space dimensionality and conditioning strength on generation quality and sample diversity through controlled ablations over sampling steps, guidance scale, and sampler stochasticity.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>Diffusion Models</li></ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="proj-group">
+            <h3 class="proj-field">Optimization &amp; estimation</h3>
+            <ul class="proj-list">
+              <li class="proj">
+                <div class="proj-head">
+                  <h4><a href="https://github.com/AboOraig/mixed-integer-optimisation" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Mixed-Integer Optimization for EV Charging">Mixed-Integer Optimization for EV Charging</a></h4>                
+                </div>
+                <p class="cv-detail">Scheduling electric-vehicle charging under charger, time-window, and demand constraints as a resource-constrained optimization problem.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Formulated electric-vehicle charging allocation as a mixed-integer optimization problem (resource-constrained scheduling) with charger, time-window, and user-demand constraints; solved to global optimality using the open-source HiGHS solver, scaling to 100+ vehicles in under 0.1s.</li>
+                    <li>Analyzed trade-offs between energy cost, charging demand, and user waiting time, showing how resource availability (charger count) reshapes the achievable cost–waiting Pareto frontier.</li>
+                    <li>Extended the deterministic formulation to a two-stage stochastic optimization framework capturing uncertainty in vehicle arrival times and energy requirements; validated via out-of-sample testing that the stochastic policy outperforms a deterministic point-forecast policy (positive Value of the Stochastic Solution).</li>
+                    <li>Implemented the full framework in Python and evaluated nominal and uncertainty-aware solutions through computational experiments (scalability, cost–waiting trade-offs, out-of-sample policy comparison), producing reproducible results and visualizations.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>Optimization</li><li>Mixed-Integer Programming</li></ul>
+              </li>
+
+              <li class="proj">
+                <div class="proj-head">
+                  <h4><a href="https://github.com/AboOraig/learned-regularization" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Learned Regularization for Robust Image Reconstruction">Learned Regularization for Robust Image Reconstruction</a></h4>
+                </div>
+                <p class="cv-detail">Formulated sparse-view CT reconstruction as an inverse problem under noise, incomplete angular sampling, and forward-model uncertainty; built a differentiable sparse-view Radon operator with exact adjoint.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Integrated a noise-conditioned CNN denoiser as a learned prior into a Plug-and-Play proximal-gradient reconstruction framework, benchmarked against FBP, Tikhonov, and TV regularization with validation-tuned hyperparameters for every method.</li>
+                    <li>Evaluated reconstruction accuracy under varying noise levels, angular undersampling, and train-test distribution shifts using PSNR/SSIM with statistical testing, characterizing the trade-off between the learned prior's in-distribution expressiveness and its stability under distribution shift and forward-model mismatch.</li>
+                    <li>Showed the learned prior improves PSNR by up to 4 dB over TV under high noise or few projection angles (paired Wilcoxon, p&lt;0.001), but underperforms TV in the near-noiseless regime, and identified that its advantage narrows under forward-model mismatch and reverses under distribution shift, where it hallucinates in-distribution structure on out-of-domain inputs.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>scikit-image</li><li>NumPy/SciPy</li><li>Pandas</li><li>Matplotlib</li></ul>
+              </li>
+
+              <!---
+              <li class="proj">
+                <div class="proj-head">
+                  <h4><a href="https://github.com/AboOraig/acoustic-source-localization" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Acoustic Source Localization in Underwater Environments">Acoustic Source Localization in Underwater Environments</a></h4>
+                </div>
+                <p class="cv-detail">Developed multi-sensor source localization methods based on time-difference-of-arrival (TDOA) measurements and least-squares estimation.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Studied the impact of measurement noise and sensor uncertainty on localization accuracy and robustness through numerical experiments.</li>
+                    <li>Investigated multimodal signal information and estimation strategies for reliable localization under noisy observation conditions.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>Estimation</li><li>TDOA</li></ul>
+              </li>
+              -->
+            </ul>
+          </div>
+
+          <div class="proj-group">
+            <h3 class="proj-field">Signal processing</h3>
+            <ul class="proj-list">
+              <li class="proj">
+                <div class="proj-head">
+                  <h4><a href="https://github.com/AboOraig/underwater-acoustics" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Underwater Acoustic Analysis">Underwater Acoustic Analysis</a></h4>
+                </div>
+                <p class="cv-detail">Studied the propagation of acoustic waves in a water tank, based on time-domain measurements from a set of hydrophones.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Estimated the speed of sound propagation in water.</li>
+                    <li>Localized a fixed acoustic transmitter using hyperbolic localization based on a least-squares criterion.</li>
+                    <li>Localized a moving transmitter by exploiting the temporal evolution of received signals.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>MATLAB</li></ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="proj-group">
+            <h3 class="proj-field">Remote sensing</h3>
+            <ul class="proj-list">
+              <li class="proj">
+                <div class="proj-head">
+                  <h4>Vision-Language Retrieval for Remote Sensing</h4>
+                </div>
+                <p class="cv-detail">A multimodal pipeline aligning remote-sensing images and text in a shared embedding space for cross-modal retrieval.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Applied contrastive learning for cross-modal image–text retrieval.</li>
+                    <li>Evaluated both image-to-text and text-to-image retrieval directions.</li>
+                    <li>Studied generalization across heterogeneous remote-sensing scenes.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>Contrastive Learning</li></ul>
+              </li>
+
+              <li class="proj">
+                <div class="proj-head">
+                  <h4><a href="https://github.com/AboOraig/sentinel-multispectral-analysis" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Multisource Geospatial &amp; Remote Sensing Analysis">Multisource Geospatial &amp; Remote Sensing Analysis</a></h4>
+                </div>
+                <p class="cv-detail">Processed heterogeneous SAR and optical satellite imagery for spatial and environmental analysis.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Implemented remote-sensing case studies in optical and SAR image processing using Sentinel-1/2/3, Landsat~8, and Pléiades imagery, covering flood and wildfire mapping, land-cover classification, bathymetric retrieval, image fusion, floating-algae detection, and vessel counting.</li>
+                    <li>Developed Python pipelines for multispectral preprocessing, image analysis, classification, and geospatial processing using NumPy, OpenCV, and GDAL.</li>
+                    <li>Documented case studies in a technical paper on quantitative retrieval and classification from multi-sensor optical imagery, covering bathymetry, image fusion, spectral classification, and anomaly detection.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>GDAL</li><li>NumPy</li><li>OpenCV</li></ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="proj-group">
+            <h3 class="proj-field">Data science</h3>
+            <ul class="proj-list">
+              <li class="proj">
+                <div class="proj-head">
+                  <h4><a href="https://github.com/AboOraig/tennis-match-prediction" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: ATP Tennis Match Outcome Prediction">ATP Tennis Match Outcome Prediction</a></h4>
+                </div>
+                <p class="cv-detail">An end-to-end data science pipeline predicting professional tennis match outcomes, evaluated on realistic future data.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Data cleaning, temporal aggregation, and feature engineering.</li>
+                    <li>Logistic Regression and Random Forest models with feature-importance analysis.</li>
+                    <li>Trained on matches ≤2016, tested on 2017 — significant gain over baseline.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>Jupyter</li><li>Pandas</li><li>NumPy</li><li>Scikit-learn</li></ul>
+              </li>
+            </ul>
+          </div>
       </section>
 
-      <section class="page-section" id="earlier-projects">
-        <h2>Earlier projects</h2>
-        <p class="placeholder">[Smaller or older work, kept but de-emphasized]</p>
+      <section class="page-section" id="other-projects">
+        <h2>Earlier work</h2>
+        <div class="proj-groups">
+          <div class="proj-group">
+            <p class="cv-date"><time datetime="2022">2022</time> <time datetime="2024">2024</time></p>
+            <ul class="proj-list">
+              <li class="proj">
+                <div class="proj-head">
+                  <h4>Wearable Multi-Sensor Glove for Assistive Interaction</h4>
+                </div>
+                <p class="cv-detail">A wearable assistive device prototype combining ultrasonic and infrared sensing for real-time interaction.</p>
+                <ul class="proj-tags"><li>Arduino</li><li>Embedded Systems</li><li>Sensor Fusion</li><li>CATIA</li></ul>
+              </li>
+
+              <li class="proj">
+                <div class="proj-head">
+                  <h4>Water Leak Detection System</h4>
+                </div>
+                <p class="cv-detail">A team-built leak detection system with a companion Android app for real-time monitoring and mobile alerts.</p>
+                <ul class="proj-tags"><li>Arduino</li><li>Raspberry Pi</li><li>Android Studio</li><li>Firebase</li></ul>
+              </li>
+
+              <li class="proj">
+                <div class="proj-head">
+                  <h4>JPEG Compression GUI</h4>
+                </div>
+                <p class="cv-detail">A graphical interface for JPEG image compression, optimized with parallel processing.</p>
+                <ul class="proj-tags"><li>Python</li><li>Tkinter</li><li>OpenMPI</li></ul>
+              </li>
+
+              <li class="proj">
+                <div class="proj-head">
+                  <h4>Website Development</h4>
+                </div>
+                <p class="cv-detail">Several dynamic websites built end-to-end — functional front-end and back-end interfaces.</p>
+                <ul class="proj-tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>SQL</li></ul>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
     </div>
   </main>
@@ -82,8 +388,7 @@
       <p>© 2026 Mohammed ABO ORAIG</p>
       <ul class="link-row">
         <li><a href="mailto:m.abooraig@gmail.com" aria-label="Email" title="Email"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg></a></li>
-        <li><a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-linkedin"/></svg></a></li>
-        <li><a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-github"/></svg></a></li>
+        <li><a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-linkedin"/></svg></a></li>        <li><a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-github"/></svg></a></li>
       </ul>
     </div>
   </footer>

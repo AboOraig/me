@@ -667,8 +667,27 @@ main {
   text-decoration-color: var(--accent);
 }
 
+.proj-head h4 a {
+  color: inherit;
+  text-decoration-color: var(--border);
+}
+
+.proj-head h4 a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
 /* Small arrow after links that open in a new tab. The empty alt text after the slash keeps screen readers quiet. */
 .cv-body h3 a[target="_blank"]::after {
+  content: "\2197";
+  content: "\2197" / "";
+  display: inline-block;
+  margin-left: 0.3em;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.proj-head h4 a[target="_blank"]::after {
   content: "\2197";
   content: "\2197" / "";
   display: inline-block;
@@ -864,5 +883,187 @@ main {
 @media (prefers-reduced-motion: no-preference) {
   .ref-icon::after {
     transition: transform 0.2s ease, margin-top 0.2s ease;
+  }
+}
+
+
+/* ============================================
+   PROJECTS
+   Featured work reuses the CV entry (.cv-entry, .cv-date, .cv-body).
+   The other projects are grouped by field: field name in the date column,
+   projects in the text column, so everything starts at the same x as on the CV.
+   ============================================ */
+
+/* ---------- Figures: a strip you swipe or scroll sideways (no JavaScript) ---------- */
+.cv-body > .figure-strip {
+  margin-top: 0.9rem;
+}
+
+.figure-strip {
+  display: flex;
+  gap: var(--space-1);
+  padding-bottom: 0.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.figure-strip img {
+  flex: none;
+  width: auto;
+  min-width: 8rem;                      /* keeps an empty frame while a lazy image loads */
+  max-width: none;
+  height: clamp(11rem, 26vw, 15rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  scroll-snap-align: start;
+}
+
+/* ---------- Bullets use the same line length as the paragraphs above them ---------- */
+.cv-points {
+  font-size: 0.95rem;
+}
+
+/* ---------- Links under a featured project ---------- */
+.cv-more a + a {
+  margin-left: 1.25rem;
+}
+
+/* ---------- Tags: one quiet line of monospace text ---------- */
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.6rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+.proj-tags li:not(:last-child)::after {
+  content: "\00b7";
+  margin-left: 0.6rem;                  /* the dot stays with the tag before it when a line wraps */
+}
+
+.cv-body > .proj-tags {
+  margin-top: 0.6rem;
+}
+
+/* ---------- Other projects ---------- */
+.proj-groups {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.proj-group {
+  display: grid;
+  grid-template-columns: var(--date-w) minmax(0, 1fr);
+  column-gap: var(--date-gap);
+  align-items: baseline;
+}
+
+.proj-field {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--date-fs);
+  font-weight: 400;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.proj-list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.proj > * + * {
+  margin-top: 0.4rem;
+}
+
+.proj-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.1rem 1rem;
+}
+
+.proj h4 {
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.proj-head + * {
+  margin-top: 0.2rem;
+}
+
+.proj-code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+.proj-code::after {
+  content: "\2197";
+  content: "\2197" / "";
+  display: inline-block;
+  margin-left: 0.3em;
+}
+
+/* "Details" toggle: native <details>, no JavaScript */
+.proj > .proj-more,
+.proj > .proj-tags {
+  margin-top: 0.6rem;
+}
+
+.proj-more summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  list-style: none;
+  cursor: pointer;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+.proj-more summary::-webkit-details-marker {
+  display: none;                        /* Safari */
+}
+
+.proj-more summary::before {
+  content: "";
+  display: inline-block;
+  border-top: 0.3rem solid transparent;
+  border-bottom: 0.3rem solid transparent;
+  border-left: 0.45rem solid currentColor;
+}
+
+.proj-more[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.proj-more summary:hover {
+  text-decoration: underline;
+}
+
+.proj-more .cv-points {
+  margin-top: 0.6rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .proj-more summary::before {
+    transition: transform 0.15s ease;
+  }
+}
+
+/* Phones: the field name becomes a heading above its projects, so the text keeps its full width */
+@media (max-width: 36rem) {
+  .proj-group {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.75rem;
   }
 }
