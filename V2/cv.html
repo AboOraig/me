@@ -13,6 +13,25 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Icon sprite: identical on every page -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="icon-mail" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </g>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </symbol>
+    <symbol id="icon-orcid" viewBox="0 0 24 24">
+      <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/>
+    </symbol>
+  </svg>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -33,14 +52,14 @@
     <div class="container">
       <header class="page-header">
         <h1>Curriculum Vitae</h1>
-        <a class="button" href="CV_AboOraig.pdf" download>Download PDF</a>
+        <a class="button" href="CV_AboOraig.pdf" target="_blank" download>Download PDF</a>
       </header>
 
       <section class="page-section" id="education">
         <h2>Education</h2>
         <ul class="cv-list">
           <li class="cv-entry">
-            <p class="cv-date"><time datetime="2025-09">Sep 2025</time><time datetime="2026-09">Sep 2026</time></p>
+            <p class="cv-date"><time datetime="2025-09">Sep 2025</time> <time datetime="2026-09">Sep 2026</time></p>
             <div class="cv-body">
               <h3><a href="https://formations.univ-tln.fr/fr/offre-de-formation/master-XB/master-ingenierie-des-systemes-complexes-LO8RGPP1/master-ingenierie-des-systemes-complexes-parcours-vision-signal-trajectographie-et-automatique-LPZS1DK9.html" target="_blank" rel="noopener noreferrer">M.Sc. in Complex Systems Engineering (Signal, Vision &amp; Control)</a></h3>
               <p class="cv-org">Faculty of Science and Engineering, University of Toulon, France</p>
@@ -50,7 +69,7 @@
           </li>
 
           <li class="cv-entry">
-            <p class="cv-date"><time datetime="2024-09">Sep 2024</time><time datetime="2026-09">Sep 2026</time></p>
+            <p class="cv-date"><time datetime="2024-09">Sep 2024</time> <time datetime="2026-09">Sep 2026</time></p>
             <div class="cv-body">
               <h3><a href="https://formations.univ-tln.fr/fr/offre-de-formation/formation-d-ingenieur-FI/ingenieur-diplome-de-l-ecole-d-ingenieur-de-l-utln-LOBKDHGA/ingenieur-diplome-de-l-ecole-d-ingenieur-seatech-toulon-LOBKDHIL.html" target="_blank" rel="noopener noreferrer">Engineering Degree in Data Science &amp; Information Systems</a></h3>
               <p class="cv-org">SeaTech Engineering School, University of Toulon, France</p>
@@ -60,7 +79,7 @@
           </li>
 
           <li class="cv-entry">
-            <p class="cv-date"><time datetime="2022-06">Jun 2022</time><time datetime="2024-07">Jul 2024</time></p>
+            <p class="cv-date"><time datetime="2022-06">Jun 2022</time> <time datetime="2024-07">Jul 2024</time></p>
             <div class="cv-body">
               <h3><a href="https://fst-usmba.ac.ma/framework/uploads/2025/10/Flyer_FI_SICoM.pdf" target="_blank" rel="noopener noreferrer">Engineering Degree in Intelligent, Communicating and Mobile Systems</a></h3>
               <p class="cv-org">Faculty of Science and Technology, Sidi Mohamed Ben Abdellah University, Fez, Morocco</p>
@@ -118,20 +137,17 @@
           <li class="cv-entry">
             <p class="cv-date"><time datetime="2026">2026</time></p>
             <div class="cv-body">
-              <h3>Uncertainty-Aware Multimodal Inference under Sensor Degradation: A Controlled Study of Learned versus Heuristic Sensor Trust</h3>
-              <p class="cv-org"><strong>M. Abo Oraig</strong></p>
-              <p class="cv-detail"><span class="cv-tag">Preprint</span> arXiv:XXXX.XXXXX, 2026.</p>
-              <p class="cv-more"><a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noopener noreferrer">arxiv.org/abs/XXXX.XXXXX</a></p>
+              <p class="cv-pub">
+                M. Abo Oraig.
+                <strong>Uncertainty-Aware Multimodal Inference under Sensor Degradation: A Controlled Study of Learned versus Heuristic Sensor Trust.</strong>
+                <em>arXiv preprint</em>
+                <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noopener noreferrer">arXiv:XXXX.XXXXX</a>.
+              </p>
             </div>
           </li>
         </ul>
       </section>
-      
-      <section class="page-section" id="selected-projects">
-        <h2>Selected projects</h2>
-        <p class="placeholder">[One line per project, each linking to the Projects page]</p>
-      </section>
-
+            
       <section class="page-section" id="awards">
         <h2>Scholarships and awards</h2>
         <ul class="cv-list">
@@ -140,7 +156,9 @@
             <div class="cv-body">
               <h3>National Scholarship</h3>
               <p class="cv-org">Yemeni Ministry of Education</p>
-              <p class="cv-detail">Competitive scholarship awarded to top-ranking students nationwide. Value: $36,000.</p>
+              <ul class="cv-points">
+                <li>Competitive scholarship awarded to top-ranking students nationwide. Value: $36,000.</li>
+              </ul>
             </div>
           </li>
 
@@ -149,7 +167,9 @@
             <div class="cv-body">
               <h3>DAFI Scholarship</h3>
               <p class="cv-org">German government-funded</p>
-              <p class="cv-detail">Value: €6,000.</p>
+              <ul class="cv-points">
+                <li>Value: €6,000.</li>
+              </ul>
             </div>
           </li>
 
@@ -158,7 +178,9 @@
             <div class="cv-body">
               <h3>Morocco Youth Award, Third Place</h3>
               <p class="cv-org">National competition, Rabat, Morocco</p>
-              <p class="cv-detail">Team award with Dawam Injaz Junior Enterprise. Value: €5,000.</p>
+              <ul class="cv-points">
+                <li>Team award with Dawam Injaz Junior Enterprise. Value: €5,000.</li>
+              </ul>
             </div>
           </li>
 
@@ -167,7 +189,9 @@
             <div class="cv-body">
               <h3>Favorite Award</h3>
               <p class="cv-org">Company Program, national competition, Casablanca, Morocco</p>
-              <p class="cv-detail">Team award with Dawam Injaz Junior Enterprise. Value: €1,000.</p>
+              <ul class="cv-points">
+                <li>Team award with Dawam Injaz Junior Enterprise. Value: €1,000.</li>
+              </ul>
             </div>
           </li>
 
@@ -176,7 +200,9 @@
             <div class="cv-body">
               <h3>Best Junior Enterprise Award</h3>
               <p class="cv-org">Company Program, regional competition, Fez, Morocco</p>
-              <p class="cv-detail">Team award with Dawam Injaz Junior Enterprise. Value: €1,000.</p>
+              <ul class="cv-points">
+                <li>Team award with Dawam Injaz Junior Enterprise. Value: €1,000.</li>
+              </ul>
             </div>
           </li>
         </ul>
@@ -192,7 +218,7 @@
               <p class="cv-org">Arabic Wikipedia, volunteer</p>
               <!-- TODO: add a link to your Wikipedia user page or to the contributor statistics that show the "Top 25" rank, so the claim can be checked -->
               <ul class="cv-points">
-                <li><a href="https://ar.wikipedia.org/wiki/%D9%88%D9%8A%D9%83%D9%8A%D8%A8%D9%8A%D8%AF%D9%8A%D8%A7:%D8%AA%D9%82%D8%A7%D8%B1%D9%8A%D8%B1_%D9%82%D8%A7%D8%B9%D8%AF%D8%A9_%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA/%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%D9%8A%D9%86_%D8%AD%D8%B3%D8%A8_%D8%B9%D8%AF%D8%AF_%D8%A5%D9%86%D8%B4%D8%A7%D8%A1_%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84%D8%A7%D8%AA" target="_blank">Top 25 Arabic Wikipedia contributors by number of articles created.</a></li>
+                <li><a href="https://ar.wikipedia.org/wiki/%D9%88%D9%8A%D9%83%D9%8A%D8%A8%D9%8A%D8%AF%D9%8A%D8%A7:%D8%AA%D9%82%D8%A7%D8%B1%D9%8A%D8%B1_%D9%82%D8%A7%D8%B9%D8%AF%D8%A9_%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA/%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%D9%8A%D9%86_%D8%AD%D8%B3%D8%A8_%D8%B9%D8%AF%D8%AF_%D8%A5%D9%86%D8%B4%D8%A7%D8%A1_%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84%D8%A7%D8%AA" target="_blank" rel="noopener noreferrer">Top 25 Arabic Wikipedia contributors by number of articles created.</a></li>
                 <li>Contributed to over 4,500 articles through creation and editing, with a focus on accuracy, neutrality, and sourcing.</li>
               </ul>
             </div>
@@ -215,8 +241,7 @@
             <p class="cv-date"><time datetime="2023-10">Oct 2023</time> <time datetime="2024-06">Jun 2024</time></p>
             <div class="cv-body">
               <h3>Co-founder &amp; Secretary General</h3>
-              <p class="cv-org">Sicom Club</p>
-              <!-- TODO: add the university and city after "Sicom Club" -->
+              <p class="cv-org">Sicom Club, Faculty of Science and Technology, Fez, Morocco</p>
               <ul class="cv-points">
                 <li>Co-founded and helped lead a university club promoting peer learning, innovation, and student collaboration.</li>
               </ul>
@@ -263,7 +288,7 @@
 
       <section class="page-section" id="languages">
         <h2>Languages</h2>
-        <dl class="cv-rows">
+        <dl class="cv-rows cv-rows--languages">
           <div>
             <dt>Arabic</dt>
             <dd>Native.</dd>
@@ -286,7 +311,7 @@
           <li class="ref-item">
             <details class="ref-details">
               <summary class="ref-summary">
-                <span class="ref-date"><time datetime="2025">2025</time> <time datetime="2026">2026</time></span>
+                <span class="cv-date"><time datetime="2025">2025</time> <time datetime="2026">2026</time></span>
                 <span class="ref-title"><strong>Prof. Antoine Roueff</strong>&nbsp;— <span class="ref-inst">University of Toulon</span></span>
                 <span class="ref-icon" aria-hidden="true"></span>
               </summary>
@@ -299,7 +324,7 @@
           <li class="ref-item">
             <details class="ref-details">
               <summary class="ref-summary">
-                <span class="ref-date"><time datetime="2024">2024</time> <time datetime="2026">2026</time></span>
+                <span class="cv-date"><time datetime="2024">2024</time> <time datetime="2026">2026</time></span>
                 <span class="ref-title"><strong>Prof. Nadège Thirion-Moreau</strong>&nbsp;— <span class="ref-inst">SeaTech Engineering School</span></span>
                 <span class="ref-icon" aria-hidden="true"></span>
               </summary>
@@ -312,7 +337,7 @@
           <li class="ref-item">
             <details class="ref-details">
               <summary class="ref-summary">
-                <span class="ref-date"><time datetime="2026-03">Mar</time> <time datetime="2026-08">Aug 2026</time></span>
+                <span class="cv-date"><time datetime="2026-03">Mar 2026</time> <time datetime="2026-08">Aug 2026</time></span>
                 <span class="ref-title"><strong>Cédric Dulau</strong>&nbsp;— <span class="ref-inst">CLS (Collecte Localisation Satellites)</span></span>
                 <span class="ref-icon" aria-hidden="true"></span>
               </summary>
@@ -325,7 +350,7 @@
           <li class="ref-item">
             <details class="ref-details">
               <summary class="ref-summary">
-                <span class="ref-date"><time datetime="2024">2024</time> <time datetime="2026">2026</time></span>
+                <span class="cv-date"><time datetime="2024">2024</time> <time datetime="2026">2026</time></span>
                 <span class="ref-title"><strong>Prof. Bernard Xerri</strong>&nbsp;— <span class="ref-inst">SeaTech Engineering School</span></span>
                 <span class="ref-icon" aria-hidden="true"></span>
               </summary>
@@ -338,8 +363,8 @@
           <li class="ref-item">
             <details class="ref-details">
               <summary class="ref-summary">
-                <span class="ref-date"><time datetime="2025-04">Apr</time> <time datetime="2025-08">Aug 2025</time></span>
-                <span class="ref-title"><strong>Romain Verfaillie</strong>&nbsp;— <span class="ref-inst">OSEAN SAS</span></span>
+                <span class="cv-date"><time datetime="2025-04">Apr 2025</time> <time datetime="2025-08">Aug 2025</time></span>
+                <span class="ref-title"><strong>Romain Verfaillie</strong>&nbsp;— <span class="ref-inst">OSEAN Technology</span></span>
                 <span class="ref-icon" aria-hidden="true"></span>
               </summary>
               <div class="ref-content">
@@ -351,8 +376,8 @@
           <li class="ref-item">
             <details class="ref-details">
               <summary class="ref-summary">
-                <span class="ref-date"><time datetime="2022">2022</time> <time datetime="2024">2024</time></span>
-                <span class="ref-title"><strong>Prof. Hicham Ghennioui</strong>&nbsp;— <span class="ref-inst">FST Fez, Morocco</span></span>
+                <span class="cv-date"><time datetime="2022">2022</time> <time datetime="2024">2024</time></span>
+                <span class="ref-title"><strong>Prof. Hicham Ghennioui</strong>&nbsp;— <span class="ref-inst">FST Fez</span></span>
                 <span class="ref-icon" aria-hidden="true"></span>
               </summary>
               <div class="ref-content">
@@ -369,9 +394,8 @@
     <div class="container">
       <p>© 2026 Mohammed ABO ORAIG</p>
       <ul class="link-row">
-        <li><a href="mailto:m.abooraig@gmail.com">Email</a></li>
-        <li><a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        <li><a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="mailto:m.abooraig@gmail.com" aria-label="Email" title="Email"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg></a></li>
+        <li><a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-linkedin"/></svg></a></li>        <li><a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-github"/></svg></a></li>
       </ul>
     </div>
   </footer>

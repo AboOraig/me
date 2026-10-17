@@ -584,58 +584,77 @@ main {
 
 
 /* ============================================
-   CV ENTRIES
-   One pattern for Education, Experience, Awards, Leadership:
-   date column on the left, title + institution + one detail line on the right.
+   CV
+   Every section uses the same pattern: a date column on the left,
+   then a title, an organisation line and optional details.
+
+   Three text sizes only:
+     title  1.05rem  heading font, 600, --text
+     text   0.95rem  body font, --text-muted
+                     (organisation, details, bullets, row values, reference notes)
+     meta   0.875rem mono, 0.8rem on phones
+                     (dates, links, tags)
+
+   Dates: start date in the accent colour, end date below it in muted.
    ============================================ */
-.cv-list,
-.ref-list {
-  --date-w: 7rem;
+.page-section {
+  --date-w: 7rem;                       /* date column; narrower on phones, never stacked above the text */
   --date-gap: var(--space-3);
   --date-fs: var(--fs-small);
 }
 
 @media (max-width: 36rem) {
-  .cv-list,
-  .ref-list {
-    --date-w: 5.25rem;
+  .page-section {
+    --date-w: 5rem;
     --date-gap: 1rem;
     --date-fs: 0.8rem;
   }
+}
+
+/* ---------- Entries ---------- */
+.cv-list {
+  display: grid;
+  gap: var(--space-3);                  /* space between entries */
 }
 
 .cv-entry {
   display: grid;
   grid-template-columns: var(--date-w) minmax(0, 1fr);
   column-gap: var(--date-gap);
+  align-items: baseline;                /* date and title share one baseline */
 }
 
+/* ---------- Dates (every section, including References) ---------- */
 .cv-date {
-  padding-top: 0.2em;
+  display: block;
   color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: var(--date-fs);
+  line-height: 1.5;
   white-space: nowrap;
 }
 
-.cv-date time {
-  display: block;
+.cv-date > * {
+  display: block;                       /* <time> or <span>, one per line */
 }
 
-.cv-date time:first-child {
-  color: var(--text-muted);
+.cv-date > :first-child {
+  color: var(--accent);                 /* start date (or the only date) */
 }
 
-.cv-date time:last-child {
-  color: var(--accent);
-}
-
+/* ---------- Body: title, organisation, details ---------- */
 .cv-body {
   min-width: 0;
 }
 
-.cv-body h3 {
+.cv-body h3,
+.cv-rows dt,
+.ref-title strong {
+  color: var(--text);
+  font-family: var(--font-heading);
   font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .cv-body h3 a {
@@ -658,29 +677,46 @@ main {
   font-weight: 400;
 }
 
-.cv-org {
-  margin-top: 0.15rem;
+.cv-org,
+.cv-detail,
+.cv-points li,
+.cv-rows dd,
+.ref-title,
+.ref-content {
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
-.cv-detail {
-  margin-top: 0.25rem;
-  font-size: var(--fs-small);
-  color: var(--accent);
+.cv-org strong,
+.ref-content strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
-/* ---------- CV entries: bullet points and related-project link (Experience, Leadership) ---------- */
+/* Vertical rhythm inside an entry */
+.cv-body > * + * {
+  margin-top: 0.4rem;
+}
+
+.cv-body > h3 + * {
+  margin-top: 0.2rem;                   /* organisation sits close under its title */
+}
+
+.cv-body > .cv-points,
+.cv-body > .cv-more {
+  margin-top: 0.6rem;
+}
+
+/* ---------- Bullet points and related-project link ---------- */
 .cv-points {
   display: grid;
-  gap: 0.3rem;
+  gap: 0.4rem;
   max-width: 68ch;
-  margin-top: 0.5rem;
 }
 
 .cv-points li {
   position: relative;
   padding-left: 1.1rem;
-  color: var(--text-muted);
-  font-size: 0.95rem;
 }
 
 .cv-points li::before {
@@ -694,65 +730,65 @@ main {
 }
 
 .cv-more {
-  margin-top: 0.5rem;
   font-family: var(--font-mono);
   font-size: var(--fs-small);
 }
 
-/* ---------- Status tag (Preprint, Published, Under review, In preparation) ---------- */
-.cv-tag {
-  display: inline-block;
-  margin-right: 0.4rem;
-  padding: 0.05rem 0.55rem;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-}
-
-.cv-org strong {
-  color: var(--text);
-}
-
-
-/* ---------- Label / value rows (Technical skills, Languages) ---------- */
-.cv-rows {
-  display: grid;
-  gap: var(--space-2);
-}
-
-.cv-rows > div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.15rem var(--space-3);
-}
-
-.cv-rows dt {
-  flex: 0 0 13rem;
-  color: var(--text);
+/* ---------- Publications: one citation per entry ---------- */
+.cv-pub {
   font-size: 0.95rem;
+}
+
+.cv-pub strong {
+  color: var(--text);
   font-weight: 600;
 }
 
-.cv-rows dd {
-  flex: 1 1 20rem;
-  min-width: 0;
-  max-width: 68ch;
-  color: var(--text-muted);
-  font-size: 0.95rem;
+
+/* ---------- Label / value rows (Technical skills, Languages): same grid, label as the title ---------- */
+.cv-rows {
+  display: grid;
+  gap: var(--space-3);
 }
 
+.cv-rows > div {
+  display: grid;
+  grid-template-columns: var(--date-w) minmax(0, 1fr);
+  column-gap: var(--date-gap);
+}
+
+.cv-rows dt,
+.cv-rows dd {
+  grid-column: 2;
+}
+
+.cv-rows dd {
+  max-width: 68ch;
+  margin-top: 0.2rem;
+}
+
+
+.cv-rows--languages > div {
+  grid-template-columns: var(--date-w) minmax(0, 1fr);
+}
+
+.cv-rows--languages dt {
+  grid-column: 1;
+  font-weight: 600;
+}
+
+.cv-rows--languages dd {
+  grid-column: 2;
+  margin-top: 0;
+}
 
 /* ---------- Short note under a CV list ---------- */
 .cv-note {
   margin-top: var(--space-3);
-  font-size: var(--fs-small);
+  font-size: 0.95rem;
 }
 
-
-
-/* ---------- References: accordion rows ---------- */
+/* ---------- References: accordion rows, same columns as the entries ---------- */
 .ref-list {
   list-style: none;
   padding: 0;
@@ -772,11 +808,12 @@ main {
   list-style: none;
   cursor: pointer;
   user-select: none;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.5;
 }
 
 .ref-summary::-webkit-details-marker {
-  display: none;                      /* Safari */
+  display: none;                        /* Safari */
 }
 
 .ref-summary:focus-visible {
@@ -785,39 +822,20 @@ main {
   border-radius: 2px;
 }
 
-.ref-date {
-  display: flex;                      /* ignores the whitespace between the <time>s */
-  gap: 0.35em;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--date-fs);
-  white-space: nowrap;
-}
-
-.ref-date time + time::before {
-  content: "\2013";
-  margin-right: 0.35em;
-}
-
-.ref-title {
-  color: var(--text-muted);
-}
-
-.ref-title strong {
-  color: var(--text);
-  font-weight: 600;
+.ref-summary:hover .ref-title strong {
+  color: var(--accent);
 }
 
 .ref-inst {
-  display: inline-block;              /* wraps as one unit, never mid-name */
+  display: inline-block;                /* wraps as one unit, never mid-name */
 }
 
-/* Chevron: one line-height tall, so it sits on the first line of the name */
+/* Chevron: one line tall, so it sits on the first line of the name */
 .ref-icon {
   align-self: start;
   display: flex;
   align-items: center;
-  height: 1.6em;
+  height: 1.5em;
   padding-right: 0.2rem;
 }
 
@@ -825,15 +843,10 @@ main {
   content: "";
   width: 0.45rem;
   height: 0.45rem;
-  margin-top: -0.2rem;                /* optical centring of the "v" */
+  margin-top: -0.2rem;                  /* optical centring of the "v" */
   border-right: 2px solid var(--accent);
   border-bottom: 2px solid var(--accent);
   transform: rotate(45deg);
-}
-
-.ref-summary:hover .ref-icon::after,
-.ref-details[open] .ref-icon::after {
-  border-color: var(--accent);
 }
 
 .ref-details[open] .ref-icon::after {
@@ -846,17 +859,10 @@ main {
   margin: -0.25rem 0 0 calc(var(--date-w) + var(--date-gap));
   padding-bottom: 1rem;
   max-width: 68ch;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-.ref-content strong {
-  color: var(--text);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .ref-icon::after {
-    transition: transform 0.2s ease, border-color 0.2s ease, margin-top 0.2s ease;
+    transition: transform 0.2s ease, margin-top 0.2s ease;
   }
 }
-
