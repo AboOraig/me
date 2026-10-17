@@ -588,23 +588,34 @@ main {
    One pattern for Education, Experience, Awards, Leadership:
    date column on the left, title + institution + one detail line on the right.
    ============================================ */
-.cv-list {
-  display: grid;
-  gap: var(--space-3);
+.cv-list,
+.ref-list {
+  --date-w: 7rem;
+  --date-gap: var(--space-3);
+  --date-fs: var(--fs-small);
+}
+
+@media (max-width: 36rem) {
+  .cv-list,
+  .ref-list {
+    --date-w: 5.25rem;
+    --date-gap: 1rem;
+    --date-fs: 0.8rem;
+  }
 }
 
 .cv-entry {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem var(--space-3);
+  display: grid;
+  grid-template-columns: var(--date-w) minmax(0, 1fr);
+  column-gap: var(--date-gap);
 }
 
 .cv-date {
-  flex: 0 0 7rem;
   padding-top: 0.2em;
-  color: var(--accent);
+  color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: var(--fs-small);
+  font-size: var(--date-fs);
+  white-space: nowrap;
 }
 
 .cv-date time {
@@ -620,7 +631,6 @@ main {
 }
 
 .cv-body {
-  flex: 1 1 20rem;
   min-width: 0;
 }
 
@@ -704,3 +714,149 @@ main {
 .cv-org strong {
   color: var(--text);
 }
+
+
+/* ---------- Label / value rows (Technical skills, Languages) ---------- */
+.cv-rows {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.cv-rows > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem var(--space-3);
+}
+
+.cv-rows dt {
+  flex: 0 0 13rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.cv-rows dd {
+  flex: 1 1 20rem;
+  min-width: 0;
+  max-width: 68ch;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+
+/* ---------- Short note under a CV list ---------- */
+.cv-note {
+  margin-top: var(--space-3);
+  font-size: var(--fs-small);
+}
+
+
+
+/* ---------- References: accordion rows ---------- */
+.ref-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ref-item {
+  border-bottom: 1px solid var(--border);
+}
+
+/* The summary is the row: date | name and institution | chevron */
+.ref-summary {
+  display: grid;
+  grid-template-columns: var(--date-w) minmax(0, 1fr) auto;
+  column-gap: var(--date-gap);
+  align-items: baseline;
+  padding-block: 0.85rem;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.6;
+}
+
+.ref-summary::-webkit-details-marker {
+  display: none;                      /* Safari */
+}
+
+.ref-summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.ref-date {
+  display: flex;                      /* ignores the whitespace between the <time>s */
+  gap: 0.35em;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--date-fs);
+  white-space: nowrap;
+}
+
+.ref-date time + time::before {
+  content: "\2013";
+  margin-right: 0.35em;
+}
+
+.ref-title {
+  color: var(--text-muted);
+}
+
+.ref-title strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.ref-inst {
+  display: inline-block;              /* wraps as one unit, never mid-name */
+}
+
+/* Chevron: one line-height tall, so it sits on the first line of the name */
+.ref-icon {
+  align-self: start;
+  display: flex;
+  align-items: center;
+  height: 1.6em;
+  padding-right: 0.2rem;
+}
+
+.ref-icon::after {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-top: -0.2rem;                /* optical centring of the "v" */
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+.ref-summary:hover .ref-icon::after,
+.ref-details[open] .ref-icon::after {
+  border-color: var(--accent);
+}
+
+.ref-details[open] .ref-icon::after {
+  transform: rotate(-135deg);
+  margin-top: 0.2rem;
+}
+
+/* Expanded text starts exactly under the name */
+.ref-content {
+  margin: -0.25rem 0 0 calc(var(--date-w) + var(--date-gap));
+  padding-bottom: 1rem;
+  max-width: 68ch;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.ref-content strong {
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ref-icon::after {
+    transition: transform 0.2s ease, border-color 0.2s ease, margin-top 0.2s ease;
+  }
+}
+
