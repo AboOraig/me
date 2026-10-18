@@ -1067,3 +1067,322 @@ main {
     row-gap: 0.75rem;
   }
 }
+
+
+
+
+/* ============================================
+   HOME: SENSOR-FUSION DEMO  (append to styles.css)
+   Colours were checked on the dark surface: blue, amber and magenta stay
+   distinguishable under colour-vision deficiency, and every sensor also has
+   its own shape (diamond, square, triangle).
+   ============================================ */
+.demo {
+  --demo-a: #3987e5;                       /* sensor A: blue, diamond */
+  --demo-b: #c98500;                       /* sensor B: amber, square */
+  --demo-c: #d55181;                       /* sensor C: magenta, triangle */
+  --demo-plot: #0e1c34;
+  --demo-grid: rgba(148, 163, 184, 0.09);
+  --demo-track: rgba(148, 163, 184, 0.16);
+}
+
+.demo[hidden] {
+  display: none;
+}
+
+.demo-canvas {
+  display: block;
+  width: 100%;
+  height: clamp(15rem, 40vw, 22rem);
+  margin-top: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--demo-plot);
+  cursor: crosshair;
+  touch-action: pan-y;                     /* vertical swipes still scroll the page */
+}
+
+/* ---------- Legend ---------- */
+.demo-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.demo-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.demo-glyph {
+  display: inline-block;
+  flex: none;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--demo-color, currentColor);
+}
+
+.demo-glyph--a { --demo-color: var(--demo-a); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.demo-glyph--b { --demo-color: var(--demo-b); }
+.demo-glyph--c { --demo-color: var(--demo-c); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+
+.demo-glyph--target {
+  background: none;
+  border: 1.5px solid var(--text);
+  border-radius: 50%;
+}
+
+.demo-glyph--est {
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.demo-glyph--plain {
+  position: relative;
+  background: none;
+}
+
+.demo-glyph--plain::before,
+.demo-glyph--plain::after {
+  content: '';
+  position: absolute;
+  inset: 50% -0.05rem auto;
+  height: 2px;
+  background: var(--text-muted);
+  transform: rotate(45deg);
+}
+
+.demo-glyph--plain::after {
+  transform: rotate(-45deg);
+}
+
+/* ---------- Buttons and select ---------- */
+.demo-btn,
+.demo-fault select {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.demo-btn:hover,
+.demo-fault select:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.demo-fault select {
+  background: var(--bg);
+}
+
+@media (pointer: coarse) {
+  .demo-btn,
+  .demo-fault select {
+    min-height: 2.75rem;
+  }
+}
+
+/* ---------- Sensor cards ---------- */
+.demo-sensors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.demo-sensor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease;
+}
+
+.demo-sensor[data-demo-sensor='a'] { --demo-color: var(--demo-a); }
+.demo-sensor[data-demo-sensor='b'] { --demo-color: var(--demo-b); }
+.demo-sensor[data-demo-sensor='c'] { --demo-color: var(--demo-c); }
+
+.demo-sensor.is-broken {
+  border-color: var(--danger, #ff8f8f);
+}
+
+.demo-sensor-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.demo-sensor-head .demo-glyph {
+  align-self: center;
+}
+
+.demo-sensor h3 {
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.demo-sensor .demo-btn {
+  min-width: 4.75rem;
+}
+
+.demo-sensor-note {
+  min-width: 0;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+.demo-meter-row {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.demo-meter {
+  position: relative;
+  flex: 1;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--demo-track);
+  overflow: hidden;
+}
+
+.demo-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--w, 0) * 100%);
+  border-radius: inherit;
+  background: var(--demo-color);
+  transition: width 0.25s linear;
+}
+
+.demo-pct {
+  min-width: 5.5ch;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ---------- Controls and read-outs ---------- */
+.demo-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.demo-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.demo-fault {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+.demo-errors {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.demo-errors dt {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+.demo-errors dd {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--accent);
+}
+
+.demo-errors div:first-child dd {
+  color: var(--accent);
+}
+
+.demo-status {
+  min-height: calc(2 * 1.65em);            /* reserved, so the page does not jump */
+  margin-top: var(--space-2);
+  font-size: var(--fs-small);
+}
+
+.demo-note {
+  margin-top: var(--space-1);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 48rem) {
+  .demo-sensors {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+
+  .demo-sensor {
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .demo-foot {
+    gap: var(--space-2);
+  }
+
+  .demo-controls,
+  .demo-errors {
+    width: 100%;
+  }
+
+  .demo-controls {
+    justify-content: space-between;
+  }
+
+  .demo-errors {
+    justify-content: space-between;
+  }
+
+  .demo-status {
+    min-height: calc(3 * 1.65em);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-fill,
+  .demo-sensor,
+  .demo-btn {
+    transition: none;
+  }
+}
+
+@media print {
+  .demo {
+    display: none;
+  }
+}

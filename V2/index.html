@@ -68,6 +68,82 @@
     </section>
 
     <div class="container">
+
+      <!-- Sensor-fusion demo. Stays hidden unless sensor-demo.js runs, so it never shows as a dead box. -->
+      <section class="page-section demo" id="demo" aria-labelledby="demo-title" data-demo hidden>
+        <h2 id="demo-title">Try it: trusting noisy sensors</h2>
+        <p>Three sensors measure the same target, each with a different amount of noise. Steer the target with your pointer (or a finger), then break a sensor and watch the fused estimate hold its position while a plain average is pulled away.</p>
+
+        <canvas class="demo-canvas" data-demo-canvas role="img" aria-label="Toy demo. A target follows your pointer. Three noisy sensors measure it. The fused estimate and its uncertainty circle are drawn on top."></canvas>
+
+        <ul class="demo-legend" aria-label="Legend">
+          <li><i class="demo-glyph demo-glyph--target" aria-hidden="true"></i>Target</li>
+          <li><i class="demo-glyph demo-glyph--est" aria-hidden="true"></i>Fused estimate (halo: uncertainty)</li>
+          <li><i class="demo-glyph demo-glyph--plain" aria-hidden="true"></i>Plain average</li>
+        </ul>
+
+        <ul class="demo-sensors" aria-label="Sensors and the share of weight each one receives">
+          <li class="demo-sensor" data-demo-sensor="a">
+            <div class="demo-sensor-head">
+              <i class="demo-glyph demo-glyph--a" aria-hidden="true"></i>
+              <h3>Sensor A</h3>
+              <span class="demo-sensor-note">precise</span>
+            </div>
+            <button type="button" class="demo-btn" data-break aria-label="Break sensor A">Break</button>
+            <div class="demo-meter-row">
+              <span class="demo-meter" aria-hidden="true"><span class="demo-fill" data-fill></span></span>
+              <span class="demo-pct" data-pct>0%</span>
+            </div>
+          </li>
+          <li class="demo-sensor" data-demo-sensor="b">
+            <div class="demo-sensor-head">
+              <i class="demo-glyph demo-glyph--b" aria-hidden="true"></i>
+              <h3>Sensor B</h3>
+              <span class="demo-sensor-note">average</span>
+            </div>
+            <button type="button" class="demo-btn" data-break aria-label="Break sensor B">Break</button>
+            <div class="demo-meter-row">
+              <span class="demo-meter" aria-hidden="true"><span class="demo-fill" data-fill></span></span>
+              <span class="demo-pct" data-pct>0%</span>
+            </div>
+          </li>
+          <li class="demo-sensor" data-demo-sensor="c">
+            <div class="demo-sensor-head">
+              <i class="demo-glyph demo-glyph--c" aria-hidden="true"></i>
+              <h3>Sensor C</h3>
+              <span class="demo-sensor-note">noisy</span>
+            </div>
+            <button type="button" class="demo-btn" data-break aria-label="Break sensor C">Break</button>
+            <div class="demo-meter-row">
+              <span class="demo-meter" aria-hidden="true"><span class="demo-fill" data-fill></span></span>
+              <span class="demo-pct" data-pct>0%</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="demo-foot">
+          <div class="demo-controls">
+            <label class="demo-fault">Failure mode
+              <select data-demo-fault>
+                <option value="bias">Drift (bias)</option>
+                <option value="noise">Noise burst</option>
+                <option value="dropout">Dropout</option>
+              </select>
+            </label>
+            <button type="button" class="demo-btn" data-demo-pause aria-label="Pause the animation">Pause</button>
+          </div>
+          <dl class="demo-errors">
+            <div><dt>Error, fused estimate</dt><dd data-err="fused">&ndash;</dd></div>
+            <div><dt>Error, plain average</dt><dd data-err="plain">&ndash;</dd></div>
+          </dl>
+        </div>
+
+        <p class="demo-status" role="status" data-demo-status></p>
+        <p class="demo-note">A toy illustration, not my research method: a Kalman filter in which each sensor's weight depends on how well it agrees with the median of the three. It copes when one sensor fails; with two failing there is no majority left to catch the fault.</p>
+      </section>
+
+
+
     <!-- 
       <section class="page-section" id="research-interests">
         <h2>Research interests</h2>
@@ -101,5 +177,8 @@
       </ul>
     </div>
   </footer>
+
+  <script src="sensor-demo.js" defer></script>
+  
 </body>
 </html>
