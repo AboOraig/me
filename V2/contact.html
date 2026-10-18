@@ -6,7 +6,7 @@
   <title>Contact — Mohammed ABO ORAIG</title>
   <meta name="description" content="Get in touch with Mohammed ABO ORAIG about PhD opportunities, collaborations or research questions.">
   <meta name="theme-color" content="#0a1424">
-  <link rel="icon" type="image/jpeg" href="../src/top.jpg">
+  <link rel="icon" type="image/jpeg" href="src/top.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -53,12 +53,12 @@
     <div class="container">
       <header class="page-header">
         <h1>Contact</h1>
+        <p>Have a project, an opportunity, or just want to talk engineering? My inbox is open.</p>
       </header>
 
       <div class="contact-layout">
-        <div class="contact-info">
-          <h2>Let's connect</h2>
-          <p>Have a project, an opportunity, or just want to talk engineering? My inbox is open.</p>
+        <section class="page-section contact-info">
+          <h2>Email and profiles</h2>
           <ul class="contact-list">
             <li>
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg>
@@ -72,44 +72,54 @@
               <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-linkedin"/></svg>
               <a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mohammed-abo-oraig</a>
             </li>
+
+            <li>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-orcid"/></svg>
+              <a href="https://orcid.org/0009-0007-1928-8496" target="_blank" rel="noopener noreferrer">orcid.org/0009-0007-1928-8496</a>
+            </li>
+
           </ul>
           <p class="response-note">Usually replies within 1–2 days.</p>
-        </div>
+        </section>
 
-        <form class="contact-form" id="contact-form" action="https://formspree.io/f/xgaejkkl" method="POST" novalidate aria-label="Send me a message">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error">
-            <span class="field-error" id="name-error"></span>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error">
-            <span class="field-error" id="email-error"></span>
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required aria-describedby="subject-error">
-            <span class="field-error" id="subject-error"></span>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="3" required aria-describedby="message-error"></textarea>
-            <span class="field-error" id="message-error"></span>
-          </div>
+        <section class="page-section contact-form-section">
+          <h2 id="form-title">Send a message</h2>
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/xgaejkkl" method="POST" novalidate aria-labelledby="form-title">
+            <p class="form-hint">All fields are required.</p>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error">
+              <span class="field-error" id="name-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error">
+              <span class="field-error" id="email-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required aria-describedby="subject-error">
+              <span class="field-error" id="subject-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="3" required aria-describedby="message-error"></textarea>
+              <span class="field-error" id="message-error"></span>
+            </div>
 
-          <!-- Honeypot: hidden from real users, bots tend to fill every field -->
-          <div class="honeypot" aria-hidden="true">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
-          </div>
+            <!-- Honeypot: hidden from real users, bots tend to fill every field -->
+            <div class="honeypot" aria-hidden="true">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+            </div>
 
-          <button type="submit" id="submit-btn" class="button button-primary">
-            <span class="btn-label">Send message</span>
-            <span class="btn-spinner" aria-hidden="true"></span>
-          </button>
-          <p class="form-note" id="form-status" role="status" aria-live="polite"></p>
-        </form>
+            <button type="submit" id="submit-btn" class="button button-primary">
+              <span class="btn-label">Send message</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+            <p class="form-note" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
       </div>
     </div>
   </main>

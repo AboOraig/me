@@ -190,6 +190,22 @@ main {
   border-bottom-color: var(--accent);
 }
 
+/* Add right after the .site-nav rules in "HEADER & NAV":
+   with four items the header wraps onto two rows on 360px phones. */
+@media (max-width: 30rem) {
+  .site-header .container {
+    gap: 0.25rem 1rem;
+  }
+
+  .site-nav ul {
+    gap: 0.9rem;
+  }
+
+  .site-nav a {
+    font-size: 0.95rem;
+  }
+}
+
 /* ============================================
    SHARED PAGE PATTERNS
    ============================================ */
@@ -400,11 +416,12 @@ main {
 
 /* ============================================
    CONTACT PAGE
+   Same pattern as the CV and Projects pages: page header with a one-line
+   introduction, then sections that each start with an h2 and a rule.
    ============================================ */
-
-
 :root {
   --danger: #ff8f8f;
+  --accent-hover: #6fe3d8;
 }
 
 /* ---------- Primary button (also usable on other pages) ---------- */
@@ -417,8 +434,8 @@ main {
 }
 
 .button-primary:hover {
-  background: #6fe3d8;
-  border-color: #6fe3d8;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
   color: var(--bg);
 }
 
@@ -427,13 +444,12 @@ main {
   cursor: not-allowed;
 }
 
-/* ---------- Contact page ---------- */
+/* ---------- Layout: two sections side by side, stacked on phones ---------- */
 .contact-layout {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: var(--space-4) var(--space-3);
-  padding-top: var(--space-4);
+  column-gap: var(--space-4);           /* the rows get their space from .page-section's padding-top */
 }
 
 .contact-info {
@@ -441,20 +457,23 @@ main {
   min-width: 0;
 }
 
-.contact-info h2 {
-  margin-bottom: var(--space-2);
+.contact-form-section {
+  flex: 1.6 1 22rem;
+  min-width: 0;
 }
 
+/* ---------- Email and profiles ---------- */
 .contact-list {
   display: grid;
-  gap: var(--space-1);
-  margin-block: var(--space-2);
+  gap: 0.25rem;
 }
 
 .contact-list li {
   display: flex;
   align-items: center;
   gap: 0.65rem;
+  font-family: var(--font-mono);       /* links are mono everywhere else on the site */
+  font-size: var(--fs-small);
 }
 
 .contact-list .icon {
@@ -462,6 +481,7 @@ main {
 }
 
 .contact-list a {
+  padding-block: 0.35rem;
   color: var(--text);
   text-decoration-color: var(--border);
   overflow-wrap: anywhere;
@@ -473,6 +493,7 @@ main {
 }
 
 .response-note {
+  margin-top: var(--space-2);
   color: var(--accent);
   font-family: var(--font-mono);
   font-size: var(--fs-small);
@@ -480,22 +501,21 @@ main {
 
 /* ---------- Form ---------- */
 .contact-form {
-  flex: 1.5 1 22rem;
-  min-width: 0;
   display: grid;
-  gap: var(--space-1);
-  padding: var(--space-3);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  gap: 0.6rem;
+}
+
+.form-hint {
+  margin-bottom: var(--space-1);
+  font-size: var(--fs-small);
 }
 
 .form-group label {
   display: block;
   margin-bottom: 0.4rem;
+  color: var(--text);
   font-size: var(--fs-small);
   font-weight: 600;
-  color: var(--text);
 }
 
 .form-group input,
@@ -504,13 +524,13 @@ main {
   padding: 0.7rem 0.85rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--bg);
+  background: var(--surface);
   color: var(--text);
   font: inherit;
 }
 
 .form-group textarea {
-  min-height: 7rem;
+  min-height: 8rem;
   resize: vertical;
 }
 
@@ -520,16 +540,23 @@ main {
   outline-offset: 1px;
 }
 
+/* Browser autofill would otherwise paint the fields white or yellow */
+.form-group input:-webkit-autofill {
+  -webkit-text-fill-color: var(--text);
+  caret-color: var(--text);
+  box-shadow: 0 0 0 100px var(--surface) inset;
+}
+
 .form-group [aria-invalid="true"] {
   border-color: var(--danger);
 }
 
 .field-error {
   display: block;
-  min-height: 1.2em;
+  min-height: 1.4em;                    /* reserved, so the form does not jump when an error appears */
   margin-top: 0.3rem;
   color: var(--danger);
-  font-size: 0.8rem;
+  font-size: var(--fs-small);
 }
 
 .honeypot {
@@ -545,9 +572,10 @@ main {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
+  justify-self: start;
+  min-width: 11rem;
+  margin-top: var(--space-1);
+  padding: 0.65rem 1.25rem;
 }
 
 .btn-spinner {
@@ -569,8 +597,9 @@ main {
 }
 
 .form-note {
-  min-height: 1.4em;
-  font-size: 0.9rem;
+  min-height: 1.6em;
+  margin-top: var(--space-1);
+  font-size: 0.95rem;
 }
 
 .form-note.success {
@@ -581,6 +610,29 @@ main {
 .form-note.error {
   color: var(--danger);
 }
+
+@media (max-width: 36rem) {
+  .contact-form .button-primary {
+    justify-self: stretch;              /* full-width tap target on phones */
+  }
+}
+
+@media (pointer: coarse) {
+  .contact-list a {
+    padding-block: 0.7rem;
+  }
+
+  .contact-form .button-primary {
+    min-height: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-spinner {
+    animation-duration: 2s;             /* slower, still shows that something is happening */
+  }
+}
+
 
 
 /* ============================================
