@@ -172,7 +172,7 @@
 
               <li class="proj">
                 <div class="proj-head">
-                  <h4>Object Detection &amp; Segmentation — Cityscapes &amp; ISIC 2018</h4>
+                  <h4><a href="https://github.com/AboOraig/image-segmentation" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Object Detection & Segmentation — Cityscapes & ISIC 2018">Object Detection & Segmentation — Cityscapes & ISIC 2018</a></h4>                
                 </div>
                 <p class="cv-detail">Development and comparison of object detection and semantic segmentation methods on urban scenes and medical images using deep learning.</p>
                 <details class="proj-more">
@@ -209,6 +209,22 @@
             <ul class="proj-list">
               <li class="proj">
                 <div class="proj-head">
+                  <h4><a href="https://github.com/AboOraig/learned-regularization" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Learned Regularization for Robust Image Reconstruction">Learned Regularization for Robust Image Reconstruction</a></h4>
+                </div>
+                <p class="cv-detail">Formulated sparse-view CT reconstruction as an inverse problem under noise, incomplete angular sampling, and forward-model uncertainty; built a differentiable sparse-view Radon operator with exact adjoint.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Integrated a noise-conditioned CNN denoiser as a learned prior into a Plug-and-Play proximal-gradient reconstruction framework, benchmarked against FBP, Tikhonov, and TV regularization with validation-tuned hyperparameters for every method.</li>
+                    <li>Evaluated reconstruction accuracy under varying noise levels, angular undersampling, and train-test distribution shifts using PSNR/SSIM with statistical testing, characterizing the trade-off between the learned prior's in-distribution expressiveness and its stability under distribution shift and forward-model mismatch.</li>
+                    <li>Showed the learned prior improves PSNR by up to 4 dB over TV under high noise or few projection angles (paired Wilcoxon, p&lt;0.001), but underperforms TV in the near-noiseless regime, and identified that its advantage narrows under forward-model mismatch and reverses under distribution shift, where it hallucinates in-distribution structure on out-of-domain inputs.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>scikit-image</li><li>NumPy/SciPy</li><li>Pandas</li><li>Matplotlib</li></ul>
+              </li>
+
+              <li class="proj">
+                <div class="proj-head">
                   <h4><a href="https://github.com/AboOraig/mixed-integer-optimisation" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Mixed-Integer Optimization for EV Charging">Mixed-Integer Optimization for EV Charging</a></h4>                
                 </div>
                 <p class="cv-detail">Scheduling electric-vehicle charging under charger, time-window, and demand constraints as a resource-constrained optimization problem.</p>
@@ -222,22 +238,6 @@
                   </ul>
                 </details>
                 <ul class="proj-tags"><li>Python</li><li>Optimization</li><li>Mixed-Integer Programming</li></ul>
-              </li>
-
-              <li class="proj">
-                <div class="proj-head">
-                  <h4><a href="https://github.com/AboOraig/learned-regularization" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Learned Regularization for Robust Image Reconstruction">Learned Regularization for Robust Image Reconstruction</a></h4>
-                </div>
-                <p class="cv-detail">Formulated sparse-view CT reconstruction as an inverse problem under noise, incomplete angular sampling, and forward-model uncertainty; built a differentiable sparse-view Radon operator with exact adjoint.</p>
-                <details class="proj-more">
-                  <summary>Details</summary>
-                  <ul class="cv-points">
-                    <li>Integrated a noise-conditioned CNN denoiser as a learned prior into a Plug-and-Play proximal-gradient reconstruction framework, benchmarked against FBP, Tikhonov, and TV regularization with validation-tuned hyperparameters for every method.</li>
-                    <li>Evaluated reconstruction accuracy under varying noise levels, angular undersampling, and train-test distribution shifts using PSNR/SSIM with statistical testing, characterizing the trade-off between the learned prior's in-distribution expressiveness and its stability under distribution shift and forward-model mismatch.</li>
-                    <li>Showed the learned prior improves PSNR by up to 4 dB over TV under high noise or few projection angles (paired Wilcoxon, p&lt;0.001), but underperforms TV in the near-noiseless regime, and identified that its advantage narrows under forward-model mismatch and reverses under distribution shift, where it hallucinates in-distribution structure on out-of-domain inputs.</li>
-                  </ul>
-                </details>
-                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>scikit-image</li><li>NumPy/SciPy</li><li>Pandas</li><li>Matplotlib</li></ul>
               </li>
 
               <!---
@@ -285,22 +285,6 @@
             <ul class="proj-list">
               <li class="proj">
                 <div class="proj-head">
-                  <h4>Vision-Language Retrieval for Remote Sensing</h4>
-                </div>
-                <p class="cv-detail">A multimodal pipeline aligning remote-sensing images and text in a shared embedding space for cross-modal retrieval.</p>
-                <details class="proj-more">
-                  <summary>Details</summary>
-                  <ul class="cv-points">
-                    <li>Applied contrastive learning for cross-modal image–text retrieval.</li>
-                    <li>Evaluated both image-to-text and text-to-image retrieval directions.</li>
-                    <li>Studied generalization across heterogeneous remote-sensing scenes.</li>
-                  </ul>
-                </details>
-                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>Contrastive Learning</li></ul>
-              </li>
-
-              <li class="proj">
-                <div class="proj-head">
                   <h4><a href="https://github.com/AboOraig/sentinel-multispectral-analysis" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Multisource Geospatial &amp; Remote Sensing Analysis">Multisource Geospatial &amp; Remote Sensing Analysis</a></h4>
                 </div>
                 <p class="cv-detail">Processed heterogeneous SAR and optical satellite imagery for spatial and environmental analysis.</p>
@@ -313,6 +297,22 @@
                   </ul>
                 </details>
                 <ul class="proj-tags"><li>Python</li><li>GDAL</li><li>NumPy</li><li>OpenCV</li></ul>
+              </li>
+
+              <li class="proj">
+                <div class="proj-head">
+                  <h4>Vision-Language Retrieval for Remote Sensing</h4>
+                </div>
+                <p class="cv-detail">A multimodal pipeline aligning remote-sensing images and text in a shared embedding space for cross-modal retrieval.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Applied contrastive learning for cross-modal image–text retrieval.</li>
+                    <li>Evaluated both image-to-text and text-to-image retrieval directions.</li>
+                    <li>Studied generalization across heterogeneous remote-sensing scenes.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>Contrastive Learning</li></ul>
               </li>
             </ul>
           </div>
