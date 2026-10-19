@@ -6,10 +6,19 @@
   <title>Projects — Mohammed ABO ORAIG</title>
   <meta name="description" content="Projects by Mohammed ABO ORAIG: a research study on uncertainty-aware multimodal inference, industry work on trajectory reconstruction and passive acoustic detection, and projects in machine learning, optimization, signal processing and remote sensing.">
   <meta name="theme-color" content="#0a1424">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mohammed ABO ORAIG">
+  <meta property="og:title" content="Projects — Mohammed ABO ORAIG">
+  <meta property="og:description" content="Research study on uncertainty-aware multimodal inference, plus industry work on trajectory reconstruction and passive acoustic detection.">
+  <meta property="og:image" content="https://abooraig.github.io/me/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mohammed ABO ORAIG. Signal, vision and machine learning. University of Toulon.">
+  <meta name="twitter:card" content="summary_large_image">  <link rel="icon" type="image/jpeg" href="../src/top.jpg">
   <link rel="icon" type="image/jpeg" href="src/top.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-mono-latin-500.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -36,7 +45,7 @@
 
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="index.html">MAO<span>.</span></a>
+      <a class="brand" href="index.html" aria-label="Mohammed ABO ORAIG, home">MAO<span>.</span></a>
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -62,7 +71,6 @@
             <p class="cv-date"><time datetime="2026-07">Jul 2026</time> <time datetime="2026-09">Sep 2026</time></p>
             <div class="cv-body">
               <h3><a href="https://github.com/AboOraig/uncertainty-multimodal-inference" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Uncertainty-Aware Multimodal Inference under Sensor Degradation">Uncertainty-Aware Multimodal Inference under Sensor Degradation</a></h3>
-              <p class="cv-more"></p>
               <!-- <p class="cv-org">Research project</p> -->
               <p class="cv-detail">A controlled synthetic study of multimodal state estimation from three heterogeneous sensors under noise, bias faults, dropout, heavy-tailed noise, correlated multi-sensor failure, quality-signal corruption and deceptive sensors.</p>
                 <details class="proj-more">
@@ -156,7 +164,7 @@
             <ul class="proj-list">
               <li class="proj">
                 <div class="proj-head">
-                  <h4><a href="https://github.com/AboOraig/exemplar-based-continual-learning" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Exemplar-Based Continual Learning for Image Classification &amp; Diffusion">Exemplar-Based Continual Learning for Image Classification</a></h4>                
+                  <h4><a href="https://github.com/AboOraig/exemplar-based-continual-learning" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Exemplar-Based Continual Learning for Image Classification">Exemplar-Based Continual Learning for Image Classification</a></h4>                
                 </div>
                 <p class="cv-detail">Studied learning under evolving, non-stationary data distributions — adaptation, robustness, and generalization with deep neural networks.</p>
                 <details class="proj-more">
@@ -291,7 +299,7 @@
                 <details class="proj-more">
                   <summary>Details</summary>
                   <ul class="cv-points">
-                    <li>Implemented remote-sensing case studies in optical and SAR image processing using Sentinel-1/2/3, Landsat~8, and Pléiades imagery, covering flood and wildfire mapping, land-cover classification, bathymetric retrieval, image fusion, floating-algae detection, and vessel counting.</li>
+                    <li>Implemented remote-sensing case studies in optical and SAR image processing using Sentinel-1/2/3, Landsat 8, and Pléiades imagery, covering flood and wildfire mapping, land-cover classification, bathymetric retrieval, image fusion, floating-algae detection, and vessel counting.</li>
                     <li>Developed Python pipelines for multispectral preprocessing, image analysis, classification, and geospatial processing using NumPy, OpenCV, and GDAL.</li>
                     <li>Documented case studies in a technical paper on quantitative retrieval and classification from multi-sensor optical imagery, covering bathymetry, image fusion, spectral classification, and anomaly detection.</li>
                   </ul>
@@ -337,9 +345,10 @@
               </li>
             </ul>
           </div>
+        </div>
       </section>
 
-      <section class="page-section" id="other-projects">
+      <section class="page-section" id="earlier-work">
         <h2>Earlier work</h2>
         <div class="proj-groups">
           <div class="proj-group">
@@ -386,7 +395,7 @@
   <footer class="site-footer">
     <div class="container">
       <p>© 2026 Mohammed ABO ORAIG</p>
-      <ul class="link-row">
+      <ul class="link-row link-row--icons">
         <li><a href="mailto:m.abooraig@gmail.com" aria-label="Email" title="Email"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg></a></li>
         <li><a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-linkedin"/></svg></a></li>        <li><a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-github"/></svg></a></li>
       </ul>
