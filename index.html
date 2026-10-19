@@ -3,1192 +3,188 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohammed ABO ORAIG — Engineering Student</title>
-  <meta name="description" content="Portfolio of Mohammed ABO ORAIG — M.Sc. student in Complex Systems Engineering (Signal, Vision and Control) and Data Science & Information Systems engineer.">
-  <link rel="icon" type="image/png" href="src/top.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>Mohammed ABO ORAIG</title>
+  <meta name="description" content="Mohammed ABO ORAIG: M.Sc. and engineering student in complex systems, signal processing, vision and data science at the University of Toulon.">
+  <meta name="theme-color" content="#0a1424">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mohammed ABO ORAIG">
+  <meta property="og:title" content="Mohammed ABO ORAIG: signal, vision and machine learning">
+  <meta property="og:description" content="Engineer in signal processing, vision and machine learning (M.Sc. and Engineering Degree, University of Toulon). Open to PhD positions.">
+  <meta property="og:image" content="https://abooraig.github.io/me/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mohammed ABO ORAIG. Signal, vision and machine learning. University of Toulon.">
+  <meta name="twitter:card" content="summary_large_image">  <link rel="icon" type="image/jpeg" href="assets/img/profile/top.jpg">
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-mono-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#home">Skip to content</a>
+  <!-- Icon sprite: defined once per page, drawn anywhere with <svg class="icon"><use href="#icon-NAME"/></svg>.
+       Brand glyphs are from Simple Icons (CC0). Copy this whole block to cv.html and projects.html. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="icon-mail" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </g>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </symbol>
+    <symbol id="icon-orcid" viewBox="0 0 24 24">
+      <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/>
+    </symbol>
+  </svg>
 
-  <!-- Two-part cursor: precise dot + responsive ring (desktop / non-touch only, see script.js) -->
-  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Scroll rail: signal-meter style progress + section wayfinding (desktop only) -->
-  <nav class="scroll-rail" aria-label="Page sections">
-    <div class="rail-track"><div class="rail-fill" id="rail-fill"></div></div>
-    <ul class="rail-dots">
-      <li><button data-rail-target="home" aria-label="Go to Home"><span class="rail-tick"></span><span class="rail-label">Home</span></button></li>
-      <li><button data-rail-target="skills" aria-label="Go to Skills"><span class="rail-tick"></span><span class="rail-label">Skills</span></button></li>
-      <li><button data-rail-target="projects" aria-label="Go to Projects"><span class="rail-tick"></span><span class="rail-label">Projects</span></button></li>
-      <li><button data-rail-target="about" aria-label="Go to About"><span class="rail-tick"></span><span class="rail-label">About</span></button></li>
-      <li><button data-rail-target="contact" aria-label="Go to Contact"><span class="rail-tick"></span><span class="rail-label">Contact</span></button></li>
-    </ul>
-  </nav>
-
-  <header>
-    <nav class="navbar">
-      <a class="brand" href="#home">MAO<span>.</span></a>
-
-      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <ul id="nav-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Mohammed ABO ORAIG, home">MAO<span>.</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-inner">
-        <div class="hero-text">
-          <h1 class="hero-headline" data-stage>
-            <span class="line">Hi, I'm Mohammed</span>
-            <img src="src/hand.png" alt="" class="waving-hand">
-          </h1>
-          <p class="role-line" data-stage>Data Engineering &amp; Complex Systems</p>
-          <p class="hero-lede" data-stage>
-            I'm pursuing an Engineering Degree in <strong>Data Science &amp; Information Systems</strong>
-            and an M.Sc. in <strong>Complex Systems Engineering (Signal, Vision and Control)</strong>.
-            I like building things that sense, process, and respond — from embedded sensors to full web apps.
-          </p>
-          <div class="buttons-container" data-stage>
-            <a href="#contact" class="button button-primary magnetic">
-              <img src="src/email.png" alt="" class="button-icon"> Contact me
-            </a>
-            <a href="#projects" class="button button-ghost magnetic">
-              <img src="src/rocket.png" alt="" class="button-icon"> My projects
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-photo" data-stage>
-          <div class="photo-circle">
-            <img src="src/photo.png" alt="Portrait of Mohammed ABO ORAIG">
-          </div>
-        </div>
-      </div>
-
-      <div class="social-rail">
-        <div class="rail-line" aria-hidden="true"></div>
-        <a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="magnetic">
-          <img class="icon" src="src/linkedin.png" alt="">
-        </a>
-        <a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="magnetic">
-          <img class="icon" src="src/github.png" alt="">
-        </a>
-        <a href="mailto:m.abooraig@gmail.com" aria-label="Send an email" class="magnetic">
-          <img class="icon" src="src/email3.png" alt="">
-        </a>
-      </div>
-
-      <a class="mouse-icon" href="#skills" aria-label="Scroll to skills">
-        <img src="src/mouse.png" alt="">
-      </a>
-
-      <!-- Single waveform divider -->
-      <svg class="waveform-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,30 Q60,4 120,30 T240,30 T360,30 T480,30 T600,30 T720,30 T840,30 T960,30 T1080,30 T1200,30 T1320,30 T1440,30 V60 H0 Z"/>
-      </svg>
-    </section>
-
-    <section id="skills">
-      <div class="section-head">
-        <h2>My Skills</h2>
-        <p class="skills-intro">A snapshot of my core toolkit — from numerical optimization and Bayesian estimation to deep learning and signal processing.</p>
-      </div>
-
-      <div class="skills-showcase">
-        <div class="skill-badge-group">
-          <p class="skill-group-label">Engineering &amp; Math</p>
-          <div class="skill-badges">
-
-            <div class="skill-badge" style="--badge-color:#E47C65" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/Optimization.png" alt="Optimization" loading="lazy"></span>
-              <span class="skill-badge-label">Optimization</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#E61309" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/Bayesian.png" alt="Bayesian Inference" loading="lazy"></span>
-              <span class="skill-badge-label">Bayesian Inference</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#4c7bf4" tabindex="0">
-              <span class="skill-badge-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-                  <line x1="5.5" y1="7" x2="10.5" y2="9"/>
-                  <line x1="5.5" y1="12" x2="10.5" y2="9"/>
-                  <line x1="5.5" y1="12" x2="10.5" y2="15"/>
-                  <line x1="5.5" y1="17" x2="10.5" y2="15"/>
-                  <line x1="13.5" y1="9" x2="18.5" y2="12"/>
-                  <line x1="13.5" y1="15" x2="18.5" y2="12"/>
-                  <circle cx="4" cy="7" r="1.6" fill="currentColor" stroke="none"/>
-                  <circle cx="4" cy="12" r="1.6" fill="currentColor" stroke="none"/>
-                  <circle cx="4" cy="17" r="1.6" fill="currentColor" stroke="none"/>
-                  <circle cx="12" cy="9" r="1.6" fill="currentColor" stroke="none"/>
-                  <circle cx="12" cy="15" r="1.6" fill="currentColor" stroke="none"/>
-                  <circle cx="20" cy="12" r="1.6" fill="currentColor" stroke="none"/>
-                </svg>
-              </span>
-              <span class="skill-badge-label">Machine Learning</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#11B5E3" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/CV.png" alt="Computer Vision" loading="lazy"></span>
-              <span class="skill-badge-label">Computer Vision</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#1DBACD" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/control.png" alt="Control Systems" loading="lazy"></span>
-              <span class="skill-badge-label">Control Systems</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#C7DFE6" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/signal2.png" alt="Signal Processing" loading="lazy"></span>
-              <span class="skill-badge-label">Signal Processing</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#AB38FF" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/image.png" alt="Image Processing" loading="lazy"></span>
-              <span class="skill-badge-label">Image Processing</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#9BC9FF" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/remote2.png" alt="Remote Sensing" loading="lazy"></span>
-              <span class="skill-badge-label">Remote Sensing</span>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="skill-badge-group">
-          <p class="skill-group-label">Languages &amp; Tools</p>
-          <div class="skill-badges">
-
-            <div class="skill-badge" style="--badge-color:#ffe870" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/Python-logo.png" alt="Python"></span>
-              <span class="skill-badge-label">Python</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#c35116" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/Matlab_Logo.png" alt="MATLAB"></span>
-              <span class="skill-badge-label">MATLAB</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#0047ab" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/C_Logo.png" alt="C"></span>
-              <span class="skill-badge-label">C</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#00599c" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/C++_Logo.png" alt="C++"></span>
-              <span class="skill-badge-label">C++</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#d02129" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/Java-Logo.png" alt="Java"></span>
-              <span class="skill-badge-label">Java</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#DB7533" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/SQL.png" alt="SQL"></span>
-              <span class="skill-badge-label">SQL</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#f05133" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/git_logo.png" alt="Git"></span>
-              <span class="skill-badge-label">Git</span>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="skill-badge-group">
-          <p class="skill-group-label">Python Ecosystem</p>
-          <div class="skill-badges">
-
-            <div class="skill-badge" style="--badge-color:#4dabcf" tabindex="0">
-              <span class="skill-badge-icon"><img src="src/numpy.png" alt="NumPy"></span>
-              <span class="skill-badge-label">NumPy</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#8caae6" tabindex="0">
-              <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/scipy" alt="SciPy"></span>
-              <span class="skill-badge-label">SciPy</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#e8a33d" tabindex="0">
-              <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas"></span>
-              <span class="skill-badge-label">Pandas</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#ee4c2c" tabindex="0">
-              <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/pytorch" alt="PyTorch"></span>
-              <span class="skill-badge-label">PyTorch</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#f89939" tabindex="0">
-              <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/scikitlearn" alt="Scikit-learn"></span>
-              <span class="skill-badge-label">Scikit-learn</span>
-            </div>
-
-            <div class="skill-badge" style="--badge-color:#5c3ee8" tabindex="0">
-              <span class="skill-badge-icon"><img src="https://cdn.simpleicons.org/opencv" alt="OpenCV"></span>
-              <span class="skill-badge-label">OpenCV</span>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Secondary tools, earlier project work but not the current focus -->
-      <details class="skills-secondary">
-        <summary>Also worked with (embedded &amp; web development)</summary>
-        <div class="skill-categories">
-          <div class="skill-category">
-            <h3>Embedded Systems</h3>
-            <div class="skill-icons">
-              <div class="tooltip skill-arduino" data-skill="Arduino" tabindex="0">
-                <img src="src/Arduino_Logo.png" alt="Arduino">
-              </div>
-              <div class="tooltip skill-raspberrypi" data-skill="Raspberry Pi" tabindex="0">
-                <img src="src/raspberrypi.png" alt="Raspberry Pi">
-              </div>
-              <div class="tooltip skill-stm32" data-skill="STM32" tabindex="0">
-                <img src="src/stm32.png" alt="STM32">
-              </div>
-              <div class="tooltip skill-arm" data-skill="ARM" tabindex="0">
-                <img src="src/arm.png" alt="ARM">
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3>Web Development</h3>
-            <div class="skill-icons">
-              <div class="tooltip skill-html" data-skill="HTML" tabindex="0">
-                <img src="src/HTML5_logo.png" alt="HTML">
-              </div>
-              <div class="tooltip skill-css" data-skill="CSS" tabindex="0">
-                <img src="src/CSS3_logo.png" alt="CSS">
-              </div>
-              <div class="tooltip skill-javascript" data-skill="JavaScript" tabindex="0">
-                <img src="src/JavaScript_logo.png" alt="JavaScript">
-              </div>
-              <div class="tooltip skill-php" data-skill="PHP" tabindex="0">
-                <img src="src/PHP-logo.png" alt="PHP">
-              </div>
-            </div>
-          </div>
-        </div>
-      </details>
-    </section>
-
-    <section id="projects">
-      <div class="section-head">
-        <h2>My Projects</h2>
-      </div>
-
-      <!-- Featured Work: the two projects tied to real internships, spotlighted -->
-      <div class="featured-work">
-        <article class="project-card" id="project-trajectory" data-category="ml">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/project17.png" alt="Trajectory reconstruction dashboard" class="active">
-              <img src="src/project15.png" alt="Multi-source satellite data overlay">
-              <img src="src/project16.png" alt="Trajectory reconstruction results">
-              <img src="src/project10.png" alt="Trajectory reconstruction dashboard, alternate view">
-              <img src="src/project11.png" alt="Multi-source satellite data overlay, alternate view">
-              <img src="src/project12.png" alt="Trajectory reconstruction results, alternate view">
-              <img src="src/project14.png" alt="Trajectory reconstruction results, detail">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-              <button class="dot" aria-label="Image 5"></button>
-              <button class="dot" aria-label="Image 6"></button>
-              <button class="dot" aria-label="Image 7"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <span class="spotlight-context">
-              <span class="context-company">CLS Group</span>
-              <span class="context-role">Signal &amp; Data Processing Engineer</span>
-            </span>
-            <h3>Multi-Source Trajectory Reconstruction</h3>
-            <p class="project-summary">Trajectory reconstruction and state estimation for maritime surveillance, fusing heterogeneous satellite and positioning data.</p>
-            <ul class="project-bullets">
-              <li>Combined SAR imagery, optical observations, and vessel positioning data (AIS, LRIT, VMS) into a unified pipeline.</li>
-              <li>Built Python pipelines for large-scale numerical and geospatial data processing.</li>
-              <li>Defined performance and robustness evaluation protocols in an operational R&amp;D environment.</li>
-            </ul>
-            <ul class="tech-tags">
-              <li>Python</li><li>NumPy</li><li>SciPy</li><li>Pandas</li><li>QGIS</li><li>GDAL</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" id="project-acoustic" data-category="ml">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/project70.png" alt="Acoustic signal spectrogram" class="active">
-              <img src="src/project71.png" alt="Acoustic feature extraction">
-              <img src="src/project72.png" alt="Acoustic classifier results">
-              <img src="src/project73.png" alt="Acoustic detection pipeline">
-              <img src="src/project74.png" alt="Acoustic embedded implementation">
-              <img src="src/project75.png" alt="Acoustic detection performance">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-              <button class="dot" aria-label="Image 5"></button>
-              <button class="dot" aria-label="Image 6"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <span class="spotlight-context">
-              <span class="context-company">OSEAN SAS</span>
-              <span class="context-role">Acoustic Signal Processing Engineer</span>
-            </span>
-            <h3>Statistical Signal Processing for Passive Acoustic Detection</h3>
-            <p class="project-summary">Statistical signal-processing and ML methods for detecting and classifying marine-mammal vocalizations in noisy real-world acoustic data.</p>
-            <ul class="project-bullets">
-              <li>Compared spectral and time-frequency features, PCA, SVM, LSTM, and stochastic matched-filtering methods.</li>
-              <li>Evaluated robustness under noise, limited labelled data, and class imbalance — up to 85% F1-score.</li>
-              <li>Optimized detectors for embedded constraints: short windowing, low latency, low power consumption.</li>
-              <li>Designed a parallel multi-band detector processing continuous audio streams in real time.</li>
-            </ul>
-            <ul class="tech-tags">
-              <li>Python</li><li>MATLAB</li><li>LSTM</li><li>SVM</li><li>PCA</li>
-            </ul>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- Filterable grid: the rest of the project work -->
-      <div class="project-filters" role="group" aria-label="Filter projects by category">
-        <button class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter-chip" data-filter="ml" aria-pressed="false">Machine Learning</button>
-        <button class="filter-chip" data-filter="signal" aria-pressed="false">Signal Processing</button>
-        <button class="filter-chip" data-filter="remote-sensing" aria-pressed="false">Remote Sensing</button>
-        <button class="filter-chip" data-filter="optimization" aria-pressed="false">Optimization & Estimation</button>
-        <button class="filter-chip" data-filter="data-science" aria-pressed="false">Data Science</button>
-      </div>
-
-      <div class="projects-grid">
-
-        <article class="project-card" data-category="ml">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/project20.png" alt="Continual learning experiment setup" class="active">
-              <img src="src/project21.png" alt="Continual learning results 1">
-              <img src="src/project22.png" alt="Continual learning results 2">
-              <img src="src/project23.png" alt="Continual learning results 3">
-              <img src="src/project24.png" alt="Continual learning results 4">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-              <button class="dot" aria-label="Image 5"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3>Exemplar-Based Continual Learning for Image Classification</h3>
-            <p class="project-summary">Studied learning under evolving, non-stationary data distributions — adaptation, robustness, and generalization with deep neural networks.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Implemented and compared EWC, iCaRL, A-GEM, and MIR in PyTorch.</li>
-                <li>Investigated catastrophic forgetting and the trade-off between adapting to new data and retaining prior knowledge.</li>
-                <li>Designed quantitative experiments evaluating adaptation, forgetting, and generalization across sequential learning scenarios.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>PyTorch</li><li>Avalanche</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="optimization">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/project120.png" alt="" class="active">
-              <img src="src/project121.png" alt="">
-              <img src="src/project122.png" alt="">
-              <img src="src/project123.png" alt="">
-              <img src="src/project124.png" alt="">
-              <img src="src/project125.png" alt="">
-              <img src="src/project126.png" alt="">
-              <img src="src/project127.png" alt="">
-              <img src="src/project128.png" alt="">
-              <img src="src/project129.png" alt="">
-              <img src="src/project1200.png" alt="">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-              <button class="dot" aria-label="Image 5"></button>
-              <button class="dot" aria-label="Image 6"></button>
-              <button class="dot" aria-label="Image 7"></button>
-              <button class="dot" aria-label="Image 8"></button>
-              <button class="dot" aria-label="Image 9"></button>
-              <button class="dot" aria-label="Image 10"></button>
-              <button class="dot" aria-label="Image 11"></button>
-            </div>
-          </div>
-          <div class="project-body">
-        
-            <div class="project-heading">
-              <h3>Uncertainty-Aware Multimodal Inference under Sensor Degradation</h3>
-              <a href="https://github.com/AboOraig/uncertainty-multimodal-inference" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="View source on GitHub" title="View source on GitHub">
-                <svg viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </a>
-            </div>
-           
-            <p class="project-summary">A controlled synthetic study of multimodal state estimation from three heterogeneous sensors under noise, bias faults, dropout, heavy-tailed noise, correlated multi-sensor failure, quality-signal corruption and deceptive sensors.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Built a five-method baseline ladder (fixed WLS, a non-learned adaptive heuristic that uses the sensors' self-reported quality, learned fusion, a learned per-sensor uncertainty model, and an oracle-variance reference) under a 5-seed protocol with fixed evaluation sets. The learned uncertainty model is a near-tie with the heuristic (mean RMSE 0.705 vs 0.701), and a variance-shuffling ablation shows its predicted variances carry real information (uncertainty–error correlation Pearson r = 0.73, Spearman ρ = 0.74).</li>
-                <li>Tested two attempts to beat the heuristic, a cross-sensor residual feature and Huber/Tukey robust reweighting, and reported both as negative results.</li>
-                <li>Under severe corruption of the quality signal the learned model is less affected than the heuristic (RMSE 1.153 vs 1.328, about 13% lower), but fixed weighting is better than both (0.838); the explanation I propose (bounded predicted variance) is untested.</li>
-                <li>Showed with a NEES-based calibration analysis that calibration error rises about fivefold under variance-matched heavy-tailed noise (ECE 0.025 to 0.129) while predicted sharpness is unchanged, and that one moment-matched scalar recalibration does not fix it, consistent with a tail-shape mismatch.</li>
-                <li>NumPy implementation with hand-derived backpropagation, checked against finite differences, plus a PyTorch cross-check of the core model; code and a tagged release are public.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>PyTorch</li>
-            </ul>
-          </div>
-        </article>
-  
-        <article class="project-card" data-category="ml">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/project30.png" alt="Cityscapes segmentation example" class="active">
-              <img src="src/project31.png" alt="Cityscapes detection example">
-              <img src="src/project32.png" alt="Cityscapes annotation example">
-              <img src="src/project33.png" alt="Cityscapes robustness analysis">
-              <img src="src/project34.png" alt="Cityscapes annotation example">
-              <img src="src/project35.png" alt="Cityscapes robustness analysis">
-              <img src="src/project36.png" alt="Cityscapes annotation example">
-              <img src="src/project37.png" alt="Cityscapes robustness analysis">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-              <button class="dot" aria-label="Image 5"></button>
-              <button class="dot" aria-label="Image 6"></button>
-              <button class="dot" aria-label="Image 7"></button>
-              <button class="dot" aria-label="Image 8"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-heading">
-              <h3>Object Detection &amp; Segmentation — Cityscapes & ISIC 2018</h3>
-            </div>
-            <p class="project-summary">Development and comparison of object detection and semantic segmentation methods on urban scenes and medical images using deep learning.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Data preprocessing, assisted annotation, fine-tuning, and quantitative performance evaluation.</li>
-                <li>Fine-tuned and evaluated CNN-based models, including YOLO and SAM, for visual recognition and image segmentation.</li>
-                <li>Analyzed model robustness against noisy data and annotations.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>PyTorch</li><li>OpenCV</li><li>YOLO</li><li>SAM</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="optimization">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/projectm1.png" alt="" class="active">
-              <img src="src/projectm2.png" alt="">
-              <img src="src/projectm3.png" alt="">
-              <img src="src/projectm4.png" alt="">
-              <img src="src/projectm5.png" alt="">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-              <button class="dot" aria-label="Image 5"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-heading">
-              <h3>Mixed-Integer Optimization for EV Charging</h3>
-              <a href="https://github.com/AboOraig/mixed-integer-optimisation" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="View source on GitHub" title="View source on GitHub">
-                <svg viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </a>
-            </div>
-            <p class="project-summary">Scheduling electric-vehicle charging under charger, time-window, and demand constraints as a resource-constrained optimization problem.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Formulated electric-vehicle charging allocation as a mixed-integer
-optimisation problem (resource-constrained scheduling) with charger,
-time-window, and user-demand constraints; solved to global optimality
-using the open-source HiGHS solver, scaling to 100+ vehicles in under
-0.1s.</li>
-                <li>Analysed trade-offs between energy cost, charging demand, and
-user waiting time, showing how resource availability (charger count)
-reshapes the achievable cost--waiting Pareto frontier.</li>
-                <li>Extended the deterministic formulation to a two-stage stochastic
-optimisation framework capturing uncertainty in vehicle arrival times
-and energy requirements; validated via out-of-sample testing that the
-stochastic policy outperforms a deterministic point-forecast policy
-(positive Value of the Stochastic Solution).</li>
-                <li>Implemented the full framework in Python and evaluated nominal
-and uncertainty-aware solutions through computational experiments
-(scalability, cost--waiting trade-offs, out-of-sample policy
-comparison), producing reproducible results and visualisations.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>Optimization</li><li>Mixed-Integer Programming</li>
-            </ul>
-          </div>
-        </article>
-       
-        <article class="project-card" data-category="ml">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/proj1.png" alt="" class="active">
-              <img src="src/proj2.png" alt="">
-              <img src="src/proj3.png" alt="">
-              <img src="src/proj4.png" alt="">
-              <img src="src/proj5.png" alt="">
-              <img src="src/proj6.png" alt="">
-              <img src="src/proj7.png" alt="">
-              <img src="src/proj8.png" alt="">
-              <img src="src/proj9.png" alt="">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-              <button class="dot" aria-label="Image 5"></button>
-              <button class="dot" aria-label="Image 6"></button>
-              <button class="dot" aria-label="Image 7"></button>
-              <button class="dot" aria-label="Image 8"></button>
-              <button class="dot" aria-label="Image 9"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-heading">
-              <h3>Generative Deep Learning: Latent Representations &amp; Diffusion</h3>
-              <a href="https://github.com/AboOraig/latent-representations" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="View source on GitHub" title="View source on GitHub">
-                <svg viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </a>
-            </div>
-            <p class="project-summary">Explored generative modelling through learned latent representations and diffusion models.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Implemented a variational autoencoder (PyTorch) to learn compact latent representations of image data; analysed the reconstruction-fidelity/dimensionality trade-off, finding diminishing returns above roughly 16--32 latent dimensions.</li>
-                <li>Implemented a conditional diffusion model in latent space, with both ancestral and DDIM sampling and classifier-free guidance, to generate diverse samples under different conditioning variables.</li>
-                <li>Analysed the effect of latent-space dimensionality and conditioning strength} on generation quality and sample diversity through controlled ablations over sampling steps, guidance scale, and sampler stochasticity.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>PyTorch</li><li>Diffusion Models</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="optimization">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/proji1.png" alt="" class="active">
-              <img src="src/proji2.png" alt="">
-              <img src="src/proji3.png" alt="">
-              <img src="src/proji4.png" alt="">
-              <img src="src/proji5.png" alt="">
-              <img src="src/proji6.png" alt="">
-              <img src="src/proji7.png" alt="">
-              <img src="src/proji8.png" alt="">
-              <img src="src/proji9.png" alt="">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-              <button class="dot" aria-label="Image 5"></button>
-              <button class="dot" aria-label="Image 6"></button>
-              <button class="dot" aria-label="Image 7"></button>
-              <button class="dot" aria-label="Image 8"></button>
-              <button class="dot" aria-label="Image 9"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-heading">
-            <h3>Learned Regularization for Robust Image Reconstruction</h3>
-              <a href="https://github.com/AboOraig/learned-regularization" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="View source on GitHub" title="View source on GitHub">
-                <svg viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </a>
-            </div>
-            <p class="project-summary">Formulated sparse-view CT reconstruction as an inverse problem under noise, incomplete angular sampling, and forward-model uncertainty; built a differentiable sparse-view Radon operator with exact adjoint.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Integrated a noise-conditioned CNN denoiser as a learned prior into a Plug-and-Play proximal-gradient reconstruction framework, benchmarked against FBP, Tikhonov, and TV regularization with validation-tuned hyperparameters for every method.</li>
-                <li>Evaluated reconstruction accuracy under varying noise levels, angular undersampling, and train-test distribution shifts using PSNR/SSIM with statistical testing, characterizing the trade-off between the learned prior's in-distribution expressiveness and its stability under distribution shift and forward-model mismatch.</li>
-                <li>Showed the learned prior improves PSNR by up to 4 dB over TV under high noise or few projection angles (paired Wilcoxon, p<0.001), but underperforms TV in the near-noiseless regime, and identified that its advantage narrows under forward-model mismatch and reverses under distribution shift, where it hallucinates in-distribution structure on out-of-domain inputs.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>PyTorch</li><li>scikit-image</li><li>NumPy/SciPy</li><li>Pandas</li><li>Matplotlib</li>
-            </ul>
-          </div>
-        </article>
-        
-        <article class="project-card" data-category="remote-sensing">
-          <div class="project-image no-image">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-              <circle cx="12" cy="14" r="4.5"/>
-              <ellipse cx="12" cy="14" rx="10" ry="4" transform="rotate(-20 12 14)"/>
-              <circle cx="20" cy="9" r="1.5" fill="currentColor" stroke="none"/>
-            </svg>
-            <span class="no-image-label">Visuals coming soon</span>
-          </div>
-          <div class="project-body">
-            <h3>Vision-Language Retrieval for Remote Sensing</h3>
-            <p class="project-summary">A multimodal pipeline aligning remote-sensing images and text in a shared embedding space for cross-modal retrieval.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Applied contrastive learning for cross-modal image–text retrieval.</li>
-                <li>Evaluated both image-to-text and text-to-image retrieval directions.</li>
-                <li>Studied generalization across heterogeneous remote-sensing scenes.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>PyTorch</li><li>Contrastive Learning</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="remote-sensing">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/project80.png" alt="Geospatial analysis workflow" class="active">
-              <img src="src/project81.png" alt="SAR imagery preprocessing">
-              <img src="src/project82.png" alt="Optical imagery alignment">
-              <img src="src/project83.png" alt="Feature extraction map">
-              <img src="src/project84.png" alt="Multimodal data integration">
-              <img src="src/project86.png" alt="Geospatial analysis result 1">
-              <img src="src/project87.png" alt="Geospatial analysis result 2">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-              <button class="dot" aria-label="Image 5"></button>
-              <button class="dot" aria-label="Image 6"></button>
-              <button class="dot" aria-label="Image 7"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-heading">
-              <h3>Multisource Geospatial &amp; Remote Sensing Analysis</h3>
-              <a href="https://github.com/AboOraig/sentinel-multispectral-analysis" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="View source on GitHub" title="View source on GitHub">
-                <svg viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </a>
-            </div>
-            <p class="project-summary">Processed heterogeneous SAR and optical satellite imagery for spatial and environmental analysis.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Built preprocessing workflows for image correction, alignment, and feature extraction.</li>
-                <li>Integrated multimodal satellite data sources into a unified analysis pipeline.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>GDAL</li><li>NumPy</li><li>OpenCV</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="data-science">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/project40.png" alt="Tennis match prediction pipeline" class="active">
-              <img src="src/project41.png" alt="Feature engineering results">
-              <img src="src/project42.png" alt="Model evaluation">
-              <img src="src/project43.png" alt="Feature importance analysis">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-heading">
-              <h3>ATP Tennis Match Outcome Prediction</h3>
-              <a href="https://github.com/AboOraig/tennis-match-prediction" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="View source on GitHub" title="View source on GitHub">
-                <svg viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </a>
-            </div>
-            <p class="project-summary">An end-to-end data science pipeline predicting professional tennis match outcomes, evaluated on realistic future data.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Data cleaning, temporal aggregation, and feature engineering.</li>
-                <li>Logistic Regression and Random Forest models with feature-importance analysis.</li>
-                <li>Trained on matches ≤2016, tested on 2017 — significant gain over baseline.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>Pandas</li><li>NumPy</li><li>Scikit-learn</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="signal">
-          <div class="project-image">
-            <div class="carousel-backdrop"></div>
-            <div class="carousel-track">
-              <img src="src/project100.png" alt="Underwater acoustic setup" class="active">
-              <img src="src/project101.png" alt="Sound speed estimation results">
-              <img src="src/project102.png" alt="Transmitter localization results">
-              <img src="src/project104.png" alt="Moving transmitter tracking results">
-            </div>
-            <div class="carousel-dots">
-              <button class="dot active" aria-label="Image 1"></button>
-              <button class="dot" aria-label="Image 2"></button>
-              <button class="dot" aria-label="Image 3"></button>
-              <button class="dot" aria-label="Image 4"></button>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-heading">
-            <h3>Underwater Acoustic Analysis</h3>
-              <a href="https://github.com/AboOraig/underwater-acoustics" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="View source on GitHub" title="View source on GitHub">
-                <svg viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </a>
-            </div>
-            <p class="project-summary">Studied the propagation of acoustic waves in a water tank, based on time-domain measurements from a set of hydrophones.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Estimated the speed of sound propagation in water.</li>
-                <li>Localized a fixed acoustic transmitter using hyperbolic localization based on a least-squares criterion.</li>
-                <li>Localized a moving transmitter by exploiting the temporal evolution of received signals.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>MATLAB</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="optimization">
-          <div class="project-image no-image">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 6c4 0 5 11 8 11s4-11 8-11"/>
-              <circle cx="12" cy="17" r="1.3" fill="currentColor" stroke="none"/>
-            </svg>
-            <span class="no-image-label">Visuals coming soon</span>
-          </div>
-
-          <div class="project-body">
-            <div class="project-heading">
-            <h3>Acoustic Source Localization in Underwater Environments</h3>
-              <a href="https://github.com/AboOraig/acoustic-source-localization" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="View source on GitHub" title="View source on GitHub">
-                <svg viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </a>
-            </div>
-            <p class="project-summary">Developed multi-sensor source localization methods based on time-difference-of-arrival (TDOA) measurements and least-squares estimation.</p>
-            <details class="project-details">
-              <summary>Read more</summary>
-              <ul class="project-bullets">
-                <li>Studied the impact of measurement noise and sensor uncertainty on localization accuracy and robustness through numerical experiments.</li>
-                <li>Investigated multimodal signal information and estimation strategies for reliable localization under noisy observation conditions.</li>
-              </ul>
-            </details>
-            <ul class="tech-tags">
-              <li>Python</li><li>Estimation</li><li>TDOA</li>
-            </ul>
-          </div>
-        </article>
-        
-      </div>
-
-      <p class="filter-empty" id="filter-empty" hidden>No projects in this category yet.</p>
-
-      <!-- Older / smaller projects, de-emphasized but not deleted -->
-      <details class="projects-secondary">
-        <summary>Earlier projects</summary>
-        <div class="secondary-grid">
-
-          <article class="project-card">
-            <div class="project-image">
-              <img src="src/project90.png" alt="Wearable assistive glove prototype" loading="lazy">
-            </div>
-            <div class="project-body">
-              <h3>Wearable Multi-Sensor Glove for Assistive Interaction</h3>
-              <p class="project-summary">A wearable assistive device prototype combining ultrasonic and infrared sensing for real-time interaction.</p>
-              <ul class="tech-tags">
-                <li>Arduino</li><li>Embedded Systems</li><li>Sensor Fusion</li><li>CATIA</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">
-              <div class="carousel-backdrop"></div>
-              <div class="carousel-track">
-                <img src="src/project60.png" alt="Water leak detection dashboard" class="active">
-                <img src="src/project61.png" alt="Water leak mobile app">
-              </div>
-              <div class="carousel-dots">
-                <button class="dot active" aria-label="Image 1"></button>
-                <button class="dot" aria-label="Image 2"></button>
-              </div>
-            </div>
-            <div class="project-body">
-              <h3>Water Leak Detection System</h3>
-              <p class="project-summary">A team-built leak detection system with a companion Android app for real-time monitoring and mobile alerts.</p>
-              <ul class="tech-tags">
-                <li>Arduino</li><li>Raspberry Pi</li><li>Android Studio</li><li>Firebase</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">
-              <img src="src/project2.png" alt="Screenshot of the JPEG compression GUI" loading="lazy">
-            </div>
-            <div class="project-body">
-              <h3>JPEG Compression GUI</h3>
-              <p class="project-summary">A graphical interface for JPEG image compression, optimized with parallel processing.</p>
-              <ul class="tech-tags">
-                <li>Python</li><li>Tkinter</li><li>OpenMPI</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">
-              <img src="src/project3.png" alt="Screenshot of a website development project" loading="lazy">
-            </div>
-            <div class="project-body">
-              <h3>Website Development</h3>
-              <p class="project-summary">Several dynamic websites built end-to-end — functional front-end and back-end interfaces.</p>
-              <ul class="tech-tags">
-                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>SQL</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </details>
-    </section>
-
-    <section id="about">
-      <div class="section-head">
-        <h2>My Background</h2>
-      </div>
-
-      <div class="about-container">
-        <div class="about-panel">
-          <div class="about-tabs" role="tablist" aria-label="Background category">
-            <span class="tab-indicator" id="tab-indicator" aria-hidden="true"></span>
-            <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="academic" id="tab-academic">Academic</button>
-            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="experience" id="tab-experience">Experience</button>
-            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="prizes" id="tab-prizes">Prizes</button>
-          </div>
-
-          <div class="about-cards">
-            <div class="card active" id="academic" role="tabpanel" aria-labelledby="tab-academic">
-              <p>
-                <a class="degree-link" href="https://formations.univ-tln.fr/fr/offre-de-formation/formation-d-ingenieur-FI/ingenieur-diplome-de-l-ecole-d-ingenieur-de-l-utln-LOBKDHGA/ingenieur-diplome-de-l-ecole-d-ingenieur-seatech-toulon-LOBKDHIL.html" target="_blank" rel="noopener noreferrer">
-                  <strong>Engineering Degree — Data Science &amp; Information Systems</strong>
-                  <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                </a><br>
-                SeaTech Engineering School, University of Toulon (double-degree program)<br>
-                <span class="meta"><span>Sep 2026</span><span>Toulon, France</span></span>
-              </p>
-              <p>
-                <a class="degree-link" href="https://formations.univ-tln.fr/fr/offre-de-formation/master-XB/master-ingenierie-des-systemes-complexes-LO8RGPP1/master-ingenierie-des-systemes-complexes-parcours-vision-signal-trajectographie-et-automatique-LPZS1DK9.html" target="_blank" rel="noopener noreferrer">
-                  <strong>M.Sc. — Complex Systems Engineering (Signal, Vision and Control)</strong>
-                  <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                </a><br>
-                Faculty of Science and Engineering, University of Toulon (double-degree program)<br>
-                <span class="meta"><span>Sep 2026</span><span>Toulon, France</span></span>
-              </p>
-              <p>
-                <a class="degree-link" href="https://fst-usmba.ac.ma/framework/uploads/2025/10/Flyer_FI_SICoM.pdf" target="_blank" rel="noopener noreferrer">
-                  <strong>Engineering Degree — Intelligent, Communicating and Mobile Systems</strong>
-                  <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                </a><br>
-                Faculty of Science and Technology, Sidi Mohamed Ben Abdellah University (double-degree program)<br>
-                <span class="meta"><span>Jun 2024</span><span>Fez, Morocco</span></span>
-              </p>
-            </div>
-
-            <div class="card" id="experience" role="tabpanel" aria-labelledby="tab-experience" hidden>
-              <ol class="timeline">
-                <li class="timeline-item">
-                  <span class="timeline-dot"></span>
-                  <div class="timeline-content">
-                    <div class="timeline-heading">
-                      <strong>Signal &amp; Data Processing Engineer</strong>
-                      <span class="timeline-company">CLS (Collecte Localisation Satellites)</span>
-                    </div>
-                    <span class="meta"><span>Mar 2026 – Sep 2026</span><span>Toulouse, France</span></span>
-                    <p>Developed trajectory reconstruction and state-estimation methods for maritime surveillance, fusing SAR, optical, and AIS/LRIT/VMS data into operational Python pipelines.</p>
-                    <a class="project-jump" href="#project-trajectory">See related project</a>
-                  </div>
-                </li>
-
-                <li class="timeline-item">
-                  <span class="timeline-dot"></span>
-                  <div class="timeline-content">
-                    <div class="timeline-heading">
-                      <strong>Acoustic Signal Processing Engineer</strong>
-                      <span class="timeline-company">OSEAN SAS</span>
-                    </div>
-                    <span class="meta"><span>Apr 2025 – Aug 2025</span><span>Le Pradet, France</span></span>
-                    <p>Designed statistical signal-processing and ML methods to detect and classify marine-mammal vocalizations in real-world acoustic data, reaching up to 85% F1-score.</p>
-                    <a class="project-jump" href="#project-acoustic">See related project</a>
-                  </div>
-                </li>
-
-                <li class="timeline-item">
-                  <span class="timeline-dot"></span>
-                  <div class="timeline-content">
-                    <div class="timeline-heading">
-                      <strong>President</strong>
-                      <span class="timeline-company">Dawam Injaz</span>
-                    </div>
-                    <span class="meta"><span>Feb 2024 – Sep 2024</span><span>Fez, Morocco</span></span>
-                    <p>Led a team of 30 engineering students building an online platform connecting individuals, recycling centers, and artists for recyclable-material exchange.</p>
-                  </div>
-                </li>
-
-                <li class="timeline-item">
-                  <span class="timeline-dot"></span>
-                  <div class="timeline-content">
-                    <div class="timeline-heading">
-                      <strong>Process Engineering Intern</strong>
-                      <span class="timeline-company">SIOF</span>
-                    </div>
-                    <span class="meta"><span>Jun 2023 – Aug 2023</span><span>Fez, Morocco</span></span>
-                    <p>Analyzed production, maintenance, and packaging processes in an industrial setting; contributed to identifying inefficiencies and proposing improvements to production flows.</p>
-                  </div>
-                </li>
-              </ol>
-            </div>
-
-            <div class="card" id="prizes" role="tabpanel" aria-labelledby="tab-prizes" hidden>
-              <div class="prize-grid">
-                <div class="prize-card">
-                  <span class="prize-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
-                      <path d="M8 5H5a3 3 0 0 0 3 5"/>
-                      <path d="M16 5h3a3 3 0 0 1-3 5"/>
-                      <path d="M12 12v4"/>
-                      <path d="M9 20h6"/>
-                      <path d="M10 16h4l1 4H9l1-4z"/>
-                    </svg>
-                  </span>
-                  <div class="prize-text">
-                    <strong>Morocco Youth Award — 3rd Place</strong>
-                    <span class="meta"><span>National Competition</span><span>Rabat, Morocco</span><span>2024</span></span>
-                  </div>
-                </div>
-
-                <div class="prize-card">
-                  <span class="prize-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
-                      <path d="M8 5H5a3 3 0 0 0 3 5"/>
-                      <path d="M16 5h3a3 3 0 0 1-3 5"/>
-                      <path d="M12 12v4"/>
-                      <path d="M9 20h6"/>
-                      <path d="M10 16h4l1 4H9l1-4z"/>
-                    </svg>
-                  </span>
-                  <div class="prize-text">
-                    <strong>Favorite Award — Company Program</strong>
-                    <span class="meta"><span>National Competition</span><span>Casablanca, Morocco</span><span>2024</span></span>
-                  </div>
-                </div>
-
-                <div class="prize-card">
-                  <span class="prize-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
-                      <path d="M8 5H5a3 3 0 0 0 3 5"/>
-                      <path d="M16 5h3a3 3 0 0 1-3 5"/>
-                      <path d="M12 12v4"/>
-                      <path d="M9 20h6"/>
-                      <path d="M10 16h4l1 4H9l1-4z"/>
-                    </svg>
-                  </span>
-                  <div class="prize-text">
-                    <strong>Best Junior Enterprise Award — Company Program</strong>
-                    <span class="meta"><span>Regional Competition</span><span>Fez, Morocco</span><span>2024</span></span>
-                  </div>
-                </div>
-
-                <div class="prize-card">
-                  <span class="prize-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"/>
-                      <path d="M8 5H5a3 3 0 0 0 3 5"/>
-                      <path d="M16 5h3a3 3 0 0 1-3 5"/>
-                      <path d="M12 12v4"/>
-                      <path d="M9 20h6"/>
-                      <path d="M10 16h4l1 4H9l1-4z"/>
-                    </svg>
-                  </span>
-                  <div class="prize-text">
-                    <strong>Best Pitch of the Co-Creation Week</strong>
-                    <span class="meta"><span>SeaTech</span><span>2024</span></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <main id="main">
+    <section class="intro container" aria-labelledby="intro-title">
+      <img class="portrait" src="assets/img/profile/photo.png" alt="Portrait of Mohammed ABO ORAIG" width="160" height="200">
+      <div class="intro-text">
+        <h1 id="intro-title">Mohammed ABO ORAIG</h1>
+        <p class="intro-role">Engineering Degree in Data Science &amp; Information Systems, and M.Sc. in Complex Systems Engineering (Signal, Vision &amp; Control), University of Toulon</p>        
+        <p class="intro-statement">Lately I have been eavesdropping on marine mammals in underwater recordings and keeping an eye on ships from satellite data. Turns out I just like building things that sense, process and respond.</p>
+        <p class="intro-statement">My current obsession is teaching models to say "I'm not sure" when their sensors go bad, instead of confidently guessing. Long term, I want systems you can trust outside the lab, where sensors drift, break and sometimes just have a bad day.</p>
+        <p class="intro-statement">If that sounds like your kind of problem, <a href="contact.html">come say hi</a> :)</p>
+        <ul class="link-row">
+          <li><a href="mailto:m.abooraig@gmail.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg>Email</a></li>
+          <li><a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-linkedin"/></svg>LinkedIn</a></li>
+          <li><a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-github"/></svg>GitHub</a></li>
+          <li><a href="https://orcid.org/0009-0007-1928-8496" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-orcid"/></svg>ORCID</a></li>
+        </ul>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="section-head">
-        <h2>Contact Me</h2>
-      </div>
+    <div class="container">
 
-      <div class="contact-container">
-        <aside class="contact-info">
-          <h3>Let's connect</h3>
-          <p>Have a project, an opportunity, or just want to talk engineering? My inbox is open.</p>
-          <ul>
-            <li>
-              <img src="src/email3.png" alt="">
-              <a href="mailto:m.abooraig@gmail.com">m.abooraig@gmail.com</a>
-            </li>
-            <li>
-              <img src="src/github.png" alt="">
-              <a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer">github.com/AboOraig</a>
-            </li>
-            <li>
-              <img src="src/linkedin.png" alt="">
-              <a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mohammed-abo-oraig</a>
-            </li>
-          </ul>
-          <p class="response-note">Usually replies within 1–2 days.</p>
-        </aside>
+      <!-- Sensor-fusion demo. Stays hidden unless sensor-demo.js runs, so it never shows as a dead box. -->
+      <section class="page-section demo" id="demo" aria-labelledby="demo-title" data-demo hidden>
+        <h2 id="demo-title">Try it: trusting noisy sensors</h2>
+        <p>Three sensors measure the same target, each with a different amount of noise. Steer the target with your pointer (or a finger), then break a sensor and watch the fused estimate hold its position while a plain average is pulled away.</p>
 
-        <form id="contact-form" action="https://formspree.io/f/xgaejkkl" method="POST" novalidate>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" autocomplete="name" required>
-            <span class="field-error" id="name-error"></span>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="email" required>
-            <span class="field-error" id="email-error"></span>
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required>
-            <span class="field-error" id="subject-error"></span>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            <span class="field-error" id="message-error"></span>
-          </div>
+        <canvas class="demo-canvas" data-demo-canvas role="img" aria-label="Toy demo. A target follows your pointer. Three noisy sensors measure it. The fused estimate and its uncertainty circle are drawn on top."></canvas>
 
-          <!-- Honeypot: hidden from real users, bots tend to fill every field -->
-          <div class="honeypot" aria-hidden="true">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
-          </div>
+        <ul class="demo-legend" aria-label="Legend">
+          <li><i class="demo-glyph demo-glyph--target" aria-hidden="true"></i>Target</li>
+          <li><i class="demo-glyph demo-glyph--est" aria-hidden="true"></i>Fused estimate (halo: uncertainty)</li>
+          <li><i class="demo-glyph demo-glyph--plain" aria-hidden="true"></i>Plain average</li>
+        </ul>
 
-          <button type="submit" id="submit-btn" class="magnetic">
-            <span class="btn-label">Send Message</span>
-            <span class="btn-spinner" aria-hidden="true"></span>
-          </button>
-          <p class="form-note" id="form-status" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
+        <ul class="demo-sensors" aria-label="Sensors and the share of weight each one receives">
+          <li class="demo-sensor" data-demo-sensor="a">
+            <div class="demo-sensor-head">
+              <i class="demo-glyph demo-glyph--a" aria-hidden="true"></i>
+              <h3>Sensor A</h3>
+              <span class="demo-sensor-note">precise</span>
+            </div>
+            <button type="button" class="demo-btn" data-break aria-label="Break sensor A">Break</button>
+            <div class="demo-meter-row">
+              <span class="demo-meter" aria-hidden="true"><span class="demo-fill" data-fill></span></span>
+              <span class="demo-pct" data-pct>0%</span>
+            </div>
+          </li>
+          <li class="demo-sensor" data-demo-sensor="b">
+            <div class="demo-sensor-head">
+              <i class="demo-glyph demo-glyph--b" aria-hidden="true"></i>
+              <h3>Sensor B</h3>
+              <span class="demo-sensor-note">average</span>
+            </div>
+            <button type="button" class="demo-btn" data-break aria-label="Break sensor B">Break</button>
+            <div class="demo-meter-row">
+              <span class="demo-meter" aria-hidden="true"><span class="demo-fill" data-fill></span></span>
+              <span class="demo-pct" data-pct>0%</span>
+            </div>
+          </li>
+          <li class="demo-sensor" data-demo-sensor="c">
+            <div class="demo-sensor-head">
+              <i class="demo-glyph demo-glyph--c" aria-hidden="true"></i>
+              <h3>Sensor C</h3>
+              <span class="demo-sensor-note">noisy</span>
+            </div>
+            <button type="button" class="demo-btn" data-break aria-label="Break sensor C">Break</button>
+            <div class="demo-meter-row">
+              <span class="demo-meter" aria-hidden="true"><span class="demo-fill" data-fill></span></span>
+              <span class="demo-pct" data-pct>0%</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="demo-foot">
+          <div class="demo-controls">
+            <label class="demo-fault">Failure mode
+              <select data-demo-fault>
+                <option value="bias">Drift (bias)</option>
+                <option value="noise">Noise burst</option>
+                <option value="dropout">Dropout</option>
+              </select>
+            </label>
+            <button type="button" class="demo-btn" data-demo-pause aria-label="Pause the animation">Pause</button>
+          </div>
+          <dl class="demo-errors">
+            <div><dt>Error, fused estimate</dt><dd data-err="fused">&ndash;</dd></div>
+            <div><dt>Error, plain average</dt><dd data-err="plain">&ndash;</dd></div>
+          </dl>
+        </div>
+
+        <p class="demo-status" role="status" data-demo-status></p>
+        <p class="demo-note">A toy illustration, not my research method: a Kalman filter in which each sensor's weight depends on how well it agrees with the median of the three. It copes when one sensor fails; with two failing there is no majority left to catch the fault.</p>
+      </section>
+
+
+      <section class="page-section" id="research-interests">
+        <h2>Research interests</h2>
+        <ul class="interests">
+          <li><strong>Uncertainty-aware multimodal inference</strong>: combining heterogeneous sensors reliably under noise and degradation.</li>
+          <li><strong>Statistical signal processing</strong>: detection and classification in noisy, real-world signals such as passive acoustics.</li>
+          <li><strong>State estimation and data fusion</strong>: reconstructing knowledge from heterogeneous sources.</li>
+          <li><strong>Deep learning for vision and remote sensing</strong>: segmentation, multimodal retrieval and learning under evolving data.</li>
+          <li><strong>Optimization under uncertainty</strong>: scheduling and decision problems with variable demand and constraints.</li>
+        </ul>
+      </section>
+
+      <section class="page-section" id="updates">
+        <h2>Updates</h2>
+        <ul class="updates">         
+          <li><time datetime="2026-10">Oct 2026</time><span>Posted a preprint on arXiv: <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noopener noreferrer">Uncertainty-Aware Multimodal Inference under Sensor Degradation</a>.</span></li>
+          <li><time datetime="2026-09">Sep 2026</time><span>Defended my thesis and graduated first of my cohort, with an Engineering Degree from SeaTech and an M.Sc. from the Faculty of Science and Engineering, University of Toulon.</span></li>
+          <li><time datetime="2026-08">Aug 2026</time><span>Completed a six-month research internship at CLS in Toulouse on multi-source trajectory reconstruction for maritime surveillance.</span></li>
+        </ul>
+      </section> 
+    </div>
   </main>
 
-  <footer class="footer">
-    <p class="footer-text">© 2026 ABO ORAIG. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <img src="src/linkedin2.png" alt=""></a>
-      <a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <img src="src/github.png" alt=""></a>
-      <a href="mailto:m.abooraig@gmail.com" aria-label="Email">
-        <img src="src/email4.png" alt=""></a>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Mohammed ABO ORAIG</p>
+      <ul class="link-row link-row--icons">
+        <li><a href="mailto:m.abooraig@gmail.com" aria-label="Email" title="Email"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg></a></li>
+        <li><a href="https://www.linkedin.com/in/mohammed-abo-oraig/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-linkedin"/></svg></a></li>
+        <li><a href="https://github.com/AboOraig/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-github"/></svg></a></li>
+      </ul>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="assets/js/sensor-demo.js" defer></script>
+  
 </body>
 </html>
