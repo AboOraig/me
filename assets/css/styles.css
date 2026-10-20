@@ -76,6 +76,8 @@
 
   /* Layout: one width for every page, so the header never shifts between pages */
   --measure: 56rem;
+  /* Longest text line. none = text fills its column; 68ch was the old limit */
+  --text-measure: none;
   --gutter: clamp(1rem, 4vw, 2rem);
   --radius: 6px;
 }
@@ -136,7 +138,7 @@ h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 
 p {
-  max-width: 68ch;
+  max-width: var(--text-measure);
   color: var(--text-muted);
 }
 
@@ -263,6 +265,7 @@ main {
 
 .page-header p {
   flex-basis: 100%;
+  max-width: none; /* keeps it on its own row, below the title */
 }
 
 .page-section {
@@ -359,7 +362,7 @@ main {
 .interests {
   display: grid;
   gap: var(--space-1);
-  max-width: 68ch;
+  max-width: var(--text-measure);
 }
 
 .interests li {
@@ -400,7 +403,7 @@ main {
 
 .updates span {
   flex: 1 1 18rem;
-  max-width: 68ch;
+  max-width: var(--text-measure);
 }
 
 /* ============================================
@@ -825,7 +828,7 @@ main {
 .cv-points {
   display: grid;
   gap: 0.4rem;
-  max-width: 68ch;
+  max-width: var(--text-measure);
 }
 
 .cv-points li {
@@ -877,7 +880,7 @@ main {
 }
 
 .cv-rows dd {
-  max-width: 68ch;
+  max-width: var(--text-measure);
   margin-top: 0.2rem;
 }
 
@@ -972,7 +975,7 @@ main {
 .ref-content {
   margin: -0.25rem 0 0 calc(var(--date-w) + var(--date-gap));
   padding-bottom: 1rem;
-  max-width: 68ch;
+  max-width: var(--text-measure);
 }
 
 @media (prefers-reduced-motion: no-preference) {
