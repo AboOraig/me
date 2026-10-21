@@ -28,7 +28,7 @@ Plain HTML, CSS and JavaScript. There is no framework, no build step and no depe
 ├── contact.html
 └── assets/
     ├── css/styles.css
-    ├── js/                contact.js, sensor-demo.js
+    ├── js/                contact.js, lightbox.js, sensor-demo.js 
     ├── fonts/             self-hosted .woff2 files and their licences
     └── img/
         ├── og-image.png   link-preview card (1200 × 630)

@@ -1490,3 +1490,189 @@ main {
   .ref-icon, .proj-more summary { display: none; }
   .cv-pub a[href^="http"]::after { content: " (" attr(href) ")"; color: var(--text-muted); font-size: .85em; word-break: break-all; }
 }
+
+
+/* ============================================
+   FIGURE VIEWER (Projects page, assets/js/lightbox.js)
+   ============================================ */
+
+/* ---------- Thumbnails: each strip image sits in a button ---------- */
+.figure-btn {
+  position: relative;
+  flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: inherit;
+  cursor: zoom-in;
+  scroll-snap-align: start;
+}
+
+.figure-btn:hover img,
+.figure-btn:focus-visible img {
+  border-color: var(--accent);
+}
+
+/* inset ring: the strip clips anything drawn outside its edge */
+.figure-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
+}
+
+/* small magnifier badge, so touch screens (no hover) also show that a figure opens */
+.figure-btn::after {
+  content: "";
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgb(10 20 36 / 0.8) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5f7fa' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 1rem no-repeat;
+  pointer-events: none;
+}
+
+/* ---------- The viewer ---------- */
+html.lb-open {
+  overflow: hidden;
+}
+
+.lightbox {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: rgb(7 13 24 / 0.97);
+  color: var(--text);
+}
+
+.lightbox[open] {
+  display: grid;
+}
+
+.lb-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 3.5rem 4.5rem 1rem;          /* room for the buttons */
+}
+
+.lb-img {
+  max-width: 100%;
+  max-height: calc(100vh - 8.5rem);
+  max-height: calc(100dvh - 8.5rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.lb-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem 1rem;
+  max-width: 100%;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.lb-count {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.lb-btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;                       /* comfortable touch target */
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgb(19 39 71 / 0.9);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.lb-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.lb-btn svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lb-close {
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.lb-prev,
+.lb-next {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.lb-prev { left: 0.75rem; }
+.lb-next { right: 0.75rem; }
+
+.lightbox.lb-single .lb-prev,
+.lightbox.lb-single .lb-next {
+  display: none;
+}
+
+/* phones: previous/next move to the bottom corners so the figure gets the full width */
+@media (max-width: 40rem) {
+  .lb-figure {
+    padding: 3.5rem 0.75rem 4.5rem;
+  }
+
+  .lb-img {
+    max-height: calc(100vh - 13rem);
+    max-height: calc(100dvh - 13rem);
+  }
+
+  .lb-prev,
+  .lb-next {
+    top: auto;
+    bottom: 0.75rem;
+    translate: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox[open] {
+    animation: lb-in 0.15s ease-out;
+  }
+
+  @keyframes lb-in {
+    from { opacity: 0; }
+  }
+}
+
+@media print {
+  .lightbox,
+  .figure-btn::after {
+    display: none !important;
+  }
+}
