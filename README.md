@@ -40,7 +40,3 @@ Plain HTML, CSS and JavaScript. There is no framework, no build step and no depe
 
 - Fonts: [Inter](https://github.com/rsms/inter), [Space Grotesk](https://github.com/floriankarsten/space-grotesk) and [IBM Plex Mono](https://github.com/IBM/plex), all under the SIL Open Font License 1.1. The licence texts are in `assets/fonts/`.
 - Text, CV, images and the share card: © 2026 Mohammed ABO ORAIG. All rights reserved.
-
-## Contact
-
-Through the [contact page](https://abooraig.github.io/me/contact.html), or my profiles on [GitHub](https://github.com/AboOraig), [LinkedIn](https://www.linkedin.com/in/mohammed-abo-oraig/) and [ORCID](https://orcid.org/0009-0007-1928-8496).
