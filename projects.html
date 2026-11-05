@@ -224,9 +224,20 @@
                 <details class="proj-more">
                   <summary>Details</summary>
                   <ul class="cv-points">
-                    <li>Integrated a noise-conditioned CNN denoiser as a learned prior into a Plug-and-Play proximal-gradient reconstruction framework, benchmarked against FBP, Tikhonov, and TV regularization with validation-tuned hyperparameters for every method.</li>
-                    <li>Evaluated reconstruction accuracy under varying noise levels, angular undersampling, and train-test distribution shifts using PSNR/SSIM with statistical testing, characterizing the trade-off between the learned prior's in-distribution expressiveness and its stability under distribution shift and forward-model mismatch.</li>
-                    <li>Showed the learned prior improves PSNR by up to 4 dB over TV under high noise or few projection angles (paired Wilcoxon, p&lt;0.001), but underperforms TV in the near-noiseless regime, and identified that its advantage narrows under forward-model mismatch and reverses under distribution shift, where it hallucinates in-distribution structure on out-of-domain inputs.</li>
+                    <li>Developed a three-stage Plug-and-Play proximal-gradient reconstruction study with a noise-conditioned DnCNN prior,
+    progressing from controlled $28\times28$ experiments to clinical-size LoDoPaB-CT slices (362x362). Implemented
+    a matrix-free parallel-beam Radon operator with exact adjoint and a Poisson Beer--Lambert measurement model; benchmarked
+    against classical reconstruction methods (FBP, Tikhonov, TV).</li>
+                    <li>Evaluated reconstruction under varying projection angles
+    (30, 60, 120) and photon-dose levels using patient-disjoint
+    LoDoPaB-CT splits (20 validation and 40 test patients).
+    Assessed PSNR/SSIM alongside synthetic lesion-detection
+    performance and false-structure formation.</li>
+                    <li>While the learned prior improved PSNR by up to 3.85dB} over TV in the controlled $28\times28$
+    experiments, this advantage did not consistently transfer to LoDoPaB-CT: PnP performance was competitive but mixed
+    against well-tuned TV in PSNR and SSIM. Synthetic lesion-detection AUC exceeded TV-long in all nine
+    dose--angle conditions (significantly in six), but this advantage was not reliably retained under distribution
+    shift to non-anatomical phantoms.</li> 
                   </ul>
                 </details>
                 <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>scikit-image</li><li>NumPy/SciPy</li><li>Pandas</li><li>Matplotlib</li></ul>
