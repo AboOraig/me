@@ -220,24 +220,14 @@
                 <div class="proj-head">
                   <h4><a href="https://github.com/AboOraig/learned-regularization" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Learned Regularization for Robust Image Reconstruction">Learned Regularization for Robust Image Reconstruction</a></h4>
                 </div>
-                <p class="cv-detail">Formulated sparse-view CT reconstruction as an inverse problem under noise, incomplete angular sampling, and forward-model uncertainty; built a differentiable sparse-view Radon operator with exact adjoint.</p>
+                <p class="cv-detail">A controlled study of when a learned image prior helps sparse-view CT reconstruction, and when it does not.</p>
                 <details class="proj-more">
                   <summary>Details</summary>
                   <ul class="cv-points">
-                    <li>Developed a three-stage Plug-and-Play proximal-gradient reconstruction study with a noise-conditioned DnCNN prior,
-    progressing from controlled $28\times28$ experiments to clinical-size LoDoPaB-CT slices (362x362). Implemented
-    a matrix-free parallel-beam Radon operator with exact adjoint and a Poisson Beer--Lambert measurement model; benchmarked
-    against classical reconstruction methods (FBP, Tikhonov, TV).</li>
-                    <li>Evaluated reconstruction under varying projection angles
-    (30, 60, 120) and photon-dose levels using patient-disjoint
-    LoDoPaB-CT splits (20 validation and 40 test patients).
-    Assessed PSNR/SSIM alongside synthetic lesion-detection
-    performance and false-structure formation.</li>
-                    <li>While the learned prior improved PSNR by up to 3.85dB} over TV in the controlled $28\times28$
-    experiments, this advantage did not consistently transfer to LoDoPaB-CT: PnP performance was competitive but mixed
-    against well-tuned TV in PSNR and SSIM. Synthetic lesion-detection AUC exceeded TV-long in all nine
-    dose--angle conditions (significantly in six), but this advantage was not reliably retained under distribution
-    shift to non-anatomical phantoms.</li> 
+                    <li>Designed a three-stage Plug-and-Play proximal-gradient study with a noise-conditioned DnCNN prior, progressing from controlled 28×28 digit experiments to clinical-size LoDoPaB-CT slices (362×362). Built a differentiable sparse-view Radon operator with exact adjoint, a matrix-free parallel-beam operator validated against the dense one, and a Poisson Beer–Lambert measurement model. Benchmarked against FBP, Tikhonov and box-constrained TV.</li>
+                    <li>Evaluated reconstruction over 30, 60 and 120 projection angles and three dose levels, with patient-disjoint LoDoPaB-CT splits (hyper-parameters tuned on 20 validation slices per condition, results on 40 test patients). Beyond PSNR/SSIM, assessed synthetic-lesion detection (paired AUC) and false-structure formation, and controlled for the inverse crime, independent denoiser seeds and a matched-prior baseline.</li>
+                    <li>On 28×28 digits the learned prior was about 3.4 dB above a box-constrained TV at moderate noise, but the advantage reversed under distribution shift (−3.1 dB on Fashion-MNIST for an MNIST-trained prior, +2.2 dB for a matched one), showing that the cause is prior mismatch. On real CT it did not carry over: PnP differed from a TV given the same iteration budget by −0.93 to +0.33 dB over nine dose–angle conditions, with lower SSIM in 8 of 9.</li>
+                    <li>Lesion-detection AUC exceeded that of TV in all nine conditions (significantly in six), but never significantly exceeded plain FBP, and a PSNR-tuned TV was worse than FBP at detection. The advantage was not reliably retained under shift to non-anatomical phantoms. The study shows that PSNR does not predict task performance.</li>
                   </ul>
                 </details>
                 <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>scikit-image</li><li>NumPy/SciPy</li><li>Pandas</li><li>Matplotlib</li></ul>
