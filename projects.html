@@ -78,11 +78,11 @@
                 <details class="proj-more">
                   <summary>Details</summary>
                   <ul class="cv-points">
-                    <li>Built a five-method baseline ladder (fixed WLS, a non-learned adaptive heuristic that uses the sensors' self-reported quality, learned fusion, a learned per-sensor uncertainty model, and an oracle-variance reference) under a 5-seed protocol with fixed evaluation sets. The learned uncertainty model is a near-tie with the heuristic (mean RMSE 0.705 vs 0.701), and a variance-shuffling ablation shows its predicted variances carry real information (uncertainty–error correlation Pearson r = 0.73, Spearman ρ = 0.74).</li>
-                    <li>Tested two attempts to beat the heuristic, a cross-sensor residual feature and Huber/Tukey robust reweighting, and reported both as negative results.</li>
-                    <li>Under severe corruption of the quality signal the learned model is less affected than the heuristic (RMSE 1.153 vs 1.328, about 13% lower), but fixed weighting is better than both (0.838); the explanation I propose (bounded predicted variance) is untested.</li>
-                    <li>Showed with a NEES-based calibration analysis that calibration error rises about fivefold under variance-matched heavy-tailed noise (ECE 0.025 to 0.129) while predicted sharpness is unchanged, and that one moment-matched scalar recalibration does not fix it, consistent with a tail-shape mismatch.</li>
-                    <li>NumPy implementation with hand-derived backpropagation, checked against finite differences, plus a PyTorch cross-check of the core model; code and a tagged release are public.</li>
+                    <li>Developed a five-method baseline ladder (fixed WLS, sensor-quality heuristic, learned fusion, learned per-sensor uncertainty, and oracle variance) under a 5-seed protocol with fixed evaluation sets. The learned uncertainty model nearly matched the heuristic (RMSE: 0.705 vs 0.701), while variance shuffling confirmed informative predictions (Pearson r = 0.73, Spearman ρ = 0.74).</li>
+                    <li>Evaluated cross-sensor residual features and Huber/Tukey robust reweighting as alternatives to the heuristic; both yielded negative results.</li>
+                    <li>Under severe quality-signal corruption, the learned model outperformed the heuristic (RMSE: 1.153 vs 1.328, ~13% lower), while fixed weighting performed best (0.838). The proposed explanation, bounded predicted variance, remains untested.</li>
+                    <li>Used NEES-based calibration analysis to show a fivefold increase in calibration error under variance-matched heavy-tailed noise (ECE: 0.025 to 0.129), despite unchanged predicted sharpness. Scalar moment-matched recalibration failed to correct the error, consistent with a tail-shape mismatch.</li>
+                    <li>Implemented the model in NumPy with hand-derived backpropagation, validated using finite differences and cross-checked the core model in PyTorch. Published the code and a tagged release.</li>
                   </ul>
                 </details>
               <div class="figure-strip" tabindex="0" role="group" aria-label="Figures: Uncertainty-Aware Multimodal Inference under Sensor Degradation">
@@ -99,6 +99,33 @@
                 <img src="assets/img/projects/P1/11.png" alt="Sharpness across the full degradation sweep" loading="lazy" decoding="async">
               </div>
               <ul class="proj-tags"><li>Python</li><li>PyTorch</li></ul>
+            </div>
+          </li>
+
+          <li class="cv-entry" id="project-sensor-trust">
+            <p class="cv-date"><time datetime="2026-07">Jul 2026</time> <time datetime="2026-09">Sep 2026</time></p>
+            <div class="cv-body">
+              <h3><a href="https://github.com/AboOraig/learned-regularization" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Learned Regularization for Sparse-View CT">Learned Regularization for Sparse-View CT: Plug-and-Play Prior vs. Tuned Total Variation</a></h3>
+              <!-- <p class="cv-org">Research project</p> -->
+              <p class="cv-detail">A controlled study of when a learned image prior helps sparse-view CT reconstruction, and when it does not.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Designed a three-stage Plug-and-Play proximal-gradient study using a noise-conditioned DnCNN prior, progressing from 28X28 synthetic digits to 362x362 LoDoPaB-CT slices with simulated low-dose measurements. Implemented a sparse-view Radon operator with exact adjoint, a matrix-free parallel-beam operator validated against its dense counterpart, and a Poisson Beer--Lambert model. Benchmarked against validation-tuned FBP, Tikhonov, and unconstrained and box-constrained TV.</li>
+                    <li>Evaluated 30, 60, and 120 projection angles across three dose levels using patient-disjoint CT splits (20 validation slices per condition; 40 test patients). Beyond PSNR/SSIM, assessed synthetic-lesion detection (paired AUC with a location-known observer) and false-positive lesion-like structures, while controlling for the inverse crime, denoiser seeds, and matched-prior effects.</li>
+                    <li>On synthetic digits, the learned prior improved PSNR by 3.4dB over box-constrained TV at moderate noise, but reversed under distribution shift (−3.1dB for an MNIST-trained prior on Fashion-MNIST; +2.2dB with a Fashion-trained prior). On CT, PnP differed from 300-iteration TV by −0.93 to +0.33dB across nine dose-angle conditions, with lower SSIM in 8 of 9, highlighting limited transfer of the learned prior.</li>
+                    <li>Achieved higher lesion-detection AUC than 300-iteration TV in all nine conditions (significantly in six), but never significantly exceeded FBP. PSNR-tuned TV also underperformed FBP in detection across all conditions. The PnP advantage was significant in only one of six non-anatomical phantom conditions, highlighting the difference between image quality and detectability. Limitations include one small denoiser, 40 CT patients, synthetic lesions, and no reader study.</li>
+                  </ul>
+                </details>
+              <div class="figure-strip" tabindex="0" role="group" aria-label="Figures: Uncertainty-Aware Multimodal Inference under Sensor Degradation">
+                <img src="assets/img/projects/P4/1.png" alt="..." decoding="async">
+                <img src="assets/img/projects/P4/2.png" alt="..." decoding="async">
+                <img src="assets/img/projects/P4/3.png" alt="..." decoding="async">
+                <img src="assets/img/projects/P4/4.png" alt="..." decoding="async">
+                <img src="assets/img/projects/P4/5.png" alt="..." decoding="async">
+                <img src="assets/img/projects/P4/6.png" alt="..." decoding="async">
+              </div>
+              <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>scikit-image</li><li>NumPy/SciPy</li><li>Matplotlib</li></ul>
             </div>
           </li>
 
@@ -218,19 +245,17 @@
             <ul class="proj-list">
               <li class="proj">
                 <div class="proj-head">
-                  <h4><a href="https://github.com/AboOraig/learned-regularization" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Learned Regularization for Sparse-View CT">Learned Regularization for Sparse-View CT: Plug-and-Play Prior vs. Tuned Total Variation</a></h4>
+                  <h4><a href="https://github.com/AboOraig/learned-augmented-optimization" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Learning-Augmented Branch-and-Bound for Mixed-Integer Optimization">Learning-Augmented Branch-and-Bound for Mixed-Integer Optimization</a></h4>                
                 </div>
-                <p class="cv-detail">A controlled study of when a learned image prior helps sparse-view CT reconstruction, and when it does not.</p>
+                <p class="cv-detail">A machine-learning branching rule for SCIP that imitates strong branching, evaluated against classical rules on unseen set-covering instances, with a technical report.</p>
                 <details class="proj-more">
                   <summary>Details</summary>
                   <ul class="cv-points">
-                    <li>Designed a three-stage Plug-and-Play proximal-gradient study with a noise-conditioned DnCNN prior, progressing from controlled 28×28 digit experiments to LoDoPaB-CT slices (362×362) with simulated low-dose measurements. Built a sparse-view Radon operator with exact adjoint, a matrix-free parallel-beam operator validated against the dense one, and a Poisson Beer–Lambert measurement model. Benchmarked against FBP, Tikhonov and TV (unconstrained and box-constrained), each tuned on validation data.</li>
-                    <li>Evaluated reconstruction over 30, 60 and 120 projection angles and three dose levels, with patient-disjoint LoDoPaB-CT splits (hyper-parameters tuned on 20 validation slices per condition, results on 40 test patients). Beyond PSNR/SSIM, assessed synthetic-lesion detection (paired AUC with a location-known observer) and false lesion-like structures, and controlled for the inverse crime, independent denoiser seeds and a matched-prior baseline.</li>
-                    <li>On 28×28 digits the learned prior was about 3.4 dB above a box-constrained TV at moderate noise, but the advantage reversed under far distribution shift (−3.1 dB on Fashion-MNIST for an MNIST-trained prior, +2.2 dB for a Fashion-trained one), consistent with prior mismatch rather than a failure of the PnP scheme. On CT slices it did not carry over: PnP differed from a TV run for 300 iterations by −0.93 to +0.33 dB over nine dose–angle conditions, with lower SSIM in 8 of 9.</li>
-                    <li>Lesion-detection AUC exceeded that of the 300-iteration TV in all nine conditions (significantly in six), but never significantly exceeded plain FBP, and a PSNR-tuned TV was worse than FBP at detection in all nine. The advantage was significant in only one of six conditions under a shift to non-anatomical phantoms. PSNR and detectability rank the methods differently. Limits: one small denoiser, 40 CT patients, synthetic lesions, no reader study.</li>
+                    <li>Trained a LightGBM ranking model to imitate strong branching from 19 cheap features and plugged it into SCIP (PySCIPOpt) as a custom branching rule, benchmarked against most-fractional, pseudocost and reliability branching on set-covering instances.</li>
+                    <li>On 80 unseen instances (cuts and presolve off): 39-48% less solve time than reliability branching, about 4x faster than most-fractional (test set), close to pseudocost (20% fewer nodes); at a 10s budget solved 16/30 large instances vs. 9/30 for reliability branching.</li>
                   </ul>
                 </details>
-                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>scikit-image</li><li>NumPy/SciPy</li><li>Matplotlib</li></ul>
+                <ul class="proj-tags"><li>Python</li><li>Optimization</li><li>Machine Learning</li><li>SCIP</li><li>LightGBM</li></ul>
               </li>
 
               <li class="proj">
