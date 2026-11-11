@@ -118,12 +118,18 @@
                   </ul>
                 </details>
               <div class="figure-strip" tabindex="0" role="group" aria-label="Figures: Uncertainty-Aware Multimodal Inference under Sensor Degradation">
-                <img src="assets/img/projects/P4/1.png" alt="..." decoding="async">
-                <img src="assets/img/projects/P4/2.png" alt="..." decoding="async">
-                <img src="assets/img/projects/P4/3.png" alt="..." decoding="async">
-                <img src="assets/img/projects/P4/4.png" alt="..." decoding="async">
-                <img src="assets/img/projects/P4/5.png" alt="..." decoding="async">
-                <img src="assets/img/projects/P4/6.png" alt="..." decoding="async">
+                <img src="assets/img/projects/P4/1.png" alt="PSNR (left) and SSIM (right) vs. noise level σ at 20 angles (inverse-crime data). TV performs best at σ = 0; PnP-DnCNN leads in SSIM at σ = 0.01 and in both metrics for σ ≥ 0.05. Error bars: mean ± 1.96 SE over 200 images (image variability only)." decoding="async">
+                <img src="assets/img/projects/P4/2.png" alt="As Figure 1, against the number of projection angles at σ = 0.05 (logarithmic axis). PnP-DnCNN is best at every angle count tested." decoding="async">
+                <img src="assets/img/projects/P4/3.png" alt="Test PSNR under distribution shift with the pipeline frozen at MNIST settings. PnP-DnCNN leads on MNIST and EMNIST, but trails TV on Fashion-MNIST (−3.0 dB) and the phantom (−4.2 dB). Error bars: mean ± 1.96 SE (20 phantom noise draws; one image)." decoding="async">
+                <img src="assets/img/projects/P4/4.png" alt="Reconstructions at σ = 0.05 and 20 angles using the frozen pipeline (first test image, one noise draw). The MNIST-trained PnP denoiser introduces spurious spotted or stroke-like structures on Fashion-MNIST and phantom data, unlike TV-ADMM. TV-box and PSNR omitted." decoding="async">
+                <img src="assets/img/projects/P4/5.png" alt="PnP iterates on 200 MNIST digits (σ = 0.05, 20 angles). Left: PSNR vs. iteration k (circle: tuned setting; dashed: TV-ADMM). Middle: data residual vs. expected noise norm σ√m. Right: squared error by singular-value band (σd = 0.1; band counts: 319, 46, 253, 129, 37). Each point: one run, one noise draw." decoding="async">
+                <img src="assets/img/projects/P4/6.png" alt="Injection (energy ratio in W₀.₀₅, horizontal) vs. alignment (pooled cosine with truth, vertical) across methods and test sets (bicubic fine-grid data). The dotted line marks true energy; only phantom PnP-DnCNN shows excessive, poorly aligned energy." decoding="async">
+                <img src="assets/img/projects/P4/7.png" alt="Paired detection AUC (top) and false lesions per lesion-free image (bottom) for TV and PnP-DnCNN across four prior/test-set combinations and eight lesion types (mean over three denoisers; bars: seed s.d.). TV uses ADMM; TV-box results in Table 16 and results/control/." decoding="async">
+                <img src="assets/img/projects/P4/8.png" alt="Matched Fashion-MNIST prior (σl = 0.75, c = 0.5): lesion-present and absent ground truths and TV/PnP reconstructions. Red circle: lesion location. PnP produces cleaner images but removes the lesion in these examples." decoding="async">
+                <img src="assets/img/projects/P4/9.png" alt="Lesion-absent PSNR vs. paired detection AUC across PnP operating points (colour: σd; size: iterations) and TV weight sweep, using the MNIST-trained denoiser. Markers: selected settings. Left: in-distribution; right: Fashion-MNIST (shifted)." decoding="async">
+                <img src="assets/img/projects/P4/10.png" alt="Geometry check (slice 0). Top: ground truth, FBP reconstruction, and absolute error. Bottom: supplied and forward-projected sinograms, with observed vs. projected profile (angle 333). Fit statistics across 8 test slices: relative residual 0.038, correlation 0.9979 (least-squares scale)." decoding="async">
+                <img src="assets/img/projects/P4/11.png" alt="Paired differences across nine dose–angle conditions (mean, 95% CI over 40 patients; *: excludes 0; blue: first method higher). Top: PSNR (PnP-const/PnP-TVinit vs. TV-long) and SSIM. Bottom: AUC (PnP-const vs. TV-long/FBP-Hann) and false-blob difference per slice (γ = 1)." decoding="async">
+                <img src="assets/img/projects/P4/12.png" alt="Strongest unsupported blob per slice at full dose (K = 60; σl = 4 px) for the four highest-response slices in PnP-const (top) and TV (bottom). Columns: ground truth crop, FBP-Hann, TV, PnP-const, PnP-TVinit. Red circle: blob location; labels: response relative to nominal lesion response." decoding="async">
               </div>
               <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>scikit-image</li><li>NumPy/SciPy</li><li>Matplotlib</li></ul>
             </div>
