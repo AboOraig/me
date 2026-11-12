@@ -342,18 +342,18 @@
 
               <li class="proj">
                 <div class="proj-head">
-                  <h4>Vision-Language Retrieval for Remote Sensing</h4>
+                  <h4><a href="https://github.com/AboOraig/vl-retrieval" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Vision-Language Retrieval for Remote Sensing">Vision-Language Retrieval for Remote Sensing</a></h4>
                 </div>
                 <p class="cv-detail">A multimodal pipeline aligning remote-sensing images and text in a shared embedding space for cross-modal retrieval.</p>
                 <details class="proj-more">
                   <summary>Details</summary>
                   <ul class="cv-points">
-                    <li>Applied contrastive learning for cross-modal image–text retrieval.</li>
-                    <li>Evaluated both image-to-text and text-to-image retrieval directions.</li>
-                    <li>Studied generalization across heterogeneous remote-sensing scenes.</li>
-                  </ul>
+                    <li>Fine-tuned a CLIP dual encoder (ViT-B/32) with a symmetric contrastive (InfoNCE) loss to align remote-sensing images and captions in a shared embedding space; trained on a 4 GB GPU with mixed precision and partial fine-tuning.</li>
+                    <li>Evaluated image-to-text and text-to-image retrieval (Recall@1/5/10): mean recall rose from 15.5 (zero-shot CLIP) to 33.0 ± 1.3 on the RSICD test split (3 seeds).</li>
+                    <li>Studied generalization across heterogeneous scenes: improved all 30 scene classes, gained about 7 mean-recall points zero-shot on the unseen UCM-Captions dataset, and found by near-duplicate hashing that 80% of RSITMD test images also appear in RSICD, so only its clean subset was used.</li>
+                  </ul>                  
                 </details>
-                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>Contrastive Learning</li></ul>
+                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>OpenCLIP</li><li>Contrastive Learning</li></ul>
               </li>
             </ul>
           </div>
