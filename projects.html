@@ -70,39 +70,6 @@
         <h2>Featured work</h2>
         <ul class="cv-list">
           <li class="cv-entry" id="project-sensor-trust">
-            <p class="cv-date"><time datetime="2026-07">Jul 2026</time> <time datetime="2026-09">Sep 2026</time></p>
-            <div class="cv-body">
-              <h3><a href="https://github.com/AboOraig/uncertainty-multimodal-inference" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Uncertainty-Aware Multimodal Inference under Sensor Degradation">Uncertainty-Aware Multimodal Inference under Sensor Degradation</a></h3>
-              <!-- <p class="cv-org">Research project</p> -->
-              <p class="cv-detail">A controlled synthetic study of multimodal state estimation from three heterogeneous sensors under noise, bias faults, dropout, heavy-tailed noise, correlated multi-sensor failure, quality-signal corruption and deceptive sensors.</p>
-                <details class="proj-more">
-                  <summary>Details</summary>
-                  <ul class="cv-points">
-                    <li>Developed a five-method baseline ladder (fixed WLS, sensor-quality heuristic, learned fusion, learned per-sensor uncertainty, and oracle variance) under a 5-seed protocol with fixed evaluation sets. The learned uncertainty model nearly matched the heuristic (RMSE: 0.705 vs 0.701), while variance shuffling confirmed informative predictions (Pearson r = 0.73, Spearman ρ = 0.74).</li>
-                    <li>Evaluated cross-sensor residual features and Huber/Tukey robust reweighting as alternatives to the heuristic; both yielded negative results.</li>
-                    <li>Under severe quality-signal corruption, the learned model outperformed the heuristic (RMSE: 1.153 vs 1.328, ~13% lower), while fixed weighting performed best (0.838). The proposed explanation, bounded predicted variance, remains untested.</li>
-                    <li>Used NEES-based calibration analysis to show a fivefold increase in calibration error under variance-matched heavy-tailed noise (ECE: 0.025 to 0.129), despite unchanged predicted sharpness. Scalar moment-matched recalibration failed to correct the error, consistent with a tail-shape mismatch.</li>
-                    <li>Implemented the model in NumPy with hand-derived backpropagation, validated using finite differences and cross-checked the core model in PyTorch. Published the code and a tagged release.</li>
-                  </ul>
-                </details>
-              <div class="figure-strip" tabindex="0" role="group" aria-label="Figures: Uncertainty-Aware Multimodal Inference under Sensor Degradation">
-                <img src="assets/img/projects/P1/1.png" alt="Predicted uncertainty vs actual error" decoding="async">
-                <img src="assets/img/projects/P1/2.png" alt="Estimation error vs sensor degradation" loading="lazy" decoding="async">
-                <img src="assets/img/projects/P1/3.png" alt="Calibration under distribution shift" loading="lazy" decoding="async">
-                <img src="assets/img/projects/P1/4.png" alt="Failure analysis (does the model know which sensor is degraded?)" loading="lazy" decoding="async">
-                <img src="assets/img/projects/P1/5.png" alt="Does robust (Huber/Tukey) IRLS beat linear precision weighting?" loading="lazy" decoding="async">
-                <img src="assets/img/projects/P1/6.png" alt="Does a cross-sensor residual feature beat the quality heuristic?" loading="lazy" decoding="async">
-                <img src="assets/img/projects/P1/7.png" alt="Calibration error across the shift taxonomy" loading="lazy" decoding="async">
-                <img src="assets/img/projects/P1/8.png" alt="Shift taxonomy" loading="lazy" decoding="async">
-                <img src="assets/img/projects/P1/9.png" alt="Calibration error across the full degradation sweep" loading="lazy" decoding="async">
-                <img src="assets/img/projects/P1/10.png" alt="Quality feature, NLL objective, weight sharing" loading="lazy" decoding="async">
-                <img src="assets/img/projects/P1/11.png" alt="Sharpness across the full degradation sweep" loading="lazy" decoding="async">
-              </div>
-              <ul class="proj-tags"><li>Python</li><li>PyTorch</li></ul>
-            </div>
-          </li>
-
-          <li class="cv-entry" id="project-sensor-trust">
             <p class="cv-date"><time datetime="2026-08">Aug 2026</time> <time datetime="2026-11">Nov 2026</time></p>
             <div class="cv-body">
               <h3><a href="https://github.com/AboOraig/learned-regularization" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Learned Regularization for Sparse-View CT">Learned Regularization for Sparse-View CT: Plug-and-Play Prior vs. Tuned Total Variation</a></h3>
@@ -132,6 +99,39 @@
                 <img src="assets/img/projects/P4/12.png" alt="Strongest unsupported blob per slice at full dose (K = 60; σl = 4 px) for the four highest-response slices in PnP-const (top) and TV (bottom). Columns: ground truth crop, FBP-Hann, TV, PnP-const, PnP-TVinit. Red circle: blob location; labels: response relative to nominal lesion response." decoding="async">
               </div>
               <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>scikit-image</li><li>NumPy/SciPy</li><li>Matplotlib</li></ul>
+            </div>
+          </li>
+
+          <li class="cv-entry" id="project-sensor-trust">
+            <p class="cv-date"><time datetime="2026-07">Jul 2026</time> <time datetime="2026-09">Sep 2026</time></p>
+            <div class="cv-body">
+              <h3><a href="https://github.com/AboOraig/uncertainty-multimodal-inference" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Uncertainty-Aware Multimodal Inference under Sensor Degradation">Uncertainty-Aware Multimodal Inference under Sensor Degradation</a></h3>
+              <!-- <p class="cv-org">Research project</p> -->
+              <p class="cv-detail">A controlled synthetic study of multimodal state estimation from three heterogeneous sensors under noise, bias faults, dropout, heavy-tailed noise, correlated multi-sensor failure, quality-signal corruption and deceptive sensors.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Developed a five-method baseline ladder (fixed WLS, sensor-quality heuristic, learned fusion, learned per-sensor uncertainty, and oracle variance) under a 5-seed protocol with fixed evaluation sets. The learned uncertainty model nearly matched the heuristic (RMSE: 0.705 vs 0.701), while variance shuffling confirmed informative predictions (Pearson r = 0.73, Spearman ρ = 0.74).</li>
+                    <li>Evaluated cross-sensor residual features and Huber/Tukey robust reweighting as alternatives to the heuristic; both yielded negative results.</li>
+                    <li>Under severe quality-signal corruption, the learned model outperformed the heuristic (RMSE: 1.153 vs 1.328, ~13% lower), while fixed weighting performed best (0.838). The proposed explanation, bounded predicted variance, remains untested.</li>
+                    <li>Used NEES-based calibration analysis to show a fivefold increase in calibration error under variance-matched heavy-tailed noise (ECE: 0.025 to 0.129), despite unchanged predicted sharpness. Scalar moment-matched recalibration failed to correct the error, consistent with a tail-shape mismatch.</li>
+                    <li>Implemented the model in NumPy with hand-derived backpropagation, validated using finite differences and cross-checked the core model in PyTorch. Published the code and a tagged release.</li>
+                  </ul>
+                </details>
+              <div class="figure-strip" tabindex="0" role="group" aria-label="Figures: Uncertainty-Aware Multimodal Inference under Sensor Degradation">
+                <img src="assets/img/projects/P1/1.png" alt="Predicted uncertainty vs actual error" decoding="async">
+                <img src="assets/img/projects/P1/2.png" alt="Estimation error vs sensor degradation" loading="lazy" decoding="async">
+                <img src="assets/img/projects/P1/3.png" alt="Calibration under distribution shift" loading="lazy" decoding="async">
+                <img src="assets/img/projects/P1/4.png" alt="Failure analysis (does the model know which sensor is degraded?)" loading="lazy" decoding="async">
+                <img src="assets/img/projects/P1/5.png" alt="Does robust (Huber/Tukey) IRLS beat linear precision weighting?" loading="lazy" decoding="async">
+                <img src="assets/img/projects/P1/6.png" alt="Does a cross-sensor residual feature beat the quality heuristic?" loading="lazy" decoding="async">
+                <img src="assets/img/projects/P1/7.png" alt="Calibration error across the shift taxonomy" loading="lazy" decoding="async">
+                <img src="assets/img/projects/P1/8.png" alt="Shift taxonomy" loading="lazy" decoding="async">
+                <img src="assets/img/projects/P1/9.png" alt="Calibration error across the full degradation sweep" loading="lazy" decoding="async">
+                <img src="assets/img/projects/P1/10.png" alt="Quality feature, NLL objective, weight sharing" loading="lazy" decoding="async">
+                <img src="assets/img/projects/P1/11.png" alt="Sharpness across the full degradation sweep" loading="lazy" decoding="async">
+              </div>
+              <ul class="proj-tags"><li>Python</li><li>PyTorch</li></ul>
             </div>
           </li>
 
@@ -297,6 +297,27 @@
                 <ul class="proj-tags"><li>Python</li><li>Estimation</li><li>TDOA</li></ul>
               </li>
               -->
+            </ul>
+          </div>
+
+          <div class="proj-group">
+            <h3 class="proj-field">Robotics</h3>
+            <ul class="proj-list">
+              <li class="proj">
+                <div class="proj-head">
+                  <h4><a href="https://github.com/AboOraig/robot-multimodal-perception" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: Robot Multimodal Perception">Uncertainty-Aware Multimodal Perception for Robotic Manipulation</a></h4>
+                </div>
+                <p class="cv-detail">Pre-registered simulation study of when fusing camera, joint and force/torque signals, with explicit uncertainty, improves object-pose estimation for a robot arm under sensor failures.</p>
+                <details class="proj-more">
+                  <summary>Details</summary>
+                  <ul class="cv-points">
+                    <li>Built a MuJoCo/PyTorch pipeline in which a Franka Panda holds a cube. Three sensor streams (camera, joint state, wrist force/torque) each estimate the cube pose with a full covariance, trained with a heteroscedastic likelihood. Covariance intersection fuses them without assuming the sensors are independent.</li>
+                    <li>Tested three pre-registered hypotheses with a frozen analysis plan (paired bootstrap, Holm correction, 3 seeds). Fusion reduced position error by up to 45&nbsp;mm under severe occlusion and improved likelihood in 9 of 9 failure scenarios. Training on degraded data generalised only partially to unseen failure combinations, and the report states the mixed results and the limitations.</li>
+                    <li>Delivered tested research software (97 tests), a LaTeX report, figures and a demo video. Simulation only, with no real-robot claims.</li>
+                  </ul>
+                </details>
+                <ul class="proj-tags"><li>Python</li><li>PyTorch</li><li>MuJoCo</li><li>Sensor fusion</li><li>Uncertainty estimation</li><li>Robotics</li></ul>
+              </li>
             </ul>
           </div>
 
