@@ -924,7 +924,6 @@ main {
   padding-block: 0.85rem;
   list-style: none;
   cursor: pointer;
-  user-select: none;
   font-size: 1.05rem;
   line-height: 1.5;
 }
